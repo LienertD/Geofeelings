@@ -1,0 +1,22 @@
+/* 0. IMPORTS */
+
+@import "variables.less";
+
+/* 1. DEFAULT ELEMENTS */
+
+/* 2. NAVIGATIONBAR */
+
+.navbar {
+    background-color: @orange;
+    border: none;
+
+    .navbar-brand {
+        padding: 10px;
+        line-height: 30px;
+        transition: all 0.4s;
+
+        &:hover {
+            background-color: darken(@orange, 2%);
+        }
+    }
+}
