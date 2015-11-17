@@ -1,0 +1,17 @@
+- database designen (lienert)
+- db populeren (lienert)
+- adminpagina structuren (ev mockups, lienert)
+- google maps toevoegen (jonatan)
+- feelings tonen op kaart (jonatan)
+- inloggen (via facebook)
+- zoekfunctie
+- profielpagina (info tonen, shares tonen)
+- eigen profielpagina (info tonen, info bewerken, chat disablen)
+- evenementpagina
+- plaatsenpagina
+- chat
+- welkomsscherm waarin je kan aanduiden hoe je je voelt
+- about scherm
+- tijdlijn onder kaart
+- volgen profielen
+- adminpagina uitwerken
