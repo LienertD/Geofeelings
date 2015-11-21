@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="geofeelings">
 <head>
     <meta charset="UTF-8">
     <title>Geofeelings</title>
@@ -19,43 +19,71 @@
             </div>
             <div id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><button class="btn btn-default btn-raised">Help<span class="glyphicon glyphicon-question-sign"></span></button></li>
-                    <li><button class="btn btn-default btn-raised">User<span class="glyphicon glyphicon glyphicon-user"></span></button></li>
+                    <li>
+                        <button class="btn btn-default btn-raised">Help<span
+                                class="glyphicon glyphicon-question-sign"></span></button>
+                    </li>
+                    <li>
+                        <button class="btn btn-default btn-raised">User<span
+                                class="glyphicon glyphicon glyphicon-user"></span></button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <article class="col-md-9">
+    <article class="container-fluid">
+        <section class="col-md-9 map" ng-controller="MapController">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" id="map"></ui-gmap-google-map>
+            <div id="controls">
 
-            </article>
-            <aside class="col-md-3">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                                <input type="search" class="form-control" placeholder="Search for persons, events or places">
+            </div>
+        </section>
+        <aside class="col-md-3">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                            <input type="search" class="form-control"
+                                   placeholder="Search for persons, events or locations">
+                        </div>
+                        <div class="input-group">
+                            <div class="checkbox">
+                                <label for="person"><input type="checkbox" name="person" id="person">Persons<span
+                                        class="glyphicon glyphicon glyphicon-user"></span></label>
+
+                            </div>
+                            <div class="checkbox">
+                                <label for="event"><input type="checkbox" name="event" id="event">Event<span
+                                        class="glyphicon glyphicon glyphicon glyphicon-calendar"></span></label>
+                            </div>
+                            <div class="checkbox">
+                                <label for="location"><input type="checkbox" name="locaction"
+                                                             id="location">Location<span
+                                        class="glyphicon glyphicon glyphicon-map-marker"></span></label>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
 
-                        </div>
                     </div>
                 </div>
-            </aside>
-        </div>
-    </div>
+            </div>
+        </aside>
+    </article>
     <footer>
 
     </footer>
 </main>
-<script src="dist/js/app.min.js"></script>
+<script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-mocks.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="dist/js/app.min.js"></script>
 </body>
 </html>
