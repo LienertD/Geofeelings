@@ -1,0 +1,14 @@
+{
+  "name": "geofeelings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jonatan michiels en lienert deprez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
