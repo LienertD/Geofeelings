@@ -150,7 +150,7 @@ section.map {
     padding: 0;
 
     #map {
-
+        height: 100%
     }
 
     #controls {
@@ -158,6 +158,37 @@ section.map {
         width: 100%;
         bottom: 0;
         position: absolute;
-        background: transparent;
+        background: @white;
+        opacity: 0;
+        padding: 0 15px;
+        transition: opacity 0.4s;
+
+        label {
+            height: 50px;
+            line-height: 50px;
+            display: inline-block;
+            float: left;
+            margin: auto 0;
+            padding: 0 15px 0 0;
+
+            span {
+                padding: 0 0 0 5px;
+            }
+        }
+
+        input[type="range"] {
+            height: 50px;
+            width: 25%;
+            display: inline-block;
+            float: left;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }

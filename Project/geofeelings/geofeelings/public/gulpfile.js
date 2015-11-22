@@ -39,5 +39,5 @@ gulp.task("js", function () {
 
 gulp.task("default", function () {
     gulp.watch("./src/less/**/*.less", ["css"]);
-    gulp.watch(["./src/config/config.js", "./src/exceptions/**/*.js", "./src/models/**.*js", "./src/services/**/*.js", "./src/viewmodels/**/*.js", "./src/app.js"], ["js"]);
+    gulp.watch(["./src/config/config.js", "./src/exceptions/**/*.js", "./src/controllers/**/*.js","./src/models/**.*js", "./src/services/**/*.js", "./src/viewmodels/**/*.js", "./src/app.js"], ["js"]);
 });
