@@ -26,7 +26,7 @@ gulp.task("css", function() {
 });
 
 gulp.task("js", function () {
-    gulp.src(["./src/config/config.js", "./src/exceptions/**/*.js", "./src/models/**.*js", "./src/services/**/*.js", "./src/viewmodels/**/*.js", "./src/app.js"])
+    gulp.src(["./src/app.js", "./src/controllers/**/*.js", "./src/viewmodels/**/*.js", "./src/services/**/*.js", "./src/models/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"])
         .pipe(jsHint())
         .pipe(jsHint.reporter(jsStylish))
         .pipe(sourceMaps.init())
@@ -39,5 +39,5 @@ gulp.task("js", function () {
 
 gulp.task("default", function () {
     gulp.watch("./src/less/**/*.less", ["css"]);
-    gulp.watch(["./src/config/config.js", "./src/exceptions/**/*.js", "./src/controllers/**/*.js","./src/models/**.*js", "./src/services/**/*.js", "./src/viewmodels/**/*.js", "./src/app.js"], ["js"]);
+    gulp.watch(["./src/app.js", "./src/controllers/**/*.js", "./src/viewmodels/**/*.js", "./src/services/**/*.js", "./src/models/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"], ["js"]);
 });
