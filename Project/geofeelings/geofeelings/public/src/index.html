@@ -2,7 +2,7 @@
 <html lang="en" ng-app="geofeelings">
 <head>
     <meta charset="UTF-8">
-    <title>Geofeelings | Jonatan Michiels & Lienert Deprez</title>
+    <title>Geofeelings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
@@ -32,50 +32,47 @@
         </div>
     </nav>
     <article class="container-fluid">
-        <section class="col-md-9 map" ng-controller="MapController">
-            <div id="map"></div>
-            <div id="controls">
-                <label for="filter">Time interval<span class="glyphicon glyphicon-time"></span></label>
-                <input type="range" id="filter" name="filter">
-            </div>
-        </section>
-        <aside class="col-md-3">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                            <input type="search" class="form-control"
-                                   placeholder="Search for persons, events or locations">
-                        </div>
-                        <div class="input-group">
-                            <div class="checkbox">
-                                <label for="person"><input type="checkbox" name="person" id="person">Persons<span
-                                        class="glyphicon glyphicon glyphicon-user"></span></label>
+        <div class="row">
+            <section class="col-md-9 map" ng-controller="MapController">
+                <div id="map"></div>
+                <div id="controls">
+                    <label for="filter">Time interval<span class="glyphicon glyphicon-time"></span></label>
+                    <input type="range" id="filter" name="filter">
+                </div>
+            </section>
+            <aside class="col-md-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                <input type="search" class="form-control"
+                                       placeholder="Search for persons, events or locations">
                             </div>
-                            <div class="checkbox">
-                                <label for="event"><input type="checkbox" name="event" id="event">Event<span
-                                        class="glyphicon glyphicon glyphicon glyphicon-calendar"></span></label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="location"><input type="checkbox" name="locaction"
-                                                             id="location">Location<span
-                                        class="glyphicon glyphicon glyphicon-map-marker"></span></label>
+                            <div class="input-group">
+                                <div class="checkbox">
+                                    <label for="person"><input type="checkbox" name="person" id="person">Persons<span
+                                            class="glyphicon glyphicon glyphicon-user"></span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="event"><input type="checkbox" name="event" id="event">Event<span
+                                            class="glyphicon glyphicon glyphicon glyphicon-calendar"></span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="location"><input type="checkbox" name="locaction"
+                                                                 id="location">Location<span
+                                            class="glyphicon glyphicon glyphicon-map-marker"></span></label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                </div>
-            </div>
-        </aside>
+                <footer>
+                    &copy; Lienert Deprez & Jonatan Michiels
+                </footer>
+            </aside>
+        </div>
     </article>
-    <footer>
-
-    </footer>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -85,6 +82,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script src="dist/js/app.min.js"></script>
-<script src="controllers/MapController.js"></script>
 </body>
 </html>

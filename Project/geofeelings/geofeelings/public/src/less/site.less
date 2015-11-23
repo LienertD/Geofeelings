@@ -18,6 +18,11 @@ body {
 
 article.container-fluid {
     padding: 0;
+
+    > .row {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 /* 2. NAVIGATIONBAR */
@@ -32,11 +37,11 @@ article.container-fluid {
     .navbar-brand {
         padding-top: 10px;
         line-height: 30px;
-        /*transition: all 0.4s;
+        transition: all 0.4s;
 
         &:hover {
             background: darken(@orange, 1%);
-        }*/
+        }
     }
 
     .navbar-header {
@@ -72,7 +77,7 @@ article.container-fluid {
 
 .btn-default {
     background: darken(@orange, 2%);
-    margin: 7px 0 0 10px;
+    margin: 7px 0 0 7px;
     color: @white;
     transition: background 0.4s;
 
@@ -82,12 +87,12 @@ article.container-fluid {
     }
 
     span {
-        padding: 0 0 0 10px;
+        padding: 0 0 0 5px;
     }
 }
 
 .btn-default:active, .btn-primary.active {
-    background: darken(@orange, 4%); //3
+    background: darken(@orange, 4%);
     box-shadow: none;
 }
 
@@ -159,9 +164,7 @@ section.map {
         bottom: 0;
         position: absolute;
         background: @white;
-        opacity: 0;
         padding: 0 15px;
-        transition: opacity 0.4s;
 
         label {
             height: 50px;
@@ -186,9 +189,19 @@ section.map {
                 outline: 0;
             }
         }
-
-        &:hover {
-            opacity: 1;
-        }
     }
+}
+
+/* 5.0 FOOTER */
+
+footer {
+    position: absolute;
+    background: @white;
+    bottom: 0;
+    margin: 0 0 0 -15px;
+    width: 100%;
+    vertical-align: middle;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
 }
