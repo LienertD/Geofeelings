@@ -30,7 +30,7 @@ article.container-fluid {
 /* 2.1 NAVBAR */
 
 .navbar {
-    background: @orange;
+    background: @primary;
     border: none;
     margin-bottom: 0;
 
@@ -40,7 +40,7 @@ article.container-fluid {
         transition: all 0.4s;
 
         &:hover {
-            background: darken(@orange, 1%);
+            background: darken(@primary, 1%);
         }
     }
 
@@ -63,7 +63,7 @@ article.container-fluid {
     }
 }
 
-/* 2.2 Buttons */
+/* 2.2 BUTTON */
 
 .btn {
     border: 0 none;
@@ -76,13 +76,13 @@ article.container-fluid {
 }
 
 .btn-default {
-    background: darken(@orange, 2%);
+    background: darken(@primary, 2%);
     margin: 7px 0 0 7px;
     color: @white;
     transition: background 0.4s;
 
     &:hover, &:focus, &:active, &.active, .open > .dropdown-toggle.btn-default {
-        background: darken(@orange, 3%);
+        background: darken(@primary, 3%);
         color: @white;
     }
 
@@ -92,16 +92,16 @@ article.container-fluid {
 }
 
 .btn-default:active, .btn-primary.active {
-    background: darken(@orange, 4%);
+    background: darken(@primary, 4%);
     box-shadow: none;
 }
 
 .btn-default.btn-raised {
-    box-shadow: 0 3px 0 0 darken(@orange, 4%);
+    box-shadow: 0 3px 0 0 darken(@primary, 4%);
 }
 
 .btn-default.btn-raised:active, .btn-default.btn-raised.active {
-    background: darken(@orange, 3%);
+    background: darken(@primary, 3%);
     box-shadow: none;
     margin-bottom: 4px;
     margin-top: 10px;
@@ -111,7 +111,7 @@ article.container-fluid {
 /* 3.0 ASIDE */
 
 aside {
-    background: @lightorange;
+    background: @secondary;
     padding: 70px 0 0 0;
     height: 100vh;
 
@@ -122,7 +122,7 @@ aside {
         padding-right: 0;
 
         span {
-            color: @lightorange;
+            color: @secondary;
         }
     }
 
