@@ -17,12 +17,8 @@ body {
 }
 
 article.container-fluid {
+    margin: 0;
     padding: 0;
-
-    > .row {
-        margin: 0;
-        padding: 0;
-    }
 }
 
 /* 2. NAVIGATIONBAR */
@@ -112,7 +108,7 @@ article.container-fluid {
 
 aside {
     background: @secondary;
-    padding: 70px 0 0 0;
+    padding: 65px 0 0 0;
     height: 100vh;
 
     .input-group-addon {
@@ -139,10 +135,23 @@ aside {
 
     .checkbox {
         display: inline-block;
-        margin: 15px 20px 0 0;
+        margin: 10px 10px 0 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
 
         span {
             padding: 0 0 0 5px;
+        }
+
+        label {
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
         }
 
     }
@@ -179,14 +188,92 @@ section.map {
             }
         }
 
-        input[type="range"] {
+        input[type=range] {
+            -webkit-appearance: none;
+            border: 1px solid @white;
+            width: 300px;
             height: 50px;
-            width: 25%;
-            display: inline-block;
-            float: left;
+
+            &::-webkit-slider-runnable-track {
+                width: 30%;
+                height: 5px;
+                background: @slider-light;
+                border: none;
+                border-radius: 3px;
+            }
+
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                border: none;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                background: @primary;
+                margin-top: -5px;
+            }
 
             &:focus {
-                outline: 0;
+                outline: none;
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+                background: @slider-light;
+            }
+
+            &::-moz-range-track {
+                width: 30%;
+                height: 5px;
+                background: @slider-light;
+                border: none;
+                border-radius: 3px;
+            }
+
+            &::-moz-range-thumb {
+                border: none;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                background: @primary;
+            }
+
+            &:-moz-focusring{
+                outline: 1px solid @white;
+                outline-offset: -1px;
+            }
+
+            &::-ms-track {
+                width: 30%;
+                height: 5px;
+                background: transparent;
+                border-color: transparent;
+                border-width: 6px 0;
+                color: transparent;
+            }
+
+            &::-ms-fill-lower {
+                background: @slider-dark;
+                border-radius: 10px;
+            }
+
+            &::-ms-fill-upper {
+                background: @slider-light;
+                border-radius: 10px;
+            }
+
+            &::-ms-thumb {
+                border: none;
+                height: 16px;
+                width: 16px;
+                border-radius: 50%;
+                background: @primary;
+            }
+
+            &:focus::-ms-fill-lower {
+                background: @slider-dark;
+            }
+
+            &:focus::-ms-fill-upper {
+                background: @slider-light;
             }
         }
     }

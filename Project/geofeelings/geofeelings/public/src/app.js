@@ -6,4 +6,10 @@
     "use strict";
 
     var app = angular.module("geofeelings", []);
+    app.directive("search", function() {
+        return {
+            restrict: "E",
+            templatureUrl: "directives/search.html"
+        };
+    });
 })();
