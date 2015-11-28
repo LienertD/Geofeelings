@@ -16,50 +16,18 @@ body {
     background: @white;
 }
 
+h2 {
+    color: @white;
+    text-align: center;
+    margin: 40px 0;
+}
+
 article.container-fluid {
     margin: 0;
     padding: 0;
 }
 
-/* 2. NAVIGATIONBAR */
-
-/* 2.1 NAVBAR */
-
-.navbar {
-    background: @primary;
-    border: none;
-    margin-bottom: 0;
-
-    .navbar-brand {
-        padding-top: 10px;
-        line-height: 30px;
-        transition: all 0.4s;
-
-        &:hover {
-            background: darken(@primary, 1%);
-        }
-    }
-
-    .navbar-header {
-        display: inline-block;
-        float: left;
-    }
-}
-
-#navbar {
-    display: inline-block;
-    float: right;
-
-    ul {
-        margin: 0;
-
-        li {
-            display: inline-block;
-        }
-    }
-}
-
-/* 2.2 BUTTON */
+/* 1.1 BUTTON */
 
 .btn {
     border: 0 none;
@@ -73,9 +41,12 @@ article.container-fluid {
 
 .btn-default {
     background: darken(@primary, 2%);
-    margin: 7px 0 0 7px;
+    margin: 6px 0;
     color: @white;
     transition: background 0.4s;
+    -webkit-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    -o-transition: background 0.4s;
 
     &:hover, &:focus, &:active, &.active, .open > .dropdown-toggle.btn-default {
         background: darken(@primary, 3%);
@@ -104,56 +75,289 @@ article.container-fluid {
     color: @white;
 }
 
-/* 3.0 ASIDE */
+/* 1.2 INPUT */
 
-aside {
-    background: @secondary;
-    padding: 65px 0 0 0;
-    height: 100vh;
+.input-group {
+    padding: 6px 0;
+}
 
-    .input-group-addon {
-        background-color: @white;
-        box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075);
-        border-right: 0 solid transparent;
-        padding-right: 0;
+.input-group-addon {
+    background-color: @white;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.075);
+    border-right: 0 solid transparent;
+    padding-right: 0;
 
-        span {
-            color: @secondary;
-        }
+    span {
+        color: @secondary;
     }
+}
 
-    input[type="search"] {
-        border-left: 0 solid transparent;
+input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
+    border-left: 0 solid transparent;
+    box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.075);
+
+    &:focus {
         box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.075);
-
-        &:focus {
-            box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.075);
-            border: 1px solid #ccc;
-            border-left: 0 solid transparent;
-        }
+        border: 1px solid #ccc;
+        border-left: 0 solid transparent;
     }
+}
 
-    .checkbox {
+/* 1.3 CHECKBOX */
+
+.checkbox-wrapper {
+    display: inline-block;
+    margin: 6px 8px 6px 0;
+
+    p {
         display: inline-block;
-        margin: 10px 10px 0 0;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
+        vertical-align: middle;
 
         span {
             padding: 0 0 0 5px;
         }
+    }
+
+    .checkbox {
+
+        width: 20px;
+        height: 4px;
+        background: @control-color-light;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        position: relative;
+        display: inline-block;
+        margin: 8px;
 
         label {
             display: block;
-            overflow: hidden;
+            min-height: 0;
+            height: 16px;
+            padding: 0 0 0 16px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
             cursor: pointer;
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            background: @primary;
         }
 
-        input {
-            display: none;
+        input[type="checkbox"] {
+            visibility: hidden;
         }
 
+        input[type="checkbox"]:checked + label {
+            left: 10px;
+        }
+    }
+}
+
+/* 1.4 SLIDER */
+
+.slider-wrapper {
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    background: @white;
+    padding: 0 15px;
+
+    label {
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        float: left;
+        margin: auto 0;
+        padding: 0 15px 0 0;
+
+        span {
+            padding: 0 0 0 5px;
+        }
+    }
+
+    input[type=range] {
+        -webkit-appearance: none;
+        border: 1px solid @white;
+        width: 300px;
+        height: 50px;
+
+        &::-webkit-slider-runnable-track {
+            width: 30%;
+            height: 4px;
+            background: @control-color-light;
+            border: none;
+            border-radius: 3px;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: @primary;
+            margin-top: -6px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus::-webkit-slider-runnable-track {
+            background: @control-color-light;
+        }
+
+        &::-moz-range-track {
+            width: 30%;
+            height: 5px;
+            background: @control-color-light;
+            border: none;
+            border-radius: 3px;
+        }
+
+        &::-moz-range-thumb {
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: @primary;
+        }
+
+        &:-moz-focusring {
+            outline: 1px solid @white;
+            outline-offset: -1px;
+        }
+
+        &::-ms-track {
+            width: 30%;
+            height: 5px;
+            background: transparent;
+            border-color: transparent;
+            border-width: 6px 0;
+            color: transparent;
+        }
+
+        &::-ms-fill-lower {
+            background: @control-color-dark;
+            border-radius: 10px;
+        }
+
+        &::-ms-fill-upper {
+            background: @control-color-light;
+            border-radius: 10px;
+        }
+
+        &::-ms-thumb {
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: @primary;
+        }
+
+        &:focus::-ms-fill-lower {
+            background: @control-color-dark;
+        }
+
+        &:focus::-ms-fill-upper {
+            background: @control-color-light;
+        }
+    }
+}
+
+/* 2. NAVIGATIONBAR */
+
+/* 2.1 NAVBAR */
+
+.navbar {
+    background: @primary;
+    border: none;
+    margin-bottom: 0;
+
+    .navbar-brand {
+        padding-top: 10px;
+        line-height: 30px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+
+        &:hover {
+            background: darken(@primary, 1%);
+        }
+    }
+
+    .navbar-header {
+        display: inline-block;
+        float: left;
+    }
+
+    ul li button {
+        margin: 6px 0 6px 6px;
+    }
+}
+
+#navbar {
+    display: inline-block;
+    float: right;
+
+    ul {
+        margin: 0;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+/* 3.0 ASIDE */
+
+aside {
+    background: @secondary;
+    padding: 56px 0 0 0;
+    height: 100vh;
+}
+
+// 3.1 SEARCH
+
+.search {
+
+}
+
+// 3.2 LOGIN & REGISTER
+
+.btn-wrapper {
+    .btn-default {
+        float: right;
+    }
+
+    div {
+        float: left;
+        display: block;
+        margin: 6px;
+
+        a {
+            font-size: 0.8em;
+            color: @white;
+            display: block;
+            text-decoration: none;
+            padding: 1px 0;
+            transition: color 0.4s;
+            -webkit-transition: color 0.4s;
+            -moz-transition: color 0.4s;
+            -o-transition: color 0.4s;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -165,117 +369,6 @@ section.map {
 
     #map {
         height: 100%
-    }
-
-    #controls {
-        height: 50px;
-        width: 100%;
-        bottom: 0;
-        position: absolute;
-        background: @white;
-        padding: 0 15px;
-
-        label {
-            height: 50px;
-            line-height: 50px;
-            display: inline-block;
-            float: left;
-            margin: auto 0;
-            padding: 0 15px 0 0;
-
-            span {
-                padding: 0 0 0 5px;
-            }
-        }
-
-        input[type=range] {
-            -webkit-appearance: none;
-            border: 1px solid @white;
-            width: 300px;
-            height: 50px;
-
-            &::-webkit-slider-runnable-track {
-                width: 30%;
-                height: 5px;
-                background: @slider-light;
-                border: none;
-                border-radius: 3px;
-            }
-
-            &::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                border: none;
-                height: 16px;
-                width: 16px;
-                border-radius: 50%;
-                background: @primary;
-                margin-top: -5px;
-            }
-
-            &:focus {
-                outline: none;
-            }
-
-            &:focus::-webkit-slider-runnable-track {
-                background: @slider-light;
-            }
-
-            &::-moz-range-track {
-                width: 30%;
-                height: 5px;
-                background: @slider-light;
-                border: none;
-                border-radius: 3px;
-            }
-
-            &::-moz-range-thumb {
-                border: none;
-                height: 16px;
-                width: 16px;
-                border-radius: 50%;
-                background: @primary;
-            }
-
-            &:-moz-focusring{
-                outline: 1px solid @white;
-                outline-offset: -1px;
-            }
-
-            &::-ms-track {
-                width: 30%;
-                height: 5px;
-                background: transparent;
-                border-color: transparent;
-                border-width: 6px 0;
-                color: transparent;
-            }
-
-            &::-ms-fill-lower {
-                background: @slider-dark;
-                border-radius: 10px;
-            }
-
-            &::-ms-fill-upper {
-                background: @slider-light;
-                border-radius: 10px;
-            }
-
-            &::-ms-thumb {
-                border: none;
-                height: 16px;
-                width: 16px;
-                border-radius: 50%;
-                background: @primary;
-            }
-
-            &:focus::-ms-fill-lower {
-                background: @slider-dark;
-            }
-
-            &:focus::-ms-fill-upper {
-                background: @slider-light;
-            }
-        }
     }
 }
 
