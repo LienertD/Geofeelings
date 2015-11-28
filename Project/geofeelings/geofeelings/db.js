@@ -1,6 +1,4 @@
-/**
- * Created by Lienert on 25/11/2015.
- */
 module.exports = {
-    'url' : 'mongodb://lienert:123456@ds047474.mongolab.com:47474/geofeelings'
+	'url' : 'mongodb://lienert:123456@ds053874.mongolab.com:53874/geofeelingz'
+	//'url' : 'mongodb://localhost/test'
 };
