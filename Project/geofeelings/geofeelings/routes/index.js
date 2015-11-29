@@ -21,7 +21,7 @@ module.exports = function(passport){
 
   router.get('/', function(req, res) {
     // Display the Login page with any flash message, if any
-    res.sendfile('./public/src/index.html');
+    res.render('startpagina', { message: req.flash('message') });
   });
 
   /* Handle Login POST */
@@ -51,13 +51,7 @@ module.exports = function(passport){
   /* Handle Logout */
   router.get('/signout', function(req, res) {
     req.logout();
-    res.redirect('/');
-  });
+    res.redirect('/');});
 
   return router;
 };
-
-
-
-
-
