@@ -12,6 +12,13 @@ var gulp = require("gulp"),
     jsHint = require("gulp-jshint"),
     jsStylish = require("jshint-stylish"),
     ugLify = require("gulp-uglify");
+    gulpWebpack = require("gulp-webpack");
+    webpackConfig = require("./webpack.config.js");
+    stream = require("webpack-stream");
+
+var path = {
+
+};
 
 gulp.task("css", function() {
     gulp.src("./src/less/**/*.less")
@@ -31,7 +38,7 @@ gulp.task("js", function () {
         .pipe(jsHint.reporter(jsStylish))
         .pipe(sourceMaps.init())
         .pipe(concat("app.min.js"))
-        .pipe(ugLify())
+        //.pipe(ugLify())
         .pipe(sourceMaps.write())
         .pipe(gulp.dest("./src/dist/js"))
         .pipe(notify({ message : "js-built" }));

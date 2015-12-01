@@ -20,7 +20,12 @@
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
     "mongoose": "~3.8.12",
-    "bcrypt-nodejs" : "*",
-    "connect-flash" : "*"
+    "bcrypt-nodejs": "*",
+    "connect-flash": "*"
+  },
+  "devDependencies": {
+    "gulp-webpack": "^1.5.0",
+    "webpack": "^1.12.9",
+    "webpack-stream": "^2.2.0"
   }
 }

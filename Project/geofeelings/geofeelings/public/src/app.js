@@ -5,9 +5,9 @@
 (function () {
     "use strict";
 
-    var app = angular.module("geofeelings", []);
+    var app = angular.module("geofeelings", ["ngRoute"]);
 
-    app.directive("search", function() {
+    /*app.directive("search", function() {
         return {
             restrict: "E",
             templatureUrl: "directives/search.html"
@@ -26,13 +26,17 @@
             restrict: "E",
             templatureUrl: "directives/register.html"
         };
-    });
-
-    /*app.config(function ($routeProvider) {
-        $routeProvider.when("/results", {
-
-        }).otherwise({
-
-        });
     });*/
+
+    app.config(function ($routeProvider) {
+        $routeProvider.when("/search", {
+            templateUrl: "./controllers/searchController/search.html"
+        }).when("/login", {
+            templateUrl: "./controllers/loginController/login.html"
+        }).when("/register", {
+            templateUrl: "./controllers/registerController/register.html"
+        }).otherwise({
+            redirectTo: "/search"
+        });
+    });
 })();
