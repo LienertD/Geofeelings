@@ -1,3 +1,33 @@
-<div ng-controller="userController">
-
+<div ng-controller="userController" class="container-fluid">
+    <div id="user-info">
+        <h3>User info</h3>
+        <img src="./assets/profile.png" alt="profile-pic">
+        <div class="user-data">
+            <div>
+                <span class="glyphicon glyphicon-user"></span>
+                <span>Naam</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span>20/12/1995</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-home"></span>
+                <span>adres 12, 1000 plaats[B]</span>
+            </div>
+        </div>
+    </div>
+    <div id="user-events">
+        <h3>Recent locations</h3>
+        <div class="col-md-12">
+            <ul>
+                <li>Event 1 - <span>time ago</span></li>
+                <li>Event 2 - <span>time ago</span></li>
+            </ul>
+        </div>
+    </div>
+    <div id="user-chat">
+        <h3>Chat</h3>
+        <div class="col-md-12"></div>
+    </div>
 </div>

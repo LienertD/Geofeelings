@@ -5,9 +5,11 @@
 (function () {
     "use strict";
 
-    var registerController = function ($scope) {
+    var registerController = function ($scope, $http) {
+        $scope.signup = function () {
 
+        };
     };
 
-    angular.module("geofeelings").controller("registerController", ["$scope", registerController]);
+    angular.module("geofeelings").controller("registerController", ["$scope", "$http", registerController]);
 })();

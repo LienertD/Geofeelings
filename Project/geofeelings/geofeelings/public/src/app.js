@@ -6,6 +6,7 @@
     "use strict";
 
     var app = angular.module("geofeelings", ["ngRoute"]);
+
     app.config(function ($routeProvider) {
         $routeProvider.when("/search", {
             templateUrl: "./controllers/searchController/search.html"
@@ -15,6 +16,8 @@
             templateUrl: "./controllers/loginController/login.html"
         }).when("/register", {
             templateUrl: "./controllers/registerController/register.html"
+        }).when("/user", {
+            templateUrl: "./controllers/userController/user.html"
         }).otherwise({
             redirectTo: "/search"
         });
