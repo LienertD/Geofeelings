@@ -19,7 +19,12 @@ body {
 h2 {
     color: @white;
     text-align: center;
-    margin: 40px 0;
+    margin: 0 0 30px 0;
+
+    img {
+        padding: 0 0 0 5px;
+        transform: rotate(45deg);
+    }
 }
 
 article.container-fluid {
@@ -164,10 +169,6 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .slider-wrapper {
     height: 50px;
     width: 100%;
-    bottom: 0;
-    position: absolute;
-    background: @white;
-    padding: 0 15px;
 
     label {
         height: 50px;
@@ -175,7 +176,6 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
         display: inline-block;
         float: left;
         margin: auto 0;
-        padding: 0 15px 0 0;
 
         span {
             padding: 0 0 0 5px;
@@ -183,9 +183,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
     }
 
     input[type=range] {
+        background-color: transparent;
         -webkit-appearance: none;
-        border: 1px solid @white;
-        width: 300px;
+        width: 100%;
         height: 50px;
 
         &::-webkit-slider-runnable-track {
@@ -323,17 +323,19 @@ aside {
     background: @secondary;
     padding: 56px 0 0 0;
     height: 100vh;
+
+    > div {
+        padding: 30px;
+    }
 }
 
 // 3.1 SEARCH
 
-.search {
-
-}
-
 // 3.2 LOGIN & REGISTER
 
 .btn-wrapper {
+    height: 50px;
+
     .btn-default {
         float: right;
     }
@@ -341,7 +343,13 @@ aside {
     div {
         float: left;
         display: block;
-        margin: 6px;
+        //margin: 6px;
+
+        span {
+            height: 50px;
+            line-height: 50px;
+            color: @white;
+        }
 
         a {
             font-size: 0.8em;
@@ -369,6 +377,18 @@ section.map {
 
     #map {
         height: 100%
+    }
+}
+
+#controls-map {
+    bottom: 0;
+    position: absolute;
+    background: @white;
+    padding: 0 15px;
+
+    input[type="range"] {
+        width: 300px;
+        padding: 0 0 0 15px;
     }
 }
 
