@@ -16,28 +16,73 @@ body {
     background: @white;
 }
 
-h2 {
-    color: @white;
-    text-align: center;
-    margin: 30px 0;
+.title {
+    h2 {
+        color: @white;
+        text-align: center;
+        margin: 30px 0;
 
-    img {
-        padding: 0 0 0 5px;
-        transform: rotate(45deg);
+        img {
+            padding: 0 0 0 5px;
+            transform: rotate(45deg);
+        }
     }
-}
 
-h3 {
-    color: @white;
-    vertical-align: middle;
-    margin: 30px 0;
-    padding: 0 0 5px 0;
-    border-bottom: 1px solid @white;
+    h3 {
+        color: @white;
+        vertical-align: middle;
+        margin: 30px 0;
+        padding: 0 0 30px 0;
+        border-bottom: 1px solid @white;
+    }
+
+
 }
 
 article.container-fluid {
     margin: 0;
     padding: 0;
+}
+
+div.content-wrapper {
+    padding: 0 25px;
+}
+
+ul.list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+        cursor: pointer;
+        padding: 0 5px;
+        color: @white;
+        height: 50px;
+        border-radius: 5px;
+
+        &:hover {
+            background: @primary;
+        }
+
+        div {
+            float: left;
+            padding: 5px 0 0 5px;
+
+            span {
+                line-height: 15px;
+
+                span {
+                    padding: 0 0 0 5px;
+                }
+            }
+
+            p {
+                font-style: italic;
+                font-size: 0.8em;
+                margin: 0;
+            }
+        }
+    }
 }
 
 /* 1.1 BUTTON */
@@ -88,6 +133,41 @@ article.container-fluid {
     color: @white;
 }
 
+.btn-default {
+    float: right;
+}
+
+.btn-wrapper {
+    height: 50px;
+
+    div {
+        float: left;
+        display: block;
+
+        span {
+            height: 50px;
+            line-height: 50px;
+            color: @white;
+        }
+
+        a {
+            font-size: 0.8em;
+            color: @white;
+            display: block;
+            text-decoration: none;
+            padding: 1px 0;
+            transition: color 0.4s;
+            -webkit-transition: color 0.4s;
+            -moz-transition: color 0.4s;
+            -o-transition: color 0.4s;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 /* 1.2 INPUT */
 
 .input-group {
@@ -119,7 +199,7 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 /* 1.3 CHECKBOX */
 
 .checkbox-wrapper {
-    display: block;
+    display: inline-block;
     margin: 6px 8px 6px 0;
     height: 25px;
 
@@ -334,85 +414,64 @@ aside {
     height: 100vh;
 }
 
-// 3.1 SEARCH
+/* 3.1 SEARCH */
 
-#search {
-    margin: 20px 0 20px 0;
-}
+/* 3.2 LOGIN & REGISTER */
 
-// 3.2 LOGIN & REGISTER
-
-.btn-wrapper {
-    height: 50px;
-
-    .btn-default {
-        float: right;
-    }
-
-    div {
-        float: left;
-        display: block;
-        //margin: 6px;
-
-        span {
-            height: 50px;
-            line-height: 50px;
-            color: @white;
-        }
-
-        a {
-            font-size: 0.8em;
-            color: @white;
-            display: block;
-            text-decoration: none;
-            padding: 1px 0;
-            transition: color 0.4s;
-            -webkit-transition: color 0.4s;
-            -moz-transition: color 0.4s;
-            -o-transition: color 0.4s;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-/* 4.0 USER */
+/* 3.3 USER */
 
 #user-info {
-    margin: 20px 0;
+    //margin: 20px 0;
     img {
-        float: left;
+        float: right;
         display: inline;
     }
 
     .user-data {
         display: inline-block;
-        padding: 0 0 0 30px;
         height: 100px;
 
         span {
             color: @white;
             padding: 5px;
         }
+
+        p {
+            margin: 0 0 0 28px;
+        }
     }
 }
 
-/* 5.0 SECTION */
+#user-chat {
+    #chat {
+        min-height: 150px;
+        height: 150px;
+        border-radius: 4px;
+        background: @white;
+        margin: 0 0 10px 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    input {
+        //border-radius: 4px;
+    }
+}
+
+/* 4.0 SECTION */
 
 section.map {
     height: 100vh;
     padding: 0;
 
     #map {
-        height: 100%
+        height: 100%;
     }
 }
 
 #controls-map {
     bottom: 0;
-    position: absolute;
+    position: fixed;
     background: @white;
     padding: 0 15px;
 
@@ -426,8 +485,8 @@ section.map {
 
 footer {
     position: absolute;
-    background: @white;
     bottom: 0;
+    background: @white;
     margin: 0 0 0 -15px;
     width: 100%;
     vertical-align: middle;

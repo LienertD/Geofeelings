@@ -1,7 +1,13 @@
-<div ng-controller="userController" class="container-fluid">
-    <div id="user-info">
+<div ng-controller="userController" class="content-wrapper">
+    <div class="navigation">
+
+    </div>
+    <div class="title" data-target="#user-info" data-toggle="collapse">
         <h3>User info</h3>
+    </div>
+    <div id="user-info">
         <img src="./assets/profile.png" alt="profile-pic">
+
         <div class="user-data">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
@@ -13,21 +19,55 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
-                <span>adres 12, 1000 plaats[B]</span>
+                <span>kastanjebosstraat 1B</span>
+
+                <p><span>8490 Jabbeke[B]</span></p>
             </div>
         </div>
     </div>
-    <div id="user-events">
+    <div class="title" data-target="#user-events" data-toggle="collapse">
         <h3>Recent locations</h3>
-        <div class="col-md-12">
-            <ul>
-                <li>Event 1 - <span>time ago</span></li>
-                <li>Event 2 - <span>time ago</span></li>
-            </ul>
-        </div>
     </div>
-    <div id="user-chat">
+    <div id="user-events" class="collapse">
+        <ul class="list">
+            <li>
+                <div>
+                    <span>Event 1</span>
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <button class="btn btn-default btn-raised">Show<span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+            <li>
+                <div>
+                    <span>Event 2</span>
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <button class="btn btn-default btn-raised">Show<span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+            <li>
+                <div>
+                    <span>Event 3</span>
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <button class="btn btn-default btn-raised">Show<span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+        </ul>
+    </div>
+    <div class="title" data-target="#user-chat" data-toggle="collapse">
         <h3>Chat</h3>
-        <div class="col-md-12"></div>
+    </div>
+    <div id="user-chat" class="collapse">
+        <div id="chat">
+            <p></p>
+            <p></p>
+        </div>
+        <div class="btn-wrapper">
+            <input type="text" class="form-control" placeholder="message">
+            <button class="btn btn-default btn-raised">Send<span
+                    class="glyphicon glyphicon-send"></span></button>
+        </div>
     </div>
 </div>
