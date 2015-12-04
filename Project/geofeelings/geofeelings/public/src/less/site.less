@@ -42,6 +42,12 @@ a {
         margin: 30px 0;
         padding: 0 0 30px 0;
         border-bottom: 1px solid @white;
+        cursor: pointer;
+    }
+
+    h4 {
+        display: block;
+        margin: 20px auto;
     }
 
 }
@@ -52,7 +58,7 @@ article.container-fluid {
 }
 
 .content-wrapper {
-    padding: 0 25px;
+    margin: 0 25px;
 }
 
 .list {
@@ -88,6 +94,14 @@ article.container-fluid {
                 margin: 0;
             }
         }
+
+        img {
+            display: inline;
+            width: 32px;
+            height: 32px;
+            float: left;
+            margin: 8px 0 0 10px;
+        }
     }
 }
 
@@ -115,10 +129,6 @@ article.container-fluid {
     &:hover, &:focus, &:active, &.active, .open > .dropdown-toggle.btn-default {
         background: darken(@primary, 3%);
         color: @white;
-    }
-
-    span {
-        padding: 0 0 0 5px;
     }
 }
 
@@ -391,6 +401,15 @@ aside {
     overflow: hidden;
 }
 
+.navigation {
+    height: 50px;
+    width: 100%;
+    margin: 0 0 70px -40px;
+    padding: 0 40px;
+    bottom: 0;
+    position: absolute;
+}
+
 /* 3.1 SEARCH */
 
 /* 3.2 LOGIN & REGISTER */
@@ -402,7 +421,7 @@ img {
     display: inline;
 }
 
-#user-data {
+.data-object {
     display: inline-block;
     height: 100px;
 

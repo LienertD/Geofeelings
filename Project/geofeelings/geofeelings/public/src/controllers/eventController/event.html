@@ -1,0 +1,91 @@
+<div ng-controller="eventController" class="content-wrapper">
+    <div class="title" data-target="#event-info" data-toggle="collapse">
+        <h3>Event info</h3>
+    </div>
+    <div id="event-info" class="collapse">
+        <img src="./assets/profile.png" alt="profile-pic">
+
+        <div id="user-data" class="data-object">
+            <div>
+                <span class="glyphicon glyphicon-glass"></span>
+                <span>Naam event</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span>Today</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-time"></span>
+                <span>From: 14u00</span>
+
+                <p><span>Until: 00u00</span></p>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span>kastanjebosstraat 1B</span>
+
+                <p><span>8490 Jabbeke[B]</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="title" data-target="#event-persons" data-toggle="collapse">
+        <h3>Recent persons</h3>
+    </div>
+    <div id="event-persons" class="collapse">
+        <ul class="list">
+            <li>
+                <div>
+                    <span>Person 1</span>
+
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <img src="./assets/profile.png" alt="image">
+                <button class="btn btn-default btn-raised pull-right">Visit <span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+            <li>
+                <div>
+                    <span>Person 2</span>
+
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <img src="./assets/profile.png" alt="image">
+                <button class="btn btn-default btn-raised pull-right">Visit <span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+            <li>
+                <div>
+                    <span>Person 3</span>
+
+                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                </div>
+                <img src="./assets/profile.png" alt="image">
+                <button class="btn btn-default btn-raised pull-right">Visit <span
+                        class="glyphicon glyphicon-search"></span></button>
+            </li>
+        </ul>
+    </div>
+    <div class="title" data-target="#event-feeling" data-toggle="collapse">
+        <h3>Geoslider</h3>
+    </div>
+    <div id="event-feeling" class="collapse slider-wrapper">
+        <h4>What are your feelings?</h4>
+        <label for="filter"></label>
+        <input type="range" id="filter" name="filter">
+        <span>50%</span>
+        <button class="btn btn-default btn-raised pull-right">Set <span
+                class="glyphicon glyphicon-ok"></span></button>
+    </div>
+    <div class="navigation">
+        <a href="#/search">
+            <button class="btn btn-default btn-raised pull-left"><span
+                    class="glyphicon glyphicon-arrow-left"></span> Back
+            </button>
+        </a>
+        <a href="">
+            <button class="btn btn-default btn-raised pull-right">Add <span
+                    class="lyphicon glyphicon-plus"></span>
+            </button>
+        </a>
+    </div>
+</div>

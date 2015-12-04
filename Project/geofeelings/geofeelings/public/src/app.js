@@ -18,6 +18,8 @@
             templateUrl: "./controllers/registerController/register.html"
         }).when("/user", {
             templateUrl: "./controllers/userController/user.html"
+        }).when("/event", {
+            templateUrl: "./controllers/eventController/event.html"
         }).otherwise({
             redirectTo: "/search"
         });
