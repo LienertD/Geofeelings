@@ -5,10 +5,10 @@
     <div class="title" data-target="#user-info" data-toggle="collapse">
         <h3>User info</h3>
     </div>
-    <div id="user-info">
+    <div id="user-info" class="collapse">
         <img src="./assets/profile.png" alt="profile-pic">
 
-        <div class="user-data">
+        <div id="user-data">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
                 <span>Naam</span>
@@ -33,25 +33,28 @@
             <li>
                 <div>
                     <span>Event 1</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
-                <button class="btn btn-default btn-raised">Show<span
+                <button class="btn btn-default btn-raised pull-right">Show<span
                         class="glyphicon glyphicon-search"></span></button>
             </li>
             <li>
                 <div>
                     <span>Event 2</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
-                <button class="btn btn-default btn-raised">Show<span
+                <button class="btn btn-default btn-raised pull-right">Show<span
                         class="glyphicon glyphicon-search"></span></button>
             </li>
             <li>
                 <div>
                     <span>Event 3</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
-                <button class="btn btn-default btn-raised">Show<span
+                <button class="btn btn-default btn-raised pull-right">Show<span
                         class="glyphicon glyphicon-search"></span></button>
             </li>
         </ul>
@@ -60,14 +63,15 @@
         <h3>Chat</h3>
     </div>
     <div id="user-chat" class="collapse">
-        <div id="chat">
-            <p></p>
-            <p></p>
+        <div id="chatbox">
+            <div><p class="me">Hello, how are you doing?</p></div>
+            <div><p class="other">Yo! I'm doing great</p></div>
         </div>
-        <div class="btn-wrapper">
-            <input type="text" class="form-control" placeholder="message">
-            <button class="btn btn-default btn-raised">Send<span
-                    class="glyphicon glyphicon-send"></span></button>
+        <button class="btn btn-default btn-raised pull-right">Send<span
+                class="glyphicon glyphicon-send"></span></button>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+            <input type="text" class="form-control" placeholder="Message">
         </div>
     </div>
 </div>

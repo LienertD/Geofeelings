@@ -16,9 +16,18 @@ body {
     background: @white;
 }
 
+a {
+    color: @textcolor;
+    text-decoration: none;
+
+    &:hover {
+        color: @textcolor;
+        text-decoration: none;
+    }
+}
+
 .title {
     h2 {
-        color: @white;
         text-align: center;
         margin: 30px 0;
 
@@ -29,13 +38,11 @@ body {
     }
 
     h3 {
-        color: @white;
         vertical-align: middle;
         margin: 30px 0;
         padding: 0 0 30px 0;
         border-bottom: 1px solid @white;
     }
-
 
 }
 
@@ -44,11 +51,11 @@ article.container-fluid {
     padding: 0;
 }
 
-div.content-wrapper {
+.content-wrapper {
     padding: 0 25px;
 }
 
-ul.list {
+.list {
     margin: 0;
     padding: 0;
 
@@ -56,7 +63,6 @@ ul.list {
         list-style: none;
         cursor: pointer;
         padding: 0 5px;
-        color: @white;
         height: 50px;
         border-radius: 5px;
 
@@ -130,42 +136,7 @@ ul.list {
     box-shadow: none;
     margin-bottom: 4px;
     margin-top: 10px;
-    color: @white;
-}
-
-.btn-default {
-    float: right;
-}
-
-.btn-wrapper {
-    height: 50px;
-
-    div {
-        float: left;
-        display: block;
-
-        span {
-            height: 50px;
-            line-height: 50px;
-            color: @white;
-        }
-
-        a {
-            font-size: 0.8em;
-            color: @white;
-            display: block;
-            text-decoration: none;
-            padding: 1px 0;
-            transition: color 0.4s;
-            -webkit-transition: color 0.4s;
-            -moz-transition: color 0.4s;
-            -o-transition: color 0.4s;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
+    color: @textcolor;
 }
 
 /* 1.2 INPUT */
@@ -258,6 +229,11 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 .slider-wrapper {
     height: 50px;
     width: 100%;
+
+    > span {
+        display: inline-block;
+        line-height: 50px;
+    }
 
     label {
         height: 50px;
@@ -410,8 +386,9 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
 
 aside {
     background: @secondary;
-    padding: 56px 0 0 0;
+    padding: 56px 0;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* 3.1 SEARCH */
@@ -420,42 +397,61 @@ aside {
 
 /* 3.3 USER */
 
-#user-info {
-    //margin: 20px 0;
-    img {
-        float: right;
-        display: inline;
+img {
+    float: right;
+    display: inline;
+}
+
+#user-data {
+    display: inline-block;
+    height: 100px;
+
+    span {
+        color: @white;
+        padding: 5px;
     }
 
-    .user-data {
-        display: inline-block;
-        height: 100px;
+    p {
+        margin: 0 0 0 28px;
+    }
+}
 
-        span {
-            color: @white;
-            padding: 5px;
-        }
+#chatbox {
+    min-height: 150px;
+    height: 150px;
+    border-radius: 4px;
+    background: @white;
+    margin: 0 0 10px 0;
+    padding: 6px 0 0 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    overflow: auto;
+
+    div {
+        display: block;
+        margin: 3px 12px;
+        height: 38px;
 
         p {
-            margin: 0 0 0 28px;
+            border-radius: 4px;
+            display: block;
+            padding: 6px;
+        }
+
+        .me {
+            background: @secondary;
+            float: right;
+        }
+
+        .other {
+            background: @secondary-chat;
+            float: left;
         }
     }
 }
 
-#user-chat {
-    #chat {
-        min-height: 150px;
-        height: 150px;
-        border-radius: 4px;
-        background: @white;
-        margin: 0 0 10px 0;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    }
-
-    input {
-        //border-radius: 4px;
-    }
+#user-chat button {
+    margin: 6px 0 0 12px;
 }
 
 /* 4.0 SECTION */
@@ -475,6 +471,10 @@ section.map {
     background: @white;
     padding: 0 15px;
 
+    label {
+        color: @textcolor-second;
+    }
+
     input[type="range"] {
         width: 300px;
         padding: 0 0 0 15px;
@@ -493,4 +493,5 @@ footer {
     height: 50px;
     line-height: 50px;
     text-align: center;
+    color: @textcolor-second;
 }
