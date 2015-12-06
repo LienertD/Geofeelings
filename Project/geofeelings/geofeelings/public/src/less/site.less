@@ -64,6 +64,8 @@ article.container-fluid {
 .list {
     margin: 0;
     padding: 0;
+    overflow: auto;
+    max-height: 150px;
 
     li {
         list-style: none;
@@ -100,7 +102,7 @@ article.container-fluid {
             width: 32px;
             height: 32px;
             float: left;
-            margin: 8px 0 0 10px;
+            margin: 8px 10px 0 0;
         }
     }
 }
@@ -345,6 +347,13 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
             background: @control-color-light;
         }
     }
+}
+
+/* 1.5 SCROLLBAR */
+
+::-webkit-scrollbar
+{
+    width: 0;
 }
 
 /* 2. NAVIGATIONBAR */

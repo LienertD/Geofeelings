@@ -19,7 +19,9 @@
         }).when("/login", {
             templateUrl: "./controllers/loginController/login.html"
         }).when("/register", {
-            templateUrl: "./controllers/registerController/register.html"
+            templateUrl: "./controllers/loginController/register.html"
+        }).when("/password", {
+            templateUrl: "./controllers/loginController/password.html"
         }).when("/user", {
             templateUrl: "./controllers/userController/user.html"
         }).when("/me", {
