@@ -166,7 +166,7 @@ article.container-fluid {
     }
 }
 
-input[type="search"], input[type="text"], input[type="password"], input[type="email"] {
+input[type="search"], input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="time"], input[type="file"] {
     border-left: 0 solid transparent;
     box-shadow: inset -1px 1px 1px rgba(0, 0, 0, 0.075);
 
@@ -374,8 +374,13 @@ input[type="search"], input[type="text"], input[type="password"], input[type="em
         float: left;
     }
 
-    ul li button {
-        margin: 6px 0 6px 6px;
+    ul li a {
+        margin: 0;
+        padding: 0;
+
+        button {
+            margin: 6px 0 6px 6px;
+        }
     }
 }
 

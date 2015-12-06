@@ -1,42 +1,29 @@
-<div ng-controller="eventController" class="content-wrapper">
-    <div class="title" data-target="#event-info" data-toggle="collapse">
-        <h3>Event info</h3>
+<div ng-controller="loginController" class="content-wrapper">
+    <div class="title" data-target="#location-info" data-toggle="collapse">
+        <h3>Location info</h3>
     </div>
-    <div id="event-info" class="collapse">
-        <img src="./assets/event.png" alt="profile-pic">
-
+    <div id="location-info" class="collapse">
+        <img src="./assets/location.png" alt="location">
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-glass"></span>
-                <span>Name event</span>
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-calendar"></span>
-                <span>Today</span>
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-time"></span>
-                <span>From: 14u00</span>
-
-                <p><span>Until: 00u00</span></p>
+                <span>Name location</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-map-marker"></span>
                 <span>kastanjebosstraat 1B</span>
-
                 <p><span>8490 Jabbeke[B]</span></p>
             </div>
         </div>
     </div>
-    <div class="title" data-target="#event-persons" data-toggle="collapse">
+    <div class="title" data-target="#location-persons" data-toggle="collapse">
         <h3>Recent persons</h3>
     </div>
-    <div id="event-persons" class="collapse">
+    <div id="location-persons" class="collapse">
         <ul class="list">
             <li>
                 <div>
                     <span>Person 1</span>
-
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <img src="./assets/user.png" alt="user" width="100" height="100">
@@ -48,7 +35,6 @@
             <li>
                 <div>
                     <span>Person 2</span>
-
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <img src="./assets/user.png" alt="user" width="100" height="100">
@@ -60,7 +46,6 @@
             <li>
                 <div>
                     <span>Person 3</span>
-
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <img src="./assets/user.png" alt="user" width="100" height="100">
@@ -71,10 +56,10 @@
             </li>
         </ul>
     </div>
-    <div class="title" data-target="#event-feeling" data-toggle="collapse">
+    <div class="title" data-target="#location-feeling" data-toggle="collapse">
         <h3>Geoslider</h3>
     </div>
-    <div id="event-feeling" class="collapse slider-wrapper">
+    <div id="location-feeling" class="collapse slider-wrapper">
         <h4>What are your feelings?</h4>
         <label for="filter"></label>
         <input type="range" id="filter" name="filter">
@@ -86,11 +71,6 @@
         <a href="#/search">
             <button class="btn btn-default btn-raised pull-left"><span
                     class="glyphicon glyphicon-arrow-left"></span> Back
-            </button>
-        </a>
-        <a href="#/addEvent">
-            <button class="btn btn-default btn-raised pull-right">Add <span
-                    class="lyphicon glyphicon-plus"></span>
             </button>
         </a>
     </div>

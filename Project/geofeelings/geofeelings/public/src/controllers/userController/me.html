@@ -1,8 +1,8 @@
 <div ng-controller="userController" class="content-wrapper">
-    <div class="title" data-target="#user-info" data-toggle="collapse">
-        <h3>User info</h3>
+    <div class="title" data-target="#me-show-info" data-toggle="collapse">
+        <h3>Show profile</h3>
     </div>
-    <div id="user-info" class="collapse">
+    <div id="me-show-info" class="collapse">
         <img src="./assets/user.png" alt="profile">
         <div class="data-object">
             <div>
@@ -20,10 +20,10 @@
             </div>
         </div>
     </div>
-    <div class="title" data-target="#user-events" data-toggle="collapse">
-        <h3>Recent locations</h3>
+    <div class="title" data-target="#me-show-events" data-toggle="collapse">
+        <h3>My shares</h3>
     </div>
-    <div id="user-events" class="collapse">
+    <div id="me-show-events" class="collapse">
         <ul class="list">
             <li>
                 <div>
@@ -60,25 +60,47 @@
             </li>
         </ul>
     </div>
-    <div class="title" data-target="#user-chat" data-toggle="collapse">
-        <h3>Chat</h3>
+    <div class="title" data-target="#me-edit-info" data-toggle="collapse">
+        <h3>Edit profile</h3>
     </div>
-    <div id="user-chat" class="collapse">
-        <div id="chatbox">
-            <div><p class="me">Hello, how are you doing?</p></div>
-            <div><p class="other">Yo! I'm doing great</p></div>
-        </div>
-        <button class="btn btn-default btn-raised pull-right">Send <span
-                class="glyphicon glyphicon-send"></span></button>
+    <div id="me-edit-info" class="collapse">
         <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <input type="text" class="form-control" placeholder="Message">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="date" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+            <input type="text" class="form-control" placeholder="Street & Number">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+            <input type="text" class="form-control" placeholder="City & Zip">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
+            <input type="file" class="form-control">
+        </div>
+        <div class="checkbox-wrapper">
+            <p><span class="glyphicon glyphicon-envelope"></span></p>
+            <div class="checkbox">
+                <input type="checkbox" id="chat" name="chat">
+                <label for="chat"></label>
+            </div>
         </div>
     </div>
     <div class="navigation">
         <a href="#/search">
             <button class="btn btn-default btn-raised pull-left"><span
                     class="glyphicon glyphicon-arrow-left"></span> Back
+            </button>
+        </a>
+        <a href="#/event">
+            <button class="btn btn-default btn-raised pull-right">Save <span
+                    class="glyphicon glyphicon-ok"></span>
             </button>
         </a>
     </div>

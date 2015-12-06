@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var mapController = function ($scope) {
+    var mainController = function ($scope) {
         if (navigator.geolocation) {
             $scope.image = "./assets/common.png";
             $scope.mapOptions = {
@@ -29,5 +29,5 @@
         }
     };
 
-    angular.module("geofeelings").controller("mapController", ["$scope", mapController]);
+    angular.module("geofeelings").controller("mainController", ["$scope", mainController]);
 })();
