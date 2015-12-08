@@ -17,8 +17,22 @@ var gulp = require("gulp"),
     stream = require("webpack-stream");
 
 var path = {
-
+    HTML: "src/index.html",
+    ALL: ["src/**/*.jsx", "src/**/*.js"],
+    MINIFIED_OUT: "app.bundle.js",
+    DEST_SRC: "src",
+    DEST_BUILD: "build",
+    DEST: "build"
 };
+
+gulp.task("webpack", function () {
+    gulp.src(path.ALL)
+        .pipe(sourceMaps.init())
+        .pipe(stream(webpackConfig))
+        .pipe(uglify())
+        .pipe(sourceMaps.write())
+        .pipe(gulp.dest(path.DEST_BUILD));
+});
 
 gulp.task("css", function() {
     gulp.src("./src/less/**/*.less")
@@ -33,7 +47,7 @@ gulp.task("css", function() {
 });
 
 gulp.task("js", function () {
-    gulp.src(["./src/app.js", "./src/viewmodels/**/*.js", "./src/services/**/*.js", "./src/models/**.*js", "./src/controllers/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"])
+    gulp.src(["./src/app.js", "./src/controllers/**/*.js", "./src/services/**/*.js", "./src/models/**.*js", "./src/viewmodels/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"])
         .pipe(jsHint())
         .pipe(jsHint.reporter(jsStylish))
         .pipe(sourceMaps.init())
@@ -46,5 +60,6 @@ gulp.task("js", function () {
 
 gulp.task("default", function () {
     gulp.watch("./src/less/**/*.less", ["css"]);
-    gulp.watch(["./src/app.js", "./src/viewmodels/**/*.js", "./src/services/**/*.js", "./src/models/**.*js", "./src/controllers/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"], ["js"]);
+    gulp.watch(["./src/app.js", "./src/controllers/**/*.js", "./src/services/**/*.js", "./src/models/**.*js", "./src/viewmodels/**/*.js", "./src/exceptions/**/*.js", "./src/config/config.js"], ["js"]);
+    //gulp.watch(path.ALL, ["webpack"]);
 });
