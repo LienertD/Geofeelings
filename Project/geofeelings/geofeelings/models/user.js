@@ -1,12 +1,12 @@
-/**
- * Created by Lienert on 25/11/2015.
- */
-var mongoose = require('mongoose');
+function User(id, username, age, lat, lng)
+{
+    this.id = id;
+    this.username = username;
+    this.age = age;
+    this.lat = lat;
+    this.lng = lng;
+}
 
-module.exports = mongoose.model('User',{
-    username: String,
-    password: String,
-    email: String,
-    gender: String,
-    address: String
-});
+User.prototype.toString = function(){
+    return this.username;
+};
