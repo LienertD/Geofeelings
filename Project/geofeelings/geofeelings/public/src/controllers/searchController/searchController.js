@@ -25,9 +25,16 @@
         {
             console.log($scope.searchModel);
             $scope.SearchResults = null;
-            searchService.search($scope.searchModel).then(onResultsReady, onResultsError);
-        }
+            searchService.search($scope.searchModel).then(onResultsReady);
+        };
+
+        var onResultsReady = function(res){
+            console.log(res);
+            $scope.searchResults = res;
+        };
+
+        var onResultsError = function(err){};
     };
 
-    angular.module("geofeelings").controller("searchController", ["$scope", searchController]);
+    angular.module("geofeelings").controller("searchController", ["$scope", "searchService",searchController]);
 })();

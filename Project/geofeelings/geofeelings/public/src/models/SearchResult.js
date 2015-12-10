@@ -1,10 +1,10 @@
-function SearchResult(titel, fotoUrl, uitleg, link)
+function SearchResult(title, photoUrl, description, link)
 {
-    this.titel = titel;
-    this.fotoUrl = fotoUrl;
-    this.uitleg = uitleg;
+    this.title = title;
+    this.photoUrl = photoUrl;
+    this.description = description;
     this.link = link;
 }
 SearchResult.prototype.toString = function() {
-    return this.titel;
+    return this.title;
 };

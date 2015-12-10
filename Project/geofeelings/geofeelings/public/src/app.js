@@ -1,14 +1,11 @@
-/**
- * Created by Jonatan on 11/11/2015.
- */
-
 (function () {
     "use strict";
 
     var app = angular.module("geofeelings", ["ngRoute"]);
 
     app.config(function ($routeProvider) {
-        $routeProvider.when("/admin", {
+        $routeProvider
+          .when("/admin", {
             templateUrl: "./controllers/adminController/admin.html"
         }).when("/search", {
             templateUrl: "./controllers/searchController/search.html"
@@ -36,4 +33,12 @@
             redirectTo: "/intro"
         });
     });
+
+    app.directive("searchResult", function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'directives/searchResult.html'
+        }
+    });
+
 })();
