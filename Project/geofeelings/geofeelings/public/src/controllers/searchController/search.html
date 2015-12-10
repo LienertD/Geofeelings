@@ -2,12 +2,13 @@
     <div class="title">
         <h2>Let's find it<img src="./assets/heart.png" alt="heart"></h2>
     </div>
-    <div class="input-group" id="search">
+    <form class="input-group" id="search" ng-submit="searchOnSubmit(htmlValue)">
         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-        <input type="search" class="form-control" placeholder="Search for persons, events or locations">
-    </div>
-    <div class="">
-
+        <input type="search" class="form-control" placeholder="Search for persons, events or locations" ng-model="searchModel" ng-keypress="searchOnKeyPress()">
+    </form>
+    <div class="zoekresultaten">
+        <ul>
+        </ul>
     </div>
     <div class="navigation">
         <a href="#/search">

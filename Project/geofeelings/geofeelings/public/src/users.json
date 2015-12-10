@@ -1,0 +1,4 @@
+{ "_id" : { "$oid" : "5666d0c505b4a8ba46e21981" }, "username" : "Jhonnysan", "age" : { "$date" : "1995-12-20T00:00:00.000+0000" }, "lat" : 51.17696, "lng" : 3.078165 }
+{ "_id" : { "$oid" : "5666d21305b4a8ba46e21983" }, "username" : "LienertD", "age" : { "$date" : "1994-06-02T00:00:00.000+0000" }, "lat" : 51.212287, "lng" : 3.279756 }
+{ "_id" : { "$oid" : "5668a591e9d540e01e2a349b" }, "password" : "$2a$08$LiYc52fMDkD8r4lKzLmSjuksyAkGzQFPoOWpmhfxBuDgDZ4htBGGi", "username" : "HelloKitty", "email" : "michielsjonatan@gmail.com", "__v" : 0 }
+{ "_id" : { "$oid" : "56693b168c6739ac1af2f57b" }, "password" : "$2a$08$sIq0s9QhnM9rtK0iP1EtMu/OV4kVl29JKoSVLifaVEeY1eUjygIDe", "username" : "HelloKittyLienert", "email" : "jonatan.michiels@student.howest.be", "__v" : 0 }
