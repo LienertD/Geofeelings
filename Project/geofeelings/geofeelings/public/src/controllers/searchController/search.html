@@ -4,15 +4,13 @@
     </div>
     <form class="input-group" id="search" ng-submit="searchOnSubmit(htmlValue)">
         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-        <input type="search" class="form-control" placeholder="Search for persons, events or locations" ng-model="searchModel" ng-keypress="searchOnKeyPress()">
+        <input type="search" class="form-control" placeholder="Search for persons, events or locations" ng-model="searchModel" ng-init="searchModel=''" ng-keypress="searchOnKeyPress()">
     </form>
-    <div class="zoekresultaten">
-        <ul class="searchResultList">
+        <ul class="searchResultList" ng-show="searchResults">
             <li ng-repeat = "sr in searchResults | filter:filterSearchResults">
                 <searchresult></searchresult>
             </li>
         </ul>
-    </div>
     <div class="navigation">
         <a href="#/search">
             <button class="btn btn-default btn-raised pull-right">Reset <span
