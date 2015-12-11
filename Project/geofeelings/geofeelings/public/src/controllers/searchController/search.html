@@ -7,9 +7,9 @@
         <input type="search" class="form-control" placeholder="Search for persons, events or locations" ng-model="searchModel" ng-keypress="searchOnKeyPress()">
     </form>
     <div class="zoekresultaten">
-        <ul>
-            <li ng-repeat = "sr in searchResults">
-                <searchResult></searchResult>
+        <ul class="searchResultList">
+            <li ng-repeat = "sr in searchResults | filter:filterSearchResults">
+                <searchresult></searchresult>
             </li>
         </ul>
     </div>

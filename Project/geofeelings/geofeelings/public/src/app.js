@@ -34,7 +34,7 @@
         });
     });
 
-    app.directive("searchResult", function() {
+    app.directive("searchresult", function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/searchResult.html'
