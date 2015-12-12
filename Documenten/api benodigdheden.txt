@@ -1,0 +1,16 @@
+Wat ik zou nodig hebben van de api:
+
+* functie getUserById
+- gegeven param: id
+- return: object waarmee ik een GfUser kan opvullen
+
+
+* functie getAllUsers
+- gegeven param: /
+- return object waarmee ik SearchResult kan opvullen (met title, description, photoUrl, id)
+
+OF
+
+* functie getUserBySearchParam
+- gegeven param: searchString
+- return: object waarin de searchString zit in de naam en waarmee ik SearchResult kan opvullen (met title, description, photoUrl, id)
