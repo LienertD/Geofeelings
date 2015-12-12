@@ -1,9 +1,9 @@
-function SearchResult(title, photoUrl, description, link)
+function SearchResult(title, photoUrl, description, id)
 {
     this.title = title;
     this.photoUrl = photoUrl;
     this.description = description;
-    this.link = link;
+    this.id = id;
 }
 SearchResult.prototype.toString = function() {
     return this.title;

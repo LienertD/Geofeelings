@@ -1,0 +1,2 @@
+cd geofeelings\public
+gulp

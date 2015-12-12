@@ -1,22 +1,22 @@
-<div ng-controller="userController" class="content-wrapper">
+<div ng-controller="userController" class="content-wrapper" data-ng-init="init()">
     <div class="title" data-target="#user-info" data-toggle="collapse">
         <h3>User info</h3>
     </div>
-    <div id="user-info" class="collapse">
-        <img src="./assets/user.png" alt="profile">
+    <div id="user-info" class="collapse in">
+        <img ng-src="{{userfoundwithid.photoUrl}}" alt="profile">
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
-                <span>Naam</span>
+                <span>{{userfoundwithid.username}}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
-                <span>20/12/1995</span>
+                <span>{{userfoundwithid.age.$date}}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
-                <span>kastanjebosstraat 1B</span>
-                <p><span>8490 Jabbeke[B]</span></p>
+                <span>{{userfoundwithid.lat}}</span>
+                <p><span>{{userfoundwithid.lon}}</span></p>
             </div>
         </div>
     </div>
