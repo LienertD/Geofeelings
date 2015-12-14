@@ -1,8 +1,12 @@
 Wat ik zou nodig hebben van de api:
+-----------------------------------
+
+* functie addShare
+- gegeven param: userid, sharescore, lat, lng, date, time, eventid
 
 * functie getUserById
 - gegeven param: id
-- return: object waarmee ik een GfUser kan opvullen
+- return: json met alle data van die user
 
 
 * functie getAllUsers
@@ -14,3 +18,11 @@ OF
 * functie getUserBySearchParam
 - gegeven param: searchString
 - return: object waarin de searchString zit in de naam en waarmee ik SearchResult kan opvullen (met title, description, photoUrl, id)
+
+* functie getSharesByUserId
+- gegeven param: userid, aantal
+- return: aantal shares van een gebruiker gesorteerd op nieuwste eerst
+
+* functie amountOfShareByUserId
+- gegeven param: userid
+- return: totaal aantal shares die een gebruiker gedeeld heeft
