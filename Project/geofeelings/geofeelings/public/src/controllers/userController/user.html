@@ -11,7 +11,7 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
-                <span>{{userfoundwithid.age.$date}}</span>
+                <span>{{userfoundwithid.age.$date | date:"dd/MM/yyyy"}}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
@@ -20,6 +20,20 @@
             </div>
         </div>
     </div>
+
+    <div class="title" data-target="#user-shares" data-toggle="collapse" >
+        <h3>Recent shares</h3>
+    </div>
+    <div id="user-shares" class="collapse">
+        <ul class="list">
+            <li ng-repeat = "share in shareFoundWithUserId">
+                <p>Id: {{share.id}}</p>
+                <p>Mood: {{share.mood}}</p>
+            </li>
+
+        </ul>
+    </div>
+
     <div class="title" data-target="#user-events" data-toggle="collapse">
         <h3>Recent locations</h3>
     </div>

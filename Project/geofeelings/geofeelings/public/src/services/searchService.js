@@ -30,14 +30,26 @@
             });
         };
 
+        var getSharesByUserId = function(userid)
+        {
+            var url = './shares.json';
+            return $http.get(url).then(function (response) {
+                var sharesfound=[];
+                angular.forEach(response.data.shares.share, function (share) {
+                    if (share.userid == userid) {
+                        var newShare = new GFShare(share._id.$oid, share.user, share.userid, share.time.$date, share.mood, share.lat, share.lng);
+                        sharesfound.push(newShare);
+                    }
+                });
+                return sharesfound;
+            });
+        };
 
         return {
             search: search,
-            searchFromId: searchFromId
+            searchFromId: searchFromId,
+            getSharesByUserId:getSharesByUserId
         };
-
     };
-
     angular.module("geofeelings").factory("searchService", ["$http", searchService]);
-
 })();
