@@ -7,4 +7,4 @@ function SearchResult(title, photoUrl, description, id)
 }
 SearchResult.prototype.toString = function() {
     return this.title;
-}; 
+};

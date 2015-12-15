@@ -16,7 +16,7 @@
             }
         };
         $scope.searchOnKeyPress = function () {
-            if ($scope.searchModel != null) {
+            if ($scope.searchModel !== null) {
                 searchNow();
             }
         };

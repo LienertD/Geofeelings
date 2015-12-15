@@ -1,11 +1,14 @@
 <div ng-controller="introController" class="content-wrapper">
     <div class="title">
-        <h2>How are you feeling</h2>
+        <h2>How are you feeling?</h2>
     </div>
     <div class="slider-wrapper">
         <label for="filter"></label>
-        <input type="range" id="filter" name="filter">
-        <span>50%</span>
+        <input type="range" id="filter" name="filter" ng-model="sliderValue">
+        <p id="sliderPercent">{{moodWord}}</p>
+        <canvas id="smileyCanvas" width="300" height="300">
+        </canvas>
+
         <button class="btn btn-default btn-raised pull-right">Next <span
                 class="glyphicon glyphicon-chevron-right"></span></button>
     </div>

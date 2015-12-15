@@ -41,7 +41,7 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/searchResult.html'
-        }
+        };
     });
 
     app.service('sharedProperties', function () {
@@ -54,7 +54,7 @@
             setProperty: function (value) {
                 property = value;
             }
-        }
+        };
     });
 
 })();

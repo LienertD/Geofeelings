@@ -17,7 +17,7 @@
                     $scope.userfoundwithid = res;
 
                     $scope.map.setCenter(new google.maps.LatLng(res.lat, res.lon));
-                    if ($scope.marker != undefined) {
+                    if ($scope.marker !== undefined) {
                         $scope.marker.setMap(null); //verwijdert alle markers eerst
                     }
                     $scope.marker = new google.maps.Marker({
