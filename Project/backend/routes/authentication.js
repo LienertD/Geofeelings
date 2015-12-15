@@ -64,7 +64,7 @@ module.exports = function(app, passport) {
         })(req, res);
     });
 
-    app.get('/api/user', isLoggedIn, function(req, res) {
+    app.get('/user', isLoggedIn, function(req, res) {
         return res.json(req.user);
     });
 };

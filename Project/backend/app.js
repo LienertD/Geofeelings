@@ -30,7 +30,8 @@ app.use(passport.session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
-require('./routes/routes.js')(app, passport);
+require('./routes/authentication.js')(app, passport);
+require('./routes/api.js')(app);
 
 app.listen(port);
 console.log('listening on port ' + port);

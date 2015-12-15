@@ -6,8 +6,12 @@
     "use strict";
 
     var userController = function ( $scope, $http, $location) {
-        $http.get('/api/user').success(function(data) {
-            $scope.user = data;
+        $http.get('/user').success(function(data) {
+            if(data.redirect) {
+                $location.path(data.redirect);
+            } else {
+                $scope.user = data;
+            }
         });
 
         $scope.logout = function() {

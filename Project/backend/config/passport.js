@@ -50,19 +50,20 @@ module.exports = function (passport) {
 
     // register
     passport.use('register', new LocalStrategy({
-        usernameField: 'email',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true
-    }, function (req, email, password, done) {
+    }, function (req, username, password, done) {
+        console.log(username);
         process.nextTick(function () {
             if(!req.user) {
-                User.findOne({'email': email}, function (err, user) {
+                User.findOne({'username': username}, function (err, user) {
                     if (err) {
                         return done(err);
                     }
 
                     if (user) {
-                        return done(null, { error : 'Email already taken.'});
+                        return done(null, { error : 'Username already taken.'});
                     } else {
                         var newUser = new User();
                         newUser.generateHash(password, function (err, hash) {
@@ -70,8 +71,8 @@ module.exports = function (passport) {
                                 throw err;
                             }
 
-                            newUser.email = email;
-                            newUser.username = req.body.username;
+                            newUser.username = username;
+                            newUser.email = req.body.email;
                             newUser.password = hash;
                             newUser.save(function (err) {
                                 if (err) {
