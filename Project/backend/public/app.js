@@ -14,6 +14,8 @@
             templateUrl: "./views/register.html"
         }).when("/user", {
             templateUrl: "./views/user.html"
+        }).when("/login", {
+            templateUrl: "./views/login.html"
         }).otherwise({
             redirectTo: "/login"
         });

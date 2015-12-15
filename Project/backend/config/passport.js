@@ -19,30 +19,32 @@ module.exports = function (passport) {
 
     // login
     passport.use('login', new LocalStrategy({
-        usernameField: 'email',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true
-    }, function (req, email, password, done) {
-        User.findOne({ 'email' : email }, function (err, user) {
-            if (err) {
-                return done(err);
-            }
+    }, function (req, username, password, done) {
+        process.nextTick(function() {
+            User.findOne({ 'username' : username }, function (err, user) {
+                if (err) {
+                    return done(err);
+                }
 
-            if (!user) {
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong email.'));
-            } else {
-                user.validPassword(password, function (err, isMatch) {
-                    if (err) {
-                        throw err;
-                    }
+                if (!user) {
+                    return done(null, { error : 'Oops! Wrong username.' });
+                } else {
+                    user.validPassword(password, function (err, isMatch) {
+                        if (err) {
+                            throw err;
+                        }
 
-                    if (isMatch) {
-                        return done(null, user);
-                    } else {
-                        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
-                    }
-                });
-            }
+                        if (isMatch) {
+                            return done(null, user);
+                        } else {
+                            return done(null, { error : 'Oops! Wrong password.'});
+                        }
+                    });
+                }
+            });
         });
     }));
 
@@ -53,33 +55,35 @@ module.exports = function (passport) {
         passReqToCallback: true
     }, function (req, email, password, done) {
         process.nextTick(function () {
-            User.findOne({'email': email}, function (err, user) {
-                if (err) {
-                    return done(err);
-                }
+            if(!req.user) {
+                User.findOne({'email': email}, function (err, user) {
+                    if (err) {
+                        return done(err);
+                    }
 
-                if (user) {
-                    return done(null, false, req.flash('registerMessage', 'Email already taken.'));
-                } else {
-                    var newUser = new User();
-                    newUser.generateHash(password, function (err, hash) {
-                        if (err) {
-                            throw err;
-                        }
-
-                        newUser.email = email;
-                        newUser.username = req.body.username;
-                        newUser.password = hash;
-                        newUser.save(function (err) {
+                    if (user) {
+                        return done(null, { error : 'Email already taken.'});
+                    } else {
+                        var newUser = new User();
+                        newUser.generateHash(password, function (err, hash) {
                             if (err) {
                                 throw err;
                             }
 
-                            return done(null, newUser);
+                            newUser.email = email;
+                            newUser.username = req.body.username;
+                            newUser.password = hash;
+                            newUser.save(function (err) {
+                                if (err) {
+                                    throw err;
+                                }
+
+                                return done(null, newUser);
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
+            }
         });
     }));
 };
