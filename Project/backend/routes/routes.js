@@ -3,45 +3,77 @@
  */
 
 module.exports = function(app, passport) {
+    // Loader
+    app.get('/', function (req, res) {
+        res.sendFile('./public/index.html');
+
+    });
 
     // Logout
     app.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/login');
+        res.json({ redirect : '/logout' });
     });
 
     // Login
-    app.get('/login', function(req, res) {
-        res.render('login.ejs', { message : req.flash('loginMessage') });
-    });
+    app.post('/login', function(req, res) {
+        if (!req.body.username || !req.body.password) {
+            return res.json({ error: 'All fields are required' });
+        }
 
-    app.post('/login', passport.authenticate('login', {
-        successRedirect : '/user',
-        failureRedirect : '/login',
-        failureFlash : true
-    }));
+        passport.authenticate('login', function (err, user) {
+            if (err) {
+                return res.json(err);
+            }
+
+            if (user.error) {
+                return res.json({ error : user.error });
+            }
+
+            req.logIn(user, function(err) {
+                if(err) {
+                    return res.json(err);
+                }
+
+                return res.json({ redirect : '/user' });
+            });
+        })(req, res);
+    });
 
     // Register
-    app.get('/register', function(req, res) {
-        res.render('register.ejs', { message : req.flash('registerMessage') });
+    app.post('/register', function(req, res) {
+        if (!req.body.username || !req.body.email || !req.body.password) {
+            return res.json({ error: 'All fields are required' });
+        }
+        passport.authenticate('register', function(err, user) {
+            if (err) {
+                return res.json(err);
+            }
+
+            if (user.error) {
+                return res.json({ error: user.error });
+            }
+
+            req.logIn(user, function(err) {
+                if (err) {
+                    return res.json(err);
+                }
+
+                return res.json({ redirect: '/user' });
+            });
+        })(req, res);
     });
 
-    app.post('/register', passport.authenticate('register', {
-        successRedirect : '/user',
-        failureRedirect : '/register',
-        failureFlash : true
-    }));
-
-    // User
-    app.get('/user', isLoggedIn, function (req, res) {
-        res.render('user.ejs', { user : req.user });
+    app.get('/api/user', isLoggedIn, function(req, res) {
+        return res.json(req.user);
     });
 };
 
-// route middleware to ensure user is logged in
+// User logged in
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-
-    res.redirect('/login');
+    if (!req.isAuthenticated()) {
+        return res.json({ redirect : '/login' });
+    } else {
+        next();
+    }
 }

@@ -5,18 +5,17 @@
 (function () {
     "use strict";
 
-    var userController = function ($http, $scope) {
-        $scope.update = function () {
-            $http.get('/user', {
-                username : this.username,
-                password : this.password,
-                email : this.email,
-                age : this.age,
-                lat : this.lat,
-                lng : this.lng
+    var userController = function ( $scope, $http, $location) {
+        $http.get('/api/user').success(function(data) {
+            $scope.user = data;
+        });
+
+        $scope.logout = function() {
+            $http.get('/logout').success(function (data) {
+                $location.path(data.redirect);
             });
         };
     };
 
-    angular.module("passport").controller("userController", ["$http", "$scope", userController]);
+    angular.module("passport").controller("userController", ["$scope", "$http", "$location", userController]);
 })();

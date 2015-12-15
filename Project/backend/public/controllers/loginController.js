@@ -5,13 +5,14 @@
 (function () {
     "use strict";
 
-    var loginController = function ($scope, $http) {
+    var loginController = function ($scope, $http, $location) {
         $scope.login = function () {
             $http.post('/login', {
                 username : this.username,
                 password : this.password
             }).success(function (data) {
-                console.log(data);
+                $scope.error = data.error;
+                $location.path(data.redirect);
             });
         };
 
@@ -21,10 +22,11 @@
                 password : this.password,
                 email : this.email
             }).success(function (data) {
-                console.log(data);
+                $scope.error = data.error;
+                $location.path(data.redirect);
             });
         };
     };
 
-    angular.module("passport").controller("loginController", ["$scope", "$http", loginController]);
+    angular.module("passport").controller("loginController", ["$scope", "$http", "$location", loginController]);
 })();
