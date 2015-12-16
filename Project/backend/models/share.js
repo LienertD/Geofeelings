@@ -5,6 +5,7 @@
 var mongoose = require('mongoose');
 var ShareSchema = mongoose.Schema({
     userid : Number,
+    eventid : Number,
     time : Date,
     mood : Number,
     lat : Number,

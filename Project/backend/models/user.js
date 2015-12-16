@@ -9,9 +9,12 @@ var userSchema = mongoose.Schema({
     username : String,
     email : String,
     password : String,
+    userimage : Buffer,
     age : Date,
     lat : Number,
-    lng : Number
+    lng : Number,
+    chat : Boolean,
+    admin : Boolean
 });
 
 userSchema.methods.generateHash = function (password, cb) {
