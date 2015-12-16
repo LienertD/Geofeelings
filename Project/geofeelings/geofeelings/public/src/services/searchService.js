@@ -3,8 +3,28 @@
 
     var searchService = function ($http) {
 
-        var search = function (searchString) {
-            var url = './users.json';
+
+        var search = function ()
+        {
+            var url = 'http://localhost:3000/api/users';
+            $http.get(url).then(onUsersFound)
+        };
+
+        var onUsersFound = function(response)
+        {
+            console.log("kzit hier");
+            console.log(response);
+            /*
+            $scope.searchResults = [];
+
+            angular.forEach(response.data.users.user, function (searchR) {
+                var newSR = new SearchResult(searchR.username, searchR.photoUrl, searchR.email, searchR._id.$oid);
+                searchResults.push(newSR);
+            });*/
+        };
+
+        /*var search = function (searchString) {
+            var url = 'http://localhost:3000/api/users';
             return $http.get(url).then(function (response) {
 
                 var arSearchResults = [];
@@ -12,9 +32,11 @@
                     var newSR = new SearchResult(searchR.username, searchR.photoUrl, searchR.email, searchR._id.$oid);
                     arSearchResults.push(newSR);
                 });
+                console.log(response);
                 return arSearchResults;
+
             });
-        };
+        };*/
 
         var searchFromId = function (searchString) {
             var url = './users.json';

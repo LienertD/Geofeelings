@@ -94,7 +94,7 @@
             else {
                 $scope.moodWord = moodwords[6];
             }
-        }
+        };
     };
 
     angular.module("geofeelings").controller("introController", ["$scope", introController]);

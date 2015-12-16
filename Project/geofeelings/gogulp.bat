@@ -1,2 +1,0 @@
-cd geofeelings\public
-gulp
