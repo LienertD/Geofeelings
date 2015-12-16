@@ -3,6 +3,7 @@
  */
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
+var Event = require('../models/event.js');
 
 module.exports = function (app) {
     // GET USERS
@@ -30,8 +31,9 @@ module.exports = function (app) {
     // POST SHARE
     app.post('/api/share', function (req, res) {
         var newShare = new Share();
-        newShare.userid = req.body.name;
-        newShare.time = req.body.time;
+        newShare.userid = req.body.userid;
+        newShare.eventid = req.body.eventid;
+        newShare.time = req.body.timestamp;
         newShare.mood = req.body.mood;
         newShare.lat = req.body.lat;
         newShare.lng = req.body.lng;
@@ -40,7 +42,7 @@ module.exports = function (app) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Share created!' });
+            res.json({ share : newShare });
         });
     });
 };

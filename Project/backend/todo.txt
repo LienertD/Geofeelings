@@ -1,0 +1,5 @@
+TODO BACKEND
+
+> Password reset
+> Image in mongoDB
+> Chat socket
