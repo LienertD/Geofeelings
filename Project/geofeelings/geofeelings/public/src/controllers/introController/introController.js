@@ -40,7 +40,7 @@
             //hoofd
             ctx.lineWidth = 5;
             ctx.beginPath();
-            ctx.arc(c.width / 2, c.height / 2, 145, 0, 2 * Math.PI);
+            ctx.arc(150, 150, 145, 0, 2 * Math.PI);
             ctx.fillStyle = "rgb(" + bgR + "," + bgG + ",0)";
             ctx.fill();
             ctx.stroke();
