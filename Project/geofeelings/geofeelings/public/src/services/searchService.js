@@ -4,7 +4,7 @@
     var searchService = function ($http) {
 
         var search = function (searchString) {
-            var url = './users.json';
+            var url = 'http://localhost:3000/api/users';
             return $http.get(url).then(function (response) {
 
                 var arSearchResults = [];
