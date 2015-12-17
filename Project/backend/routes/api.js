@@ -13,6 +13,7 @@ module.exports = function (app) {
                 res.send(err);
             }
 
+            res.header("Access-Control-Allow-Origin", "*");
             res.json(users);
         });
     });
@@ -24,6 +25,7 @@ module.exports = function (app) {
                 res.send(err);
             }
 
+            res.header("Access-Control-Allow-Origin", "*");
             res.json(user);
         });
     });
@@ -42,6 +44,7 @@ module.exports = function (app) {
             if (err)
                 res.send(err);
 
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({ share : newShare });
         });
     });
