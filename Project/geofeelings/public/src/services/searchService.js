@@ -8,7 +8,7 @@
             return $http.get(url).then(function (response) {
 
                 var arSearchResults = [];
-                angular.forEach(response.data.users.user, function (searchR) {
+                angular.forEach(response.data, function (searchR) {
                     var newSR = new SearchResult(searchR.username, searchR.photoUrl, searchR.email, searchR._id.$oid);
                     arSearchResults.push(newSR);
                 });
