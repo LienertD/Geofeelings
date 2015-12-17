@@ -1,0 +1,28 @@
+DATABASEMODEL
+
+User
+    username : String
+    email : String
+    password : String
+    userimage : Buffer
+    age : Date
+    lat : Number
+    lng : Number
+    chat : Boolean
+    admin : Boolean
+
+Event
+    eventname : String
+    eventimage : Buffer
+    from : Date
+    to : Date
+    lat : Number
+    lng : Number
+
+Share
+    userid : Number
+    eventid : Number
+    time : Date
+    mood : Number
+    lat : Number
+    lng : Number
