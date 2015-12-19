@@ -1,6 +1,5 @@
 function GFShare(id, userid, eventid, time, mood, lat, lng) {
     this.id = id;
-    this.user = user;
     this.userid = userid;
     this.eventid = eventid;
     this.time = time;

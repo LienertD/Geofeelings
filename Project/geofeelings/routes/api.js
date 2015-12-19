@@ -31,6 +31,19 @@ module.exports = function (app) {
         });
     });
 
+    // GET SHARE BY USERID
+    app.get('/api/share/user/:id',function(req, res){
+
+        res.header("Access-Control-Allow-Origin", "*");
+
+        Share.find({userid:req.params.id}, function(err,share){
+            if(err){
+                res.send(err);
+            }
+            res.json(share);
+        });
+    });
+
     // POST SHARE
     app.post('/api/share', function (req, res, next) {
         var newShare = new Share();

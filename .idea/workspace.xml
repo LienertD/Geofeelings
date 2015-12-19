@@ -2,53 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd090a4-fad1-4c37-8216-0a98b1173ee9" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documents\GitHub\Geofeelings\Project\gogulp.bat" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt.obj" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.exp" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.exp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.lib" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.lib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.node" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.node" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.pdb" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_node.obj" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_node.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/blowfish.obj" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/blowfish.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/vc140.pdb" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/vc140.pdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/win_delay_load_hook.obj" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/win_delay_load_hook.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.command.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.command.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.read.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.read.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.write.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.write.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/models/SearchResult.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/models/SearchResult.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/acorn" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/acorn" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/with/node_modules/.bin/acorn" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/with/node_modules/.bin/acorn" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/routes/api.js" afterPath="$PROJECT_DIR$/Project/geofeelings/routes/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/js/app.min.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/js/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.lastbuildstate" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.lastbuildstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.map" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj.filters" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj.filters" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.write.1u.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.write.1u.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/binding.sln" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/binding.sln" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/cleancss" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/cleancss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/config.gypi" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/config.gypi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfUser.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfUser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro.html" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/jade" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/Project/geofeelings/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.command.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.command.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.read.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.read.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.write.1.tlog" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.write.1.tlog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/mime" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/mime" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/.idea/misc.xml" afterPath="$PROJECT_DIR$/Project/geofeelings/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/mkdirp" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/mkdirp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/searchController/searchController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/searchController/searchController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/directives/searchResult.html" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/directives/searchResult.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/css/site.css" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/css/site.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/less/site.less" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/less/site.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/todo.txt" afterPath="$PROJECT_DIR$/Project/geofeelings/todo.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/uglifyjs" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/.bin/uglifyjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/node_modules/transformers/node_modules/.bin/uglifyjs" afterPath="$PROJECT_DIR$/Project/geofeelings/node_modules/transformers/node_modules/.bin/uglifyjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/user.html" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/models/share.js" afterPath="$PROJECT_DIR$/Project/geofeelings/models/share.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/userController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/userController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Geofeelings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,14 +30,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="introController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="introController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44032922">
+            <state vertical-scroll-proportion="0.0">
               <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
               <folding>
                 <element signature="e#445#2325#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/geofeelings/models/share.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gfShare.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,6 +107,7 @@
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/less/site.less" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro.html" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" />
+        <option value="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" />
       </list>
     </option>
   </component>
@@ -142,10 +123,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -170,8 +150,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -513,6 +493,28 @@
               <option name="myItemId" value="Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geofeelings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Geofeelings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Geofeelings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -578,17 +580,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20607029" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29475984" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21680498" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21839081" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -617,6 +619,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#445#2325#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/searchController/searchController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -824,7 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36273116">
           <caret line="15" column="77" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,7 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.5384617">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,7 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -870,11 +887,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44032922">
+        <state vertical-scroll-proportion="0.0">
           <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
           <folding>
             <element signature="e#445#2325#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/models/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

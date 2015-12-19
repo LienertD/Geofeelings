@@ -4,7 +4,7 @@
 
 var mongoose = require('mongoose');
 var ShareSchema = mongoose.Schema({
-    userid : Number,
+    userid : String,
     eventid : Number,
     time : Date,
     mood : Number,

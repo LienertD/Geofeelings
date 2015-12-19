@@ -35,14 +35,13 @@
         };
 
         var getSharesByUserId = function (userid) {
-            var url = 'http://localhost:3000/api/user/';
+            var url = 'http://localhost:3000/api/share/user/' + userid;
             return $http.get(url).then(function (response) {
+
                 var sharesfound = [];
-                angular.forEach(response.data.shares.share, function (share) {
-                    if (share.userid == userid) {
-                        var newShare = new GFShare(share._id.$oid, share.user, share.userid, share.time.$date, share.mood, share.lat, share.lng);
-                        sharesfound.push(newShare);
-                    }
+                angular.forEach(response.data, function (share) {
+                    var newShare = new GFShare(share._id, share.userid, share.eventid, 0, share.mood, share.lat, share.lng);
+                    sharesfound.push(newShare);
                 });
                 return sharesfound;
             });
