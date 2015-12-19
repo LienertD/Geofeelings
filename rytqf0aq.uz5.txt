@@ -1,0 +1,299 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   .idea/workspace.xml
+#	modified:   Project/geofeelings/.idea/jsLibraryMappings.xml
+#	modified:   Project/geofeelings/.idea/misc.xml
+#	new file:   Project/geofeelings/gogulp.bat
+#	new file:   Project/geofeelings/node_modules/.bin/gulp
+#	new file:   Project/geofeelings/node_modules/.bin/gulp.cmd
+#	new file:   Project/geofeelings/node_modules/.bin/jshint
+#	new file:   Project/geofeelings/node_modules/.bin/jshint.cmd
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.exp
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.lib
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.map
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.node
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/bcrypt_lib.pdb
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt.obj
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.command.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.read.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/CL.write.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.lastbuildstate
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/bcrypt_lib.write.1u.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.command.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.read.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_lib.tlog/link.write.1.tlog
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/bcrypt_node.obj
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/blowfish.obj
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/vc140.pdb
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/Release/obj/bcrypt_lib/win_delay_load_hook.obj
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/bcrypt_lib.vcxproj.filters
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/binding.sln
+#	modified:   Project/geofeelings/node_modules/bcrypt/build/config.gypi
+#	new file:   Project/geofeelings/node_modules/gulp-concat/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/LICENSE.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/dist/source-map.debug.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/dist/source-map.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/dist/source-map.min.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/dist/source-map.min.js.map
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/array-set.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/base64-vlq.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/base64.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/binary-search.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/mapping-list.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/quick-sort.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/source-map-consumer.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/source-map-generator.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/source-node.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/lib/util.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/node_modules/source-map/source-map.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/concat-with-sourcemaps/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/PluginError.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/buffer.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/combine.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/env.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/isBuffer.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/isNull.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/isStream.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/log.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/noop.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/lib/template.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/.bin/dateformat
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/.bin/dateformat.cmd
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-differ/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-differ/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-differ/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-uniq/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-uniq/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/array-uniq/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/beeper/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/beeper/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/beeper/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/beeper/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/ansi-styles/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/ansi-styles/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/ansi-styles/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/ansi-styles/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/escape-string-regexp/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/escape-string-regexp/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/escape-string-regexp/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/escape-string-regexp/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/has-ansi/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/strip-ansi/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/supports-color/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/supports-color/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/supports-color/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/node_modules/supports-color/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/chalk/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/.npmignore
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/.travis.yml
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/bin/cli.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/lib/dateformat.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/get-stdin/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/get-stdin/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/get-stdin/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/map-obj/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/map-obj/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/map-obj/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/map-obj/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/api.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/.npmignore
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/.travis.yml
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/LICENSE.txt
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/signals.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/all-integration-test.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/awaiter.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/change-code-expect.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/change-code.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/end-of-execution.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/exit-last.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/exit.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/exiter.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/load-unload.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/multiple-load.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/parent.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/sigint.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/sigkill.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/signal-default.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/signal-last.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/signal-listener.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/sigpipe.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/sigterm.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/fixtures/unwrap.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/multi-exit.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/node_modules/signal-exit/test/signal-exit-test.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/loud-rejection/register.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/.npmignore
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/.travis.yml
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/AUTHORS
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/extract_description.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/fixer.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/make_warning.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/normalize.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/safe_format.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/typos.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/lib/warning_messages.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/.bin/semver
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/.bin/semver.cmd
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/.npmignore
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/.travis.yml
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/git-host-info.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/git-host.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/basic.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/bitbucket-https-with-embedded-auth.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/bitbucket.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/gist.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/github.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/gitlab.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/https-with-inline-auth.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/hosted-git-info/test/lib/standard-tests.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/builtin-modules.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/license
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/node_modules/builtin-modules/static.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/is-builtin-module/readme.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/.npmignore
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/.travis.yml
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/bin/semver
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/package.json
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/range.bnf
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/semver.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/big-numbers.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/clean.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/gtr.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/ltr.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/semver/test/major-minor-patch.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/LICENSE
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/README.md
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/index.js
+#	new file:   Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/package.json
+#	new file:   gogulp.bat
+#
+# Changes not staged for commit:
+#	modified:   Project/geofeelings/node_modules/transformers/node_modules/.bin/uglifyjs
+#	modified:   Project/geofeelings/node_modules/with/node_modules/.bin/acorn
+#	modified:   Project/geofeelings/public/src/controllers/introController/intro.html
+#	modified:   Project/geofeelings/public/src/controllers/introController/introController.js
+#	modified:   Project/geofeelings/public/src/controllers/searchController/searchController.js
+#	modified:   Project/geofeelings/public/src/controllers/userController/user.html
+#	modified:   Project/geofeelings/public/src/controllers/userController/userController.js
+#	modified:   Project/geofeelings/public/src/directives/searchResult.html
+#	modified:   Project/geofeelings/public/src/dist/css/site.css
+#	modified:   Project/geofeelings/public/src/dist/js/app.min.js
+#	modified:   Project/geofeelings/public/src/less/site.less
+#	modified:   Project/geofeelings/public/src/models/SearchResult.js
+#	modified:   Project/geofeelings/public/src/models/gfUser.js
+#	modified:   Project/geofeelings/public/src/services/searchService.js
+#	modified:   Project/geofeelings/todo.txt
+#	deleted:    Project/gogulp.bat
+#
+# Untracked files:
+#	Project/geofeelings/node_modules/gulp-concat/README.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/README.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/Readme.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/README.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/README.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/package.json
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/package.json
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/test/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/object-assign/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/read-pkg-up/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/redent/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/trim-newlines/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/package.json
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/readme.md
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/package.json
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/dateformat/test/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/fancy-log/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/gulplog/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/has-gulplog/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/lodash._reescape/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/lodash._reevaluate/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/lodash._reinterpolate/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/lodash.template/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/minimist/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/multipipe/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/object-assign/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/replace-ext/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/through2/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/node_modules/vinyl/
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/gulp-util/package.json
+#	Project/geofeelings/node_modules/gulp-concat/node_modules/through2/
+#	Project/geofeelings/node_modules/gulp-concat/package.json
+#	Project/geofeelings/node_modules/gulp-csslint/
+#	Project/geofeelings/node_modules/gulp-jshint/
+#	Project/geofeelings/node_modules/gulp-less/
+#	Project/geofeelings/node_modules/gulp-minify-css/
+#	Project/geofeelings/node_modules/gulp-notify/
+#	Project/geofeelings/node_modules/gulp-sourcemaps/
+#	Project/geofeelings/node_modules/gulp-uglify/
+#	Project/geofeelings/node_modules/gulp-webpack/
+#	Project/geofeelings/node_modules/gulp/
+#	Project/geofeelings/node_modules/jshint-stylish/
+#	Project/geofeelings/node_modules/jshint/
+#	Project/geofeelings/node_modules/webpack-stream/
+#
+
