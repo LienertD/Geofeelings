@@ -100,6 +100,18 @@
 
         $scope.postShare = function () {
             var data = { "userid": 0, "eventid": 0,"time":Date.now,"mood":$scope.sliderValue,"lat":0,"lng": 0};
+
+            $http({
+                url: 'http://localhost:3000/api/share',
+                method: 'POST',
+                data: data,
+                headers: { 'Content-Type': 'application/json' }
+            }).
+                success(function (serverData) {
+                    console.log("jow");
+                    console.log("ServerData:", serverData);});
+
+              /*
             $http.post(
                 'http://localhost:3000/api/share',
                 JSON.stringify(data),
@@ -111,7 +123,7 @@
             ).success(function (data) {
                     console.log("succes!");
                     $scope.person = data;
-                });
+                });*/
         };
     };
 

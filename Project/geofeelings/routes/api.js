@@ -32,7 +32,7 @@ module.exports = function (app) {
     });
 
     // POST SHARE
-    app.post('/api/share', function (req, res) {
+    app.post('/api/share', function (req, res, next) {
         var newShare = new Share();
         newShare.userid = req.body.userid;
         newShare.eventid = req.body.eventid;
