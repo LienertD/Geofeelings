@@ -9,32 +9,35 @@
 
                 var arSearchResults = [];
                 angular.forEach(response.data, function (searchR) {
-                    var newSR = new SearchResult(searchR.username, searchR.photoUrl, searchR.email, searchR._id.$oid);
+                    var newSR = new SearchResult(searchR._id, searchR.username);
                     arSearchResults.push(newSR);
                 });
                 return arSearchResults;
             });
         };
 
-        var searchFromId = function (searchString) {
-            var url = './users.json';
+        var searchUserFromId = function (searchString) {
+            var url = 'http://localhost:3000/api/user/' + searchString;
             return $http.get(url).then(function (response) {
+                return new GfUser(
+                    response.data._id,
+                    response.data.username,
+                    response.data.email,
+                    response.data.userimage,
+                    response.data.age,
+                    response.data.lat,
+                    response.data.lng,
+                    response.data.chat,
+                    response.data.admin
+                );
 
-                var userfound;
-                angular.forEach(response.data.users.user, function (user) {
-                    if (user._id.$oid == searchString) {
-                        userfound = new GfUser(user._id.$oid, user.username, user.photoUrl, user.age, user.lat, user.lon);
-                    }
-                });
-                return userfound;
             });
         };
 
-        var getSharesByUserId = function(userid)
-        {
-            var url = './shares.json';
+        var getSharesByUserId = function (userid) {
+            var url = 'http://localhost:3000/api/user/';
             return $http.get(url).then(function (response) {
-                var sharesfound=[];
+                var sharesfound = [];
                 angular.forEach(response.data.shares.share, function (share) {
                     if (share.userid == userid) {
                         var newShare = new GFShare(share._id.$oid, share.user, share.userid, share.time.$date, share.mood, share.lat, share.lng);
@@ -47,8 +50,8 @@
 
         return {
             search: search,
-            searchFromId: searchFromId,
-            getSharesByUserId:getSharesByUserId
+            searchUserFromId: searchUserFromId,
+            getSharesByUserId: getSharesByUserId
         };
     };
     angular.module("geofeelings").factory("searchService", ["$http", searchService]);

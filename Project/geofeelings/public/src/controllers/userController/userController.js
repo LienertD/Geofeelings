@@ -9,24 +9,25 @@
 
             $scope.init = function () {
                 var userid = $location.search().userid;
-                searchService.searchFromId(userid).then(userFoundWithId);
-                searchService.getSharesByUserId(userid).then(sharesFoundWithId);
+                searchService.searchUserFromId(userid).then(userFoundWithId);
+               //searchService.getSharesByUserId(userid).then(sharesFoundWithId); //IMPLEMENTEREN ALS JONATAN DE API FTIE HEEFT AANGEMAAKT
             };
 
             var userFoundWithId = function (res) {
                     $scope.userfoundwithid = res;
 
-                    $scope.map.setCenter(new google.maps.LatLng(res.lat, res.lon));
-                    if ($scope.marker !== undefined) {
-                        $scope.marker.setMap(null); //verwijdert alle markers eerst
+                    if(res.lat !== undefined && res.lat!==undefined) {
+                        $scope.map.setCenter(new google.maps.LatLng(res.lat, res.lng));
+                        if ($scope.marker !== undefined) {
+                            $scope.marker.setMap(null); //verwijdert alle markers eerst
+                        }
+                        $scope.marker = new google.maps.Marker({
+                            position: {lat: res.lat, lng: res.lng},
+                            map: $scope.map,
+                            icon: $scope.image
+                        });
                     }
-                    $scope.marker = new google.maps.Marker({
-                        position: {lat: res.lat, lng: res.lon},
-                        map: $scope.map,
-                        icon: $scope.image
-                    });
-                }
-                ;
+                };
 
             var sharesFoundWithId = function (res) {
 

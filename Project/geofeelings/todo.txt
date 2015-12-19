@@ -3,3 +3,6 @@ TODO BACKEND
 > Password reset
 > Image in mongoDB
 > Chat socket
+
+API's Backend:
+> getSharesByUserId (spreekt voor zichzelf)

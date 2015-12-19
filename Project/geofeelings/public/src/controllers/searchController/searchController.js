@@ -26,7 +26,7 @@
                 return false;
             }
 
-            if (i.title.toLowerCase().indexOf($scope.searchModel.toLocaleLowerCase()) >= 0) {
+            if (i.username.toLowerCase().indexOf($scope.searchModel.toLocaleLowerCase()) >= 0) {
                 return true;
             }
             if (i.description !== undefined) {

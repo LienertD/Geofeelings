@@ -3,7 +3,7 @@
         <h3>User info</h3>
     </div>
     <div id="user-info" class="collapse in">
-        <img ng-src="{{userfoundwithid.photoUrl}}" alt="profile">
+        <img src="http://student.howest.be/lienert.deprez/files/vriendje.png" alt="profile">
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
@@ -11,17 +11,17 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
-                <span>{{userfoundwithid.age.$date | date:"dd/MM/yyyy"}}</span>
+                <span>{{userfoundwithid.age | date:"dd/MM/yyyy"}}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
-                <span>{{userfoundwithid.lat}}</span>
-                <p><span>{{userfoundwithid.lon}}</span></p>
+                <span>N{{userfoundwithid.lat}} E{{userfoundwithid.lng}}</span>
+                <p><span></span></p>
             </div>
         </div>
     </div>
 
-    <div class="title" data-target="#user-shares" data-toggle="collapse" >
+    <div class="title" data-target="#user-shares" data-toggle="collapse" ng-show="shareFoundWithUserId">
         <h3>Recent shares</h3>
     </div>
     <div id="user-shares" class="collapse">
