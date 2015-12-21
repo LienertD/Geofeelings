@@ -40,7 +40,9 @@
 
                 var sharesfound = [];
                 angular.forEach(response.data, function (share) {
-                    var newShare = new GFShare(share._id, share.userid, share.eventid, 0, share.mood, share.lat, share.lng);
+                    console.log(data);
+                    var newShare = new GFShare(share._id, share.userid, share.eventid, share.time,share.mood, share.lat, share.lng);
+                    console.log(newShare);
                     sharesfound.push(newShare);
                 });
                 return sharesfound;

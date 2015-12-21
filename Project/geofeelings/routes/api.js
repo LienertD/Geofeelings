@@ -46,6 +46,8 @@ module.exports = function (app) {
 
     // POST SHARE
     app.post('/api/share', function (req, res, next) {
+        console.log(req.body.timestamp);
+        console.log(req.body.mood);
         var newShare = new Share();
         newShare.userid = req.body.userid;
         newShare.eventid = req.body.eventid;
