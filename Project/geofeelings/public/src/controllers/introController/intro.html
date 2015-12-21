@@ -5,11 +5,15 @@
     <div class="slider-wrapper">
         <label for="filter"></label>
         <input type="range" id="filter" name="filter" ng-model="sliderValue">
+
         <p id="sliderPercent">{{moodWord}}</p>
         <canvas id="smileyCanvas" width="300" height="300">
         </canvas>
 
-        <button class="btn btn-default btn-raised pull-right" ng-mouseover="console.log('ajo')" ng-click="postShare()">Next <span
-                class="glyphicon glyphicon-chevron-right"></span></button>
+        <a href="#/intro_shared">
+            <button class="btn btn-default btn-raised pull-right" ng-mouseover="console.log('ajo')"
+                    ng-click="postShare()">Submit!<span
+                    class="glyphicon glyphicon-chevron-right"></span></button>
+        </a>
     </div>
 </div>

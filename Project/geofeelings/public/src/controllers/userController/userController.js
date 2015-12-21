@@ -31,10 +31,12 @@
 
         var giveFeelingsImageArrayNumber = function (res) {
             if (res.mood === 100) {
+                console.log(res);
+                console.log("dendeen heeft 100");
                 return 4;
             }
             else {
-                return Math.round(res.mood / 20)
+                return Math.round(res.mood / 20);
             }
         };
 
@@ -52,7 +54,6 @@
                 gemLng = 0;
 
             $scope.marker.setMap(null); //verwijdert alle markers eerst
-            console.log(res);
 
             var feelingImages = ["depressed", "sad", "common", "happy", "excited"];
 
@@ -73,6 +74,8 @@
                     maxLng = res.lng;
                 }
 
+                console.log(giveFeelingsImageArrayNumber(res));
+
                 $scope.marker = new google.maps.Marker({
                     position: {lat: res.lat, lng: res.lng},
                     map: $scope.map,
@@ -86,12 +89,13 @@
             }
             else {
                 gemLat = ((maxLat - minLat) / 2) + minLat;
-                console.log(maxLng+" "+minLng);
                 gemLng = ((maxLng - minLng) / 2) + minLng;
             }
+
+            console.log("lat "+(maxLat-minLat));
+            console.log("lng "+(maxLng-minLng));
+
             $scope.map.setCenter(new google.maps.LatLng(gemLat, gemLng));
-            console.log(gemLat);
-            console.log(gemLng);
             $scope.map.setZoom(12);
             //klaar met markers plaatsen en kaart verplaatsen naar hun gemiddelde
         };

@@ -17,7 +17,7 @@
             $scope.map = new google.maps.Map(document.querySelector("#map"), $scope.mapOptions);
 
             navigator.geolocation.getCurrentPosition(function (position) {
-                //$scope.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+                $scope.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                 $scope.marker = new google.maps.Marker({
                     position: $scope.map.getCenter(),
                     map: $scope.map,
