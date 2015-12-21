@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4" />
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{Geofeelings node_modules, angular, angular-mocks, angular-route, angularjs-DefinitelyTyped, bootstrap, jquery, jquery-1.11.3, jquery.signalr-2.1.0, less}" />
+    <includedPredefinedLibrary name="ECMAScript 6" />
+    <includedPredefinedLibrary name="Node.js Core" />
+    <includedPredefinedLibrary name="WebGL" />
+  </component>
+</project>

@@ -14,7 +14,6 @@ module.exports = function (app) {
                 res.send(err);
             }
 
-            res.header("Access-Control-Allow-Origin", "*");
             res.json(users);
         });
     });
@@ -26,20 +25,17 @@ module.exports = function (app) {
                 res.send(err);
             }
 
-            res.header("Access-Control-Allow-Origin", "*");
             res.json(user);
         });
     });
 
     // GET SHARE BY USERID
     app.get('/api/share/user/:id',function(req, res){
-
-        res.header("Access-Control-Allow-Origin", "*");
-
         Share.find({userid:req.params.id}, function(err,share){
             if(err){
                 res.send(err);
             }
+
             res.json(share);
         });
     });
@@ -55,10 +51,10 @@ module.exports = function (app) {
         newShare.lng = req.body.lng;
 
         newShare.save(function (err) {
-            if (err)
+            if (err){
                 res.send(err);
+            }
 
-            res.header("Access-Control-Allow-Origin", "*");
             res.json({ share : newShare });
         });
     });

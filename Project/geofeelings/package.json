@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "geofeelings",
   "version": "1.0.0",
-  "description": "geofeelings backend project",
+  "description": "geofeelings project",
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",

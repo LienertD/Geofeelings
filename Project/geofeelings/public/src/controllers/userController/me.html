@@ -1,4 +1,4 @@
-<div ng-controller="userController" class="content-wrapper">
+<div ng-controller="meController" class="content-wrapper">
     <div class="title" data-target="#me-show-info" data-toggle="collapse">
         <h3>Show profile</h3>
     </div>
@@ -7,7 +7,7 @@
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
-                <span>Naam</span>
+                <span>{{ user.username }}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -93,15 +93,11 @@
         </div>
     </div>
     <div class="navigation">
-        <a href="#/search">
-            <button class="btn btn-default btn-raised pull-left"><span
-                    class="glyphicon glyphicon-arrow-left"></span> Back
-            </button>
-        </a>
-        <a href="#/event">
-            <button class="btn btn-default btn-raised pull-right">Save <span
-                    class="glyphicon glyphicon-ok"></span>
-            </button>
-        </a>
+        <button ng-click="logout()" class="btn btn-default btn-raised pull-left">Logout <span
+                class="glyphicon glyphicon-off"></span>
+        </button>
+        <button ng-click="save()" class="btn btn-default btn-raised pull-right">Save <span
+                class="glyphicon glyphicon-ok"></span>
+        </button>
     </div>
 </div>

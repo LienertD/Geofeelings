@@ -13,5 +13,6 @@
     <orderEntry type="library" name="jquery-1.11.3" level="application" />
     <orderEntry type="library" name="jquery.signalr-2.1.0" level="application" />
     <orderEntry type="library" name="less" level="application" />
+    <orderEntry type="library" name="Geofeelings node_modules" level="project" />
   </component>
 </module>
