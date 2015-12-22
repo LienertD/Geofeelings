@@ -7,7 +7,7 @@ var EventSchema = mongoose.Schema({
     eventname : String,
     eventimage : Buffer,
     from : Date,
-    to : Date,
+    until : Date,
     lat : Number,
     lng : Number
 });

@@ -9,7 +9,9 @@ var User = require("../models/user.js");
 var Share = require('../models/share.js');
 var Event = require('../models/event.js');
 
-router.route('/users')
+// USERS
+
+router.route('/user')
     .get(function (req, res) {
         User.find(function (err, users) {
             if(err){
@@ -60,6 +62,8 @@ router.route('/user/:id')
         })
     });
 
+// SHARES
+
 router.route('/share')
     .post(function (req, res) {
         var newShare = new Share();
@@ -81,12 +85,23 @@ router.route('/share')
 
 router.route('/share/:userid')
     .get(function (req, res) {
-        Share.find({ userid : req.params.userid }, function (err, share) {
+        Share.find({ userid : req.params.userid }, function (err, shares) {
             if(err){
                 res.send(err);
             }
 
-            res.json(share);
+            res.json(shares);
+        });
+    });
+
+router.route('/share/:eventid')
+    .get(function (req, res) {
+        Share.find({ eventid : req.params.eventid }, function (err, shares) {
+            if(err){
+                res.send(err);
+            }
+
+            res.json(shares);
         });
     });
 
@@ -98,6 +113,37 @@ router.route('/share/:id')
             }
 
             res.json({ message : "Share with " + share._id + " deleted."});
+        });
+    });
+
+// EVENTS
+
+router.route('/event')
+    .get(function (req, res) {
+        Event.find(function (err, events) {
+            if(err){
+                res.send(err);
+            }
+
+            res.json(events);
+        });
+    })
+
+    .post(function (reg, res) {
+        var newEvent = new Event();
+        newEvent.eventname = req.body.eventname;
+        newEvent.eventimage = req.body.eventimage;
+        newEvent.from = req.body.from;
+        newEvent.until = req.body.until;
+        newEvent.lat = req.body.lat;
+        newEvent.lng = req.body.lng;
+
+        newEvent.save(function (err) {
+            if (err){
+                res.send(err);
+            }
+
+            res.json({ event : newEvent });
         });
     });
 
