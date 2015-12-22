@@ -2,74 +2,71 @@
  * Created by Jonatan on 13/12/2015.
  */
 
-module.exports = function(app, passport) {
-    // Loader
-    app.get('/', function (req, res) {
-        res.sendFile('./public/index.html');
+var express = require('express');
+var passport = require('passport');
+var router = express.Router();
 
-    });
+router.route('/logout').get(function (req, res) {
+    req.logout();
+    res.json({ redirect : '/logout' });
+});
 
-    // Logout
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.json({ redirect : '/logout' });
-    });
+router.route('/login').post(function (req, res) {
+    if (!req.body.username || !req.body.password) {
+        return res.json({ error: 'All fields are required' });
+    }
 
-    // Login
-    app.post('/login', function(req, res) {
-        if (!req.body.username || !req.body.password) {
-            return res.json({ error: 'All fields are required' });
+    passport.authenticate('login', function (err, user) {
+        if (err) {
+            return res.json(err);
         }
 
-        passport.authenticate('login', function (err, user) {
+        if (user.error) {
+            return res.json({ error : user.error });
+        }
+
+        req.logIn(user, function(err) {
+            if(err) {
+                return res.json(err);
+            }
+
+            if(user.admin) {
+                return res.json({ redirect : '/admin' });
+            }
+
+            return res.json({ redirect : '/me' });
+        });
+    })(req, res);
+});
+
+router.route('/register').post(function (req, res) {
+    if (!req.body.username || !req.body.email || !req.body.password) {
+        return res.json({ error: 'All fields are required' });
+    }
+    passport.authenticate('register', function(err, user) {
+        if (err) {
+            return res.json(err);
+        }
+
+        if (user.error) {
+            return res.json({ error: user.error });
+        }
+
+        req.logIn(user, function(err) {
             if (err) {
                 return res.json(err);
             }
 
-            if (user.error) {
-                return res.json({ error : user.error });
-            }
+            return res.json({ redirect: '/me' });
+        });
+    })(req, res);
+});
 
-            req.logIn(user, function(err) {
-                if(err) {
-                    return res.json(err);
-                }
+router.route('/user').get(isLoggedIn, function (req, res) {
+    return res.json(req.user);
+});
 
-                return res.json({ redirect : '/me' });
-            });
-        })(req, res);
-    });
-
-    // Register
-    app.post('/register', function(req, res) {
-        if (!req.body.username || !req.body.email || !req.body.password) {
-            return res.json({ error: 'All fields are required' });
-        }
-        passport.authenticate('register', function(err, user) {
-            if (err) {
-                return res.json(err);
-            }
-
-            if (user.error) {
-                return res.json({ error: user.error });
-            }
-
-            req.logIn(user, function(err) {
-                if (err) {
-                    return res.json(err);
-                }
-
-                return res.json({ redirect: '/me' });
-            });
-        })(req, res);
-    });
-
-    app.get('/user', isLoggedIn, function(req, res) {
-        return res.json(req.user);
-    });
-};
-
-// User logged in
+// CHECK IF USER IS LOGGED IN
 function isLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
         return res.json({ redirect : '/login' });
@@ -77,3 +74,5 @@ function isLoggedIn(req, res, next) {
         next();
     }
 }
+
+module.exports = router;

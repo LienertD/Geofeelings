@@ -35,7 +35,7 @@
         };
 
         var getSharesByUserId = function (userid) {
-            var url = 'http://localhost:3000/api/share/user/' + userid;
+            var url = 'http://localhost:3000/api/share/' + userid; //NIEUW PAD!!! (al aangepast)
             return $http.get(url).then(function (response) {
 
                 var sharesfound = [];

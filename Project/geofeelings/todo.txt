@@ -6,3 +6,8 @@ TODO BACKEND
 
 API's Backend:
 > getSharesByUserId (spreekt voor zichzelf)
+
+TODO FRONTEND
+
+> Update ingelogde user
+> geocodingService schrijven

@@ -17,7 +17,7 @@ module.exports = function (passport) {
         });
     });
 
-    // login
+    // LOGIN
     passport.use('login', new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password',
@@ -48,7 +48,7 @@ module.exports = function (passport) {
         });
     }));
 
-    // register
+    // REGISTER
     passport.use('register', new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password',

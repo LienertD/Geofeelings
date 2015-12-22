@@ -5,9 +5,9 @@
 (function () {
     "use strict";
 
-    var meController = function ( $scope, $http, $location) {
+    var meController = function ($scope, $http, $location) {
         $scope.user = {};
-        $http.get('/user').success(function(data) {
+        $http.get('/auth/user').success(function(data) {
             if(data.redirect) {
                 $location.path(data.redirect);
             } else {
@@ -17,13 +17,13 @@
         });
 
         $scope.logout = function() {
-            $http.get('/logout').success(function (data) {
+            $http.get('/auth/logout').success(function (data) {
                 $location.path(data.redirect);
             });
         };
 
         $scope.save = function() {
-
+            // API aanspreken => /api/user
         };
     };
 

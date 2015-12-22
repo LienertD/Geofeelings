@@ -10,9 +10,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+var root = require('./routes/root.js');
+var auth = require('./routes/auth.js');
+var api = require('./routes/api.js');
+
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
-
 require('./config/passport')(passport);
 
 app.use(logger('dev'));
@@ -24,10 +27,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public/src/')));
-
-require('./routes/auth.js')(app, passport);
-require('./routes/api.js')(app);
-
+app.use('/', root);
+app.use('/auth', auth);
+app.use('/api', api);
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
