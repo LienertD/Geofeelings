@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -13,20 +12,23 @@ var session = require('express-session');
 var root = require('./routes/root.js');
 var auth = require('./routes/auth.js');
 var api = require('./routes/api.js');
-
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.url);
+
 require('./config/passport')(passport);
 
-app.use(logger('dev'));
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({ secret : 'secretsession', resave : true, saveUninitialized : true }));
+app.use(session({ secret : 'supersecretsession' , resave : false, saveUninitialized : false}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+mongoose.connect(configDB.url);
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended : false }));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public/src/')));
+
 app.use('/', root);
 app.use('/auth', auth);
 app.use('/api', api);

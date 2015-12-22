@@ -22,6 +22,7 @@
     "connect-flash": "latest",
     "passport-local": "latest",
     "bcrypt": "latest",
-    "express-session": "latest"
+    "express-session": "1.4.0",
+    "cookie-session": "latest"
   }
 }
