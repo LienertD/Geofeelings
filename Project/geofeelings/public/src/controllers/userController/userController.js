@@ -30,9 +30,7 @@
         };
 
         var giveFeelingsImageArrayNumber = function (res) {
-            if (res.mood === 100) {
-                console.log(res);
-                console.log("dendeen heeft 100");
+            if (res.mood > 80) {
                 return 4;
             }
             else {
@@ -40,7 +38,14 @@
             }
         };
 
+        $scope.test = function(share)
+        {
+            $scope.map.setCenter(new google.maps.LatLng(share.lat, share.lng));
+            $scope.map.setZoom(19);
+        };
+
         var sharesFoundWithId = function (res) {
+            console.log(res);
 
             $scope.shareFoundWithUserId = res;
 
@@ -74,8 +79,6 @@
                     maxLng = res.lng;
                 }
 
-                console.log(giveFeelingsImageArrayNumber(res));
-
                 $scope.marker = new google.maps.Marker({
                     position: {lat: res.lat, lng: res.lng},
                     map: $scope.map,
@@ -92,11 +95,8 @@
                 gemLng = ((maxLng - minLng) / 2) + minLng;
             }
 
-            console.log("lat "+(maxLat-minLat));
-            console.log("lng "+(maxLng-minLng));
-
             $scope.map.setCenter(new google.maps.LatLng(gemLat, gemLng));
-            $scope.map.setZoom(12);
+            $scope.map.setZoom(14);
             //klaar met markers plaatsen en kaart verplaatsen naar hun gemiddelde
         };
     };

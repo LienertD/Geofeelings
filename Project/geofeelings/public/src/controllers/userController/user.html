@@ -4,6 +4,7 @@
     </div>
     <div id="user-info" class="collapse in">
         <img src="http://student.howest.be/lienert.deprez/files/vriendje.png" alt="profile">
+
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-user"></span>
@@ -16,6 +17,7 @@
             <div>
                 <span class="glyphicon glyphicon-home"></span>
                 <span>N{{userfoundwithid.lat}} E{{userfoundwithid.lng}}</span>
+
                 <p><span></span></p>
             </div>
         </div>
@@ -24,11 +26,13 @@
     <div class="title" data-target="#user-shares" data-toggle="collapse" ng-show="shareFoundWithUserId">
         <h3>Recent shares</h3>
     </div>
-    <div id="user-shares" class="collapse">
+    <div id="user-shares" class="collapse in">
         <ul class="list">
-            <li ng-repeat = "share in shareFoundWithUserId">
-                <p>Id: {{share.id}}</p>
+            <li ng-repeat="share in shareFoundWithUserId" ng-click="test(share)">
+
                 <p>Mood: {{share.mood}}</p>
+                <p ng-show="share.time">Date: {{share.time | date:"dd/MM/yy HH:mm"}}</p>
+
             </li>
 
         </ul>
@@ -41,8 +45,10 @@
         <ul class="list">
             <li>
                 <img src="./assets/event.png" alt="event" width="100" height="100">
+
                 <div>
                     <span>Event 1</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <a href="#/event">
@@ -52,8 +58,10 @@
             </li>
             <li>
                 <img src="./assets/event.png" alt="event" width="100" height="100">
+
                 <div>
                     <span>Event 2</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <a href="#/event">
@@ -63,8 +71,10 @@
             </li>
             <li>
                 <img src="./assets/event.png" alt="event" width="100" height="100">
+
                 <div>
                     <span>Event 3</span>
+
                     <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
                 </div>
                 <a href="#/event">

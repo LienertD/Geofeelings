@@ -62,14 +62,19 @@ router.route('/user/:id')
         })
     });
 
+<<<<<<< HEAD
 // SHARES
 
 router.route('/share')
     .post(function (req, res) {
+=======
+    // POST SHARE
+    app.post('/api/share', function (req, res) {
+>>>>>>> origin/master
         var newShare = new Share();
         newShare.userid = req.body.userid;
         newShare.eventid = req.body.eventid;
-        newShare.time = req.body.timestamp;
+        newShare.time = req.body.time;
         newShare.mood = req.body.mood;
         newShare.lat = req.body.lat;
         newShare.lng = req.body.lng;

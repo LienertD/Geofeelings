@@ -100,7 +100,16 @@
 
         $scope.postShare = function () {
             navigator.geolocation.getCurrentPosition(function (position) {
-                var data = { "userid": '5666d21305b4a8ba46e21983', "eventid": 0,"time":Date.now,"mood":$scope.sliderValue,"lat":position.coords.latitude,"lng": position.coords.longitude};
+                var data = {
+                    "userid": '5666d21305b4a8ba46e21983',
+                    "eventid": 0,
+                    "time":new Date().toISOString(),
+                    "mood":$scope.sliderValue,
+                    "lat":position.coords.latitude,
+                    "lng": position.coords.longitude
+                };
+
+                console.log(data);
 
                 $http({
                     url: 'http://localhost:3000/api/share',
@@ -109,11 +118,9 @@
                     headers: { 'Content-Type': 'application/json' }
                 }).
                     success(function (serverData) {
-                        console.log("Share gelukt!!1!!l");
+                        console.log("share gepost");
                     });
             });
-
-
         };
     };
 

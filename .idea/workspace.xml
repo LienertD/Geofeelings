@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edd090a4-fad1-4c37-8216-0a98b1173ee9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/routes/api.js" afterPath="$PROJECT_DIR$/Project/geofeelings/routes/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro_sharedController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/js/app.min.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/dist/js/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/gulpfile.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro_shared.html" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro_shared.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/mainController/mainController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/mainController/mainController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/models/share.js" afterPath="$PROJECT_DIR$/Project/geofeelings/models/share.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/user.html" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/user.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/userController.js" afterPath="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/userController/userController.js" />
     </list>
     <ignored path="Geofeelings.iws" />
@@ -52,11 +54,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gfShare.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gfShare.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/geofeelings/routes/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchResult.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/SearchResult.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchService.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.53120464">
+              <caret line="43" column="98" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -101,13 +133,14 @@
         <option value="$PROJECT_DIR$/Project/geofeelings/geofeelings/public/src/controllers/introController/intro.html" />
         <option value="$PROJECT_DIR$/Project/geofeelings/geofeelings/public/src/services/searchService.js" />
         <option value="$PROJECT_DIR$/Project/geofeelings/geofeelings/public/src/models/gfUser.js" />
-        <option value="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfUser.js" />
         <option value="$PROJECT_DIR$/Project/geofeelings/todo.txt" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/less/site.less" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/intro.html" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js" />
         <option value="$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js" />
+        <option value="$PROJECT_DIR$/Project/geofeelings/routes/api.js" />
+        <option value="$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js" />
       </list>
     </option>
   </component>
@@ -125,7 +158,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="974" />
-    <option name="height" value="1087" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -150,8 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -518,6 +549,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -580,17 +613,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
-    <editor active="false" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29475984" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37554586" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21839081" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22028354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -619,6 +652,40 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+          <folding>
+            <element signature="e#445#2325#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/models/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/gfShare.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/searchController/searchController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/introController/introController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -810,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/geofeelings/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33297873">
@@ -862,21 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/SearchResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/controllers/searchController/searchController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -907,6 +951,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/models/SearchResult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/geofeelings/public/src/services/searchService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53120464">
+          <caret line="43" column="98" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
           <folding />
         </state>
       </provider>

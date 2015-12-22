@@ -7,7 +7,7 @@
 
     var mainController = function ($scope) {
         if (navigator.geolocation) {
-            $scope.image = "./assets/common.png";
+            $scope.image = "./assets/location_now.png";
             $scope.mapOptions = {
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
