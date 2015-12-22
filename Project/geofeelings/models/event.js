@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var EventSchema = mongoose.Schema({
     eventname : String,
     eventimage : Buffer,
+    authorid : String,
     from : Date,
     until : Date,
     lat : Number,

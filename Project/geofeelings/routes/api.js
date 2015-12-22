@@ -40,7 +40,6 @@ router.route('/user/:id')
             }
 
             if(req.body.username && req.body.email) {
-                console.log(req.body.username);
                 user.username = req.body.username;
                 user.email = req.body.email;
                 user.userimage = req.body.userimage;
@@ -57,20 +56,24 @@ router.route('/user/:id')
                     res.json(user);
                 });
             } else {
-                res.json({ message : "username and email must be valid and not empty." });
+                res.json({ error : "username and email must be valid and not empty." });
             }
         })
     });
 
-<<<<<<< HEAD
 // SHARES
-
 router.route('/share')
+    .get(function (req, res) {
+        Share.find(function (err, shares) {
+            if(err){
+                res.send(err);
+            }
+
+            res.json(shares);
+        });
+    })
+
     .post(function (req, res) {
-=======
-    // POST SHARE
-    app.post('/api/share', function (req, res) {
->>>>>>> origin/master
         var newShare = new Share();
         newShare.userid = req.body.userid;
         newShare.eventid = req.body.eventid;
@@ -112,17 +115,16 @@ router.route('/share/:eventid')
 
 router.route('/share/:id')
     .delete(function (req, res) {
-        Share.findById(req.params.id, function (err, share) {
+        Share.findByIdAndRemove(req.params.id, function (err, share) {
             if(err){
                 res.send(err);
             }
 
-            res.json({ message : "Share with " + share._id + " deleted."});
+            res.json({ message : "Share with id " + share._id + " is deleted."});
         });
     });
 
 // EVENTS
-
 router.route('/event')
     .get(function (req, res) {
         Event.find(function (err, events) {
@@ -134,7 +136,7 @@ router.route('/event')
         });
     })
 
-    .post(function (reg, res) {
+    .post(function (req, res) {
         var newEvent = new Event();
         newEvent.eventname = req.body.eventname;
         newEvent.eventimage = req.body.eventimage;
@@ -149,6 +151,54 @@ router.route('/event')
             }
 
             res.json({ event : newEvent });
+        });
+    });
+
+router.route('/event/:id')
+    .get(function (req, res) {
+        Event.findById(req.params.id, function (err, event) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json(event);
+        });
+    })
+
+    .put(function (req, res) {
+        Event.findById(req.params.id, function (err, event) {
+            if (err) {
+                res.send(err);
+            }
+
+            if(req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
+                event.eventname = req.body.eventname;
+                event.authorid = req.body.authorid;
+                event.from = req.body.from;
+                event.until = req.body.until;
+                event.lat = req.body.lat;
+                event.lng = req.body.lng;
+
+                event.save(function (err) {
+                    if (err) {
+                        res.send(err);
+                    }
+
+                    res.json(event);
+                });
+            } else {
+                res.json({ error : "All fields are required except eventimage." });
+            }
+        })
+    })
+
+    .delete(function (req, res) {
+        Event.findByIdAndRemove(req.params.id, function (err, event) {
+            if(err){
+                res.send(err);
+            }
+
+            res.json({ message : "Event with id " + event._id + " is deleted."});
         });
     });
 
