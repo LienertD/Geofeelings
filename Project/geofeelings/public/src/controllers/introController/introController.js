@@ -14,63 +14,76 @@
         var c = document.getElementById("smileyCanvas");
         var ctx = c.getContext("2d");
 
+        var sadRGB = [152, 30, 30];
+        var happyRGB = [70, 161, 73];
+
         //telkens slidervalue verandert gezichtje tekenen
-        $scope.$watch("sliderValue", function (newValue, oldValue) {
+        $scope.$watch("sliderValue", function () {
             ctx.clearRect(0, 0, c.width, c.height); //canvas clearen voor nieuw frame
 
             var mood = $scope.sliderValue;
             giveMoodWord();
             //offset positie mond
-            var offsetX = c.width/5;
-            var offSetY = c.width/2.14 + (mood / (c.width/6));
+            var offsetX = c.width / 5;
+            var offSetY = c.width / 2.14 + (mood / (c.width / 6));
 
             //variabelen voor beziercurve (= mond)
             var SPx = offsetX;
-            var SPy = offSetY + 100 - (mood / 10 * 8);
+            var SPy = offSetY + c.width / 3 - (mood * (c.width / 376.66));
             var H1x = offsetX;
-            var H1y = offSetY + (mood / 10 * 12);
-            var H2x = offsetX + 180;
-            var H2y = offSetY + (mood / 10 * 12);
-            var EPx = offsetX + (c.width/1.666);
-            var EPy = offSetY + 100 - (mood / 10 * 8);
-
-            //rood en groen bereken voor achtergrond hoofd
-            var bgR = Math.round(170 - (mood / 100) * 170);
-            var bgG = Math.round(mood / 100 * 132);
+            var H1y = offSetY + (mood * (c.width / 250));
+            var H2x = offsetX + ((c.width / 300) * 180);
+            var H2y = offSetY + (mood * (c.width / 250));
+            var EPx = offsetX + (c.width / 1.666);
+            var EPy = offSetY + (c.width / 3) - (mood * (c.width / 376.66));
 
             //hoofd
-            ctx.lineWidth = c.width/60;
+            ctx.lineWidth = c.width / 60;
             ctx.beginPath();
-            ctx.arc((c.width/2), (c.width/2), (c.width/2.07), 0, 2 * Math.PI);
-            ctx.fillStyle = "rgb(" + bgR + "," + bgG + ",0)";
+            ctx.arc((c.width / 2), (c.width / 2), (c.width / 2.07), 0, 2 * Math.PI);
+            ctx.fillStyle = "rgb(" + moodColor(0) + "," + moodColor(1) + "," + moodColor(2) + ")";
             ctx.fill();
+            ctx.strokeStyle = 'white';
             ctx.stroke();
 
             //mond
 
-            ctx.lineWidth = c.width/30;
+            ctx.lineWidth = c.width / 30;
             ctx.beginPath();
             ctx.moveTo(SPx, SPy);
             ctx.bezierCurveTo(H1x, H1y, H2x, H2y, EPx, EPy);
+            ctx.strokeStyle = 'black';
             ctx.stroke();
             ctx.lineCap = "round";
 
             //oog links
 
-            ctx.lineWidth = c.width/60;
+            ctx.lineWidth = c.width / 60;
             ctx.beginPath();
-            ctx.arc(c.width/3, c.width/3, c.width/15, 0, 2 * Math.PI);
+            ctx.arc(c.width / 3, c.width / 3, c.width / 15, 0, 2 * Math.PI);
             ctx.fillStyle = 'black';
             ctx.fill();
             ctx.stroke();
 
             //oog rechts
             ctx.beginPath();
-            ctx.arc(c.width/3*2, c.width/3, c.width/15, 0, 2 * Math.PI);
+            ctx.arc(c.width / 3 * 2, c.width / 3, c.width / 15, 0, 2 * Math.PI);
             ctx.fillStyle = 'black';
             ctx.fill();
             ctx.stroke();
         });
+
+        var moodColor = function (c) {
+            //c: R = 0, G = 1, B = 2
+
+            if (sadRGB[c] > happyRGB[c]) {
+                return Math.round(sadRGB[c] - ((sadRGB[c] - happyRGB[c]) * ($scope.sliderValue / 100)));
+            }
+            else {
+                return Math.round(sadRGB[c] + ((happyRGB[c] - sadRGB[c]) * ($scope.sliderValue / 100)));
+            }
+
+        };
 
         var moodwords = ["horrible", "really bad", "bad", "okay", "good", "really good", "excellent"];
 
@@ -103,9 +116,9 @@
                 var data = {
                     "userid": '5666d21305b4a8ba46e21983',
                     "eventid": 0,
-                    "time":new Date().toISOString(),
-                    "mood":$scope.sliderValue,
-                    "lat":position.coords.latitude,
+                    "time": new Date().toISOString(),
+                    "mood": $scope.sliderValue,
+                    "lat": position.coords.latitude,
                     "lng": position.coords.longitude
                 };
 
@@ -115,7 +128,7 @@
                     url: 'http://localhost:3000/api/share',
                     method: 'POST',
                     data: data,
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: {'Content-Type': 'application/json'}
                 }).
                     success(function (serverData) {
                         console.log("share gepost");
@@ -124,5 +137,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope","$http", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope", "$http", introController]);
 })();

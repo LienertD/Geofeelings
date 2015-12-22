@@ -3,3 +3,6 @@ Project/geofeelings/.idea/dictionaries/Jonatan.xml
 Project/geofeelings/.idea/misc.xml
 .idea/workspace.xml
 node_modules
+*.xml
+Project/geofeelings/.idea/jsLibraryMappings.xml
+*.xml
