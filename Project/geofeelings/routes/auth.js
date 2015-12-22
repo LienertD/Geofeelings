@@ -35,7 +35,7 @@ module.exports = function(app, passport) {
                     return res.json(err);
                 }
 
-                return res.json({ redirect : '/user' });
+                return res.json({ redirect : '/me' });
             });
         })(req, res);
     });
@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
                     return res.json(err);
                 }
 
-                return res.json({ redirect: '/user' });
+                return res.json({ redirect: '/me' });
             });
         })(req, res);
     });
