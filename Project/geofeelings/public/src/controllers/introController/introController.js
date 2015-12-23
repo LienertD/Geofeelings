@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var introController = function ($scope, $http) {
+    var introController = function ($scope, shareService) {
 
 
         //SMILEY TEKENEN
@@ -122,20 +122,12 @@
                     "lng": position.coords.longitude
                 };
 
-                console.log(data);
+                shareService.postShare(data);
 
-                $http({
-                    url: 'http://localhost:3000/api/share',
-                    method: 'POST',
-                    data: data,
-                    headers: {'Content-Type': 'application/json'}
-                }).
-                    success(function (serverData) {
-                        console.log("share gepost");
-                    });
+
             });
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope", "$http", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope","shareService", "$http", introController]);
 })();

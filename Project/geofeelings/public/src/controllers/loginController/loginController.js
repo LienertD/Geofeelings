@@ -7,7 +7,7 @@
 
     var loginController = function ($scope, $http, $location) {
         $scope.login = function () {
-            $http.post('/auth/login', {
+            $http.post('http://localhost:3000/auth/login', {
                 username : $scope.username,
                 password : $scope.password
             }).success(function (data) {
@@ -17,7 +17,7 @@
         };
 
         $scope.register = function() {
-            $http.post('/auth/register', {
+            $http.post('http://localhost:3000/auth/register', {
                 username : $scope.username,
                 password : $scope.password,
                 email : $scope.email

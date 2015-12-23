@@ -6,6 +6,7 @@
     "use strict";
 
     var intro_sharedController = function ($scope, $http) {
+        console.log( $scope.sharedShare);
 
     };
     angular.module("geofeelings").controller("intro_sharedController", ["$scope","$http", intro_sharedController]);
