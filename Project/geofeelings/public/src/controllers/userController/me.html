@@ -63,7 +63,7 @@
     <div class="title" data-target="#me-edit-info" data-toggle="collapse">
         <h3>Edit profile</h3>
     </div>
-    <form id="me-edit-info" class="collapse">
+    <form id="me-edit-info" class="collapse" enctype="multipart/form-data"> <!-- DO NOT TOUTCH THIS => FILEUPLOAD IS A PIECE OF SHIT :( -->
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
@@ -82,7 +82,7 @@
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
-            <input type="file" class="form-control" name="avatar">
+            <input type="file" class="form-control" name="userimage">
         </div>
         <div class="checkbox-wrapper">
             <p>Chat<span>enabaled</span></p>

@@ -3,9 +3,9 @@
  */
 
 var express = require('express');
+var multer = require('multer');
 var router = express.Router();
-var multer  = require('multer');
-var upload = multer({ dest: __dirname + '../uploads/' });
+var upload = multer({ dest : './uploads/' });
 
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
@@ -43,7 +43,9 @@ router.route('/user/:id')
         }
     })
 
-    .put(upload.single('avatar'), function (req, res) {
+    .put(upload.single('userimage'), function (req, res) {
+        console.log(req.file);
+        console.log(req.files);
         if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {
@@ -76,6 +78,7 @@ router.route('/user/:id')
     });
 
 // SHARES
+
 router.route('/share')
     .get(function (req, res) {
         if (req.user) {
@@ -160,6 +163,7 @@ router.route('/share/:id')
     });
 
 // EVENTS
+
 router.route('/event')
     .get(function (req, res) {
         if (req.user) {
