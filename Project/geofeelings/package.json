@@ -30,13 +30,12 @@
     "gulp-sourcemaps": "latest",
     "gulp-concat": "latest",
     "gulp-less": "latest",
-    "gulp-jshint": "~1.8.0",
+    "gulp-jshint": "latest",
     "jshint-stylish": "latest",
     "gulp-notify": "latest",
     "gulp-uglify": "latest",
     "gulp-webpack": "latest",
     "webpack-stream": "latest",
-    "multer": "latest",
-    "cloudinary": "latest"
+    "multer": "latest"
   }
 }

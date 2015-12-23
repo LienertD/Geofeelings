@@ -8,7 +8,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var cloudinary = require('cloudinary');
 var multer = require('multer');
 
 var root = require('./routes/root.js');
@@ -30,13 +29,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-});
 app.use('/', root);
 app.use('/auth', auth);
 app.use('/api', api);

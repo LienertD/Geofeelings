@@ -11,6 +11,16 @@ var User = require("../models/user.js");
 var Share = require('../models/share.js');
 var Event = require('../models/event.js');
 
+// SET HEADERS
+
+router.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 // USERS
 
 router.route('/user')
@@ -28,6 +38,7 @@ router.route('/user')
         }
     });
 
+// upload.single('userimage'),
 router.route('/user/:id')
     .get(function (req, res) {
         if (req.user) {
@@ -43,7 +54,7 @@ router.route('/user/:id')
         }
     })
 
-    .put(upload.single('userimage'), function (req, res) {
+    .put(function (req, res) {
         console.log(req.file);
         console.log(req.files);
         if (req.user) {
