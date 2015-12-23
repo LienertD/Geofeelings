@@ -5,7 +5,7 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var upload = multer({ dest : './uploads/' });
+var upload = multer({dest: './uploads/'});
 
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
@@ -13,7 +13,7 @@ var Event = require('../models/event.js');
 
 // SET HEADERS
 
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
@@ -27,14 +27,15 @@ router.route('/user')
     .get(function (req, res) {
         if (req.user) {
             User.find(function (err, users) {
-                if(err){
+                if (err) {
                     res.send(err);
                 }
 
                 res.json(users);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
@@ -50,20 +51,19 @@ router.route('/user/:id')
                 res.json(user);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     })
 
     .put(function (req, res) {
-        console.log(req.file);
-        console.log(req.files);
         if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {
                     res.send(err);
                 }
 
-                if(req.body.username && req.body.email) {
+                if (req.body.username && req.body.email) {
                     user.username = req.body.username;
                     user.email = req.body.email;
                     user.userimage = req.body.userimage;
@@ -80,11 +80,12 @@ router.route('/user/:id')
                         res.json(user);
                     });
                 } else {
-                    res.json({ error : "username and email must be valid and not empty." });
+                    res.json({error: "username and email must be valid and not empty."});
                 }
             })
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
@@ -94,14 +95,15 @@ router.route('/share')
     .get(function (req, res) {
         if (req.user) {
             Share.find(function (err, shares) {
-                if(err){
+                if (err) {
                     res.send(err);
                 }
 
                 res.json(shares);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     })
 
@@ -116,44 +118,47 @@ router.route('/share')
             newShare.lng = req.body.lng;
 
             newShare.save(function (err) {
-                if (err){
+                if (err) {
                     res.send(err);
                 }
 
-                res.json({ share : newShare });
+                res.json({share: newShare});
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
 router.route('/share/:userid')
     .get(function (req, res) {
         if (req.user) {
-            Share.find({ userid : req.params.userid }, function (err, shares) {
-                if(err){
+            Share.find({userid: req.params.userid}, function (err, shares) {
+                if (err) {
                     res.send(err);
                 }
 
                 res.json(shares);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
 router.route('/share/:eventid')
     .get(function (req, res) {
         if (req.user) {
-            Share.find({ eventid : req.params.eventid }, function (err, shares) {
-                if(err){
+            Share.find({eventid: req.params.eventid}, function (err, shares) {
+                if (err) {
                     res.send(err);
                 }
 
                 res.json(shares);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
 
     });
@@ -162,14 +167,15 @@ router.route('/share/:id')
     .delete(function (req, res) {
         if (req.user.admin) {
             Share.findByIdAndRemove(req.params.id, function (err, share) {
-                if(err){
+                if (err) {
                     res.send(err);
                 }
 
-                res.json({ message : "Share with id " + share._id + " is deleted."});
+                res.json({message: "Share with id " + share._id + " is deleted."});
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
@@ -179,14 +185,15 @@ router.route('/event')
     .get(function (req, res) {
         if (req.user) {
             Event.find(function (err, events) {
-                if(err){
+                if (err) {
                     res.send(err);
                 }
 
                 res.json(events);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     })
 
@@ -201,14 +208,15 @@ router.route('/event')
             newEvent.lng = req.body.lng;
 
             newEvent.save(function (err) {
-                if (err){
+                if (err) {
                     res.send(err);
                 }
 
-                res.json({ event : newEvent });
+                res.json({event: newEvent});
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 
@@ -223,18 +231,19 @@ router.route('/event/:id')
                 res.json(event);
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     })
 
     .put(function (req, res) {
-        if(req.user) {
+        if (req.user) {
             Event.findById(req.params.id, function (err, event) {
                 if (err) {
                     res.send(err);
                 }
 
-                if(req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
+                if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
                     event.eventname = req.body.eventname;
                     event.authorid = req.body.authorid;
                     event.from = req.body.from;
@@ -250,25 +259,27 @@ router.route('/event/:id')
                         res.json(event);
                     });
                 } else {
-                    res.json({ error : "All fields are required except eventimage." });
+                    res.json({error: "All fields are required except eventimage."});
                 }
             })
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     })
 
     .delete(function (req, res) {
-        if(req.user.admin) {
+        if (req.user.admin) {
             Event.findByIdAndRemove(req.params.id, function (err, event) {
-                if(err){
+                if (err) {
                     res.send(err);
                 }
 
-                res.json({ message : "Event with id " + event._id + " is deleted."});
+                res.json({message: "Event with id " + event._id + " is deleted."});
             });
         } else {
-            res.json({ redirect : '/login' });
+            console.log("> User not logged in");
+            res.json({redirect: '/login'});
         }
     });
 

@@ -8,7 +8,7 @@ var router = express.Router();
 
 // SET HEADERS
 
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
@@ -21,7 +21,7 @@ router.use(function(req, res, next) {
 router.route('/logout')
     .get(function (req, res) {
         req.logout();
-        res.json({ redirect : '/logout' });
+        res.json({redirect: '/logout'});
     });
 
 // LOGIN
@@ -29,7 +29,7 @@ router.route('/logout')
 router.route('/login')
     .post(function (req, res) {
         if (!req.body.username || !req.body.password) {
-            return res.json({ error: 'All fields are required' });
+            return res.json({error: 'All fields are required'});
         }
 
         passport.authenticate('login', function (err, user) {
@@ -38,19 +38,19 @@ router.route('/login')
             }
 
             if (user.error) {
-                return res.json({ error : user.error });
+                return res.json({error: user.error});
             }
 
-            req.logIn(user, function(err) {
-                if(err) {
+            req.logIn(user, function (err) {
+                if (err) {
                     return res.json(err);
                 }
 
-                if(user.admin) {
-                    return res.json({ redirect : '/admin' });
+                if (user.admin) {
+                    return res.json({redirect: '/admin'});
                 }
 
-                return res.json({ redirect : '/me' });
+                return res.json({redirect: '/me'});
             });
         })(req, res);
     });
@@ -60,24 +60,24 @@ router.route('/login')
 router.route('/register')
     .post(function (req, res) {
         if (!req.body.username || !req.body.email || !req.body.password) {
-            return res.json({ error: 'All fields are required' });
+            return res.json({error: 'All fields are required'});
         }
 
-        passport.authenticate('register', function(err, user) {
+        passport.authenticate('register', function (err, user) {
             if (err) {
                 return res.json(err);
             }
 
             if (user.error) {
-                return res.json({ error: user.error });
+                return res.json({error: user.error});
             }
 
-            req.logIn(user, function(err) {
+            req.logIn(user, function (err) {
                 if (err) {
                     return res.json(err);
                 }
 
-                return res.json({ redirect: '/me' });
+                return res.json({redirect: '/me'});
             });
         })(req, res);
     });
@@ -92,7 +92,7 @@ router.route('/user')
 // CHECK IF USER IS LOGGED IN
 function isLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
-        return res.json({ redirect : '/login' });
+        return res.json({redirect: '/login'});
     } else {
         next();
     }
