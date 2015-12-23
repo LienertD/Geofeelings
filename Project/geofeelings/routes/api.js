@@ -4,6 +4,8 @@
 
 var express = require('express');
 var router = express.Router();
+var multer  = require('multer');
+var upload = multer({ dest: __dirname + '../uploads/' });
 
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
@@ -41,7 +43,7 @@ router.route('/user/:id')
         }
     })
 
-    .put(function (req, res) {
+    .put(upload.single('avatar'), function (req, res) {
         if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {

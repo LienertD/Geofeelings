@@ -11,12 +11,12 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
-                <span>20/12/1995</span>
+                <span>{{ user.age | date : 'MM/dd/yyyy' }}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
-                <span>kastanjebosstraat 1B</span>
-                <p><span>8490 Jabbeke[B]</span></p>
+                <span>{{ user.lat }}</span>
+                <p><span>{{ user.lng }}</span></p>
             </div>
         </div>
     </div>
@@ -66,28 +66,28 @@
     <form id="me-edit-info" class="collapse">
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-            <input type="text" class="form-control" placeholder="Username">
+            <input type="text" class="form-control" placeholder="Username" ng-model="user.username">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-            <input type="date" class="form-control">
+            <input type="date" class="form-control" ng-model="user.age">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-            <input type="text" class="form-control" placeholder="Street & Number">
+            <input type="text" class="form-control" placeholder="Street & Number" ng-model="user.lat">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-            <input type="text" class="form-control" placeholder="City & Zip">
+            <input type="text" class="form-control" placeholder="City & Zip" ng-model="user.lng">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="avatar">
         </div>
         <div class="checkbox-wrapper">
             <p>Chat<span>enabaled</span></p>
             <div class="checkbox">
-                <input type="checkbox" id="chat" name="chat">
+                <input type="checkbox" id="chat" name="chat" ng-model="user.chat">
                 <label for="chat"></label>
             </div>
         </div>
@@ -96,7 +96,7 @@
         <button ng-click="logout()" class="btn btn-default btn-raised pull-left">Logout <span
                 class="glyphicon glyphicon-off"></span>
         </button>
-        <button ng-click="save()" class="btn btn-default btn-raised pull-right">Save <span
+        <button ng-click="save(user)" class="btn btn-default btn-raised pull-right">Save <span
                 class="glyphicon glyphicon-ok"></span>
         </button>
     </div>

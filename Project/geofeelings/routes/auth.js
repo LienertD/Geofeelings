@@ -62,9 +62,10 @@ router.route('/register').post(function (req, res) {
     })(req, res);
 });
 
-router.route('/user').get(isLoggedIn, function (req, res) {
-    return res.json(req.user);
-});
+router.route('/user')
+    .get(isLoggedIn, function (req, res) {
+        return res.json(req.user);
+    });
 
 // CHECK IF USER IS LOGGED IN
 function isLoggedIn(req, res, next) {
