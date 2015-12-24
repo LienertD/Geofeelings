@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    var app = angular.module("geofeelings", ["ngRoute", "btford.socket-io"]);
+    var app = angular.module("geofeelings", ["ngRoute"]);
 
     app.config(function ($routeProvider) {
         $routeProvider
