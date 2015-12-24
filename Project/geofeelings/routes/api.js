@@ -5,7 +5,7 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var upload = multer({dest: './uploads/'});
+var upload = multer({ dest: './uploads/' });
 
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
@@ -39,7 +39,7 @@ router.route('/user')
         }
     });
 
-// upload.single('userimage'),
+//
 router.route('/user/:id')
     .get(function (req, res) {
         if (req.user) {
@@ -56,7 +56,8 @@ router.route('/user/:id')
         }
     })
 
-    .put(function (req, res) {
+    .put(upload.single('userimage'), function (req, res) {
+        console.log(req.file); //UNDIFINED
         if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {
