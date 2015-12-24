@@ -4,7 +4,7 @@
     var searchService = function ($http) {
 
         var search = function (searchString) {
-            var url = 'http://localhost:3000/api/user';
+            var url = 'http://localhost:3000/api/user/';
 
             return $http.get(url).then(function (response) {
 

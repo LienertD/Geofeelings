@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var introController = function ($scope, shareService) {
+    var introController = function ($scope, shareService, $http ) {
 
 
         //SMILEY TEKENEN
@@ -111,10 +111,15 @@
             }
         };
 
+        $http.get('/auth/user').success(function (data) {
+            console.log(data);
+            $scope.user = data;
+        });
+
         $scope.postShare = function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 var data = {
-                    "userid": '5666d21305b4a8ba46e21983',
+                    "userid": $scope.user._id,
                     "eventid": 0,
                     "time": new Date().toISOString(),
                     "mood": $scope.sliderValue,
@@ -129,5 +134,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope","shareService", "$http", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", introController]);
 })();
