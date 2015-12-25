@@ -5,12 +5,12 @@
 (function () {
     "use strict";
 
-    var userController = function ($scope, $location, searchService) {
+    var userController = function ($scope, $location, searchService, shareService, $routeParams) {
 
         $scope.init = function () {
-            var userid = $location.search().userid;
+            var userid = $routeParams.param;
             searchService.searchUserFromId(userid).then(userFoundWithId);
-            searchService.getSharesByUserId(userid).then(sharesFoundWithId); //IMPLEMENTEREN ALS JONATAN DE API FTIE HEEFT AANGEMAAKT
+            shareService.getSharesByUserId(userid).then(sharesFoundWithId); //IMPLEMENTEREN ALS JONATAN DE API FTIE HEEFT AANGEMAAKT
         };
 
         var userFoundWithId = function (res) {
@@ -29,6 +29,14 @@
             }
         };
 
+
+
+        $scope.test = function(share)
+        {
+            $scope.map.setCenter(new google.maps.LatLng(share.lat, share.lng));
+            $scope.map.setZoom(19);
+        };
+
         var giveFeelingsImageArrayNumber = function (res) {
             if (res.mood > 80) {
                 return 4;
@@ -38,15 +46,7 @@
             }
         };
 
-        $scope.test = function(share)
-        {
-            $scope.map.setCenter(new google.maps.LatLng(share.lat, share.lng));
-            $scope.map.setZoom(19);
-        };
-
         var sharesFoundWithId = function (res) {
-            console.log(res);
-
             $scope.shareFoundWithUserId = res;
 
             //markers plaatsen en kaart verplaatsen naar hun gemiddelde
@@ -79,10 +79,12 @@
                     maxLng = res.lng;
                 }
 
+                res.moodImageSource = "./assets/" + feelingImages[giveFeelingsImageArrayNumber(res)] + ".png";
+
                 $scope.marker = new google.maps.Marker({
                     position: {lat: res.lat, lng: res.lng},
                     map: $scope.map,
-                    icon: "./assets/" + feelingImages[giveFeelingsImageArrayNumber(res)] + ".png"
+                    icon: res.moodImageSource
                 });
             });
 
@@ -95,12 +97,14 @@
                 gemLng = ((maxLng - minLng) / 2) + minLng;
             }
 
+
+
             $scope.map.setCenter(new google.maps.LatLng(gemLat, gemLng));
             $scope.map.setZoom(14);
             //klaar met markers plaatsen en kaart verplaatsen naar hun gemiddelde
         };
     };
 
-    angular.module("geofeelings").controller("userController", ["$scope", "$location", "searchService", userController]);
+    angular.module("geofeelings").controller("userController", ["$scope", "$location", "searchService","shareService","$routeParams", userController]);
 })
 ();

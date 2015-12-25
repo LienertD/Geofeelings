@@ -10,11 +10,11 @@
                 <span class="glyphicon glyphicon-user"></span>
                 <span>{{userfoundwithid.username}}</span>
             </div>
-            <div>
+            <div ng-show="userfoundwithid.age">
                 <span class="glyphicon glyphicon-calendar"></span>
                 <span>{{userfoundwithid.age | date:"dd/MM/yyyy"}}</span>
             </div>
-            <div>
+            <div ng-show="userfoundwithid.lat || userfoundwithid.lng">
                 <span class="glyphicon glyphicon-home"></span>
                 <span>N{{userfoundwithid.lat}} E{{userfoundwithid.lng}}</span>
 
@@ -28,8 +28,9 @@
     </div>
     <div id="user-shares" class="collapse in">
         <ul class="list">
+            <p ng-hide="shareFoundWithUserId.length">{{userfoundwithid.username}} doesn't have any shares yet!</p>
             <li ng-repeat="share in shareFoundWithUserId" ng-click="test(share)">
-
+                <img ng-src="{{share.moodImageSource}}" alt="">
                 <p>Mood: {{share.mood}}</p>
                 <p ng-show="share.time">Date: {{share.time | date:"dd/MM/yy HH:mm"}}</p>
 

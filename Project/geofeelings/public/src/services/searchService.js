@@ -13,7 +13,6 @@
                     var newSR = new SearchResult(searchR._id, searchR.username);
                     arSearchResults.push(newSR);
                 });
-                console.log(arSearchResults);
                 return arSearchResults;
             });
         };
@@ -34,26 +33,11 @@
                 );
 
             });
-        };
-
-        var getSharesByUserId = function (userid) {
-            var url = 'http://localhost:3000/api/share/' + userid; //NIEUW PAD!!! (al aangepast)
-            return $http.get(url).then(function (response) {
-
-                var sharesfound = [];
-                angular.forEach(response.data, function (share) {
-                    var newShare = new GFShare(share._id, share.userid, share.eventid, share.time,share.mood, share.lat, share.lng);
-                    sharesfound.push(newShare);
-                });
-                console.log(sharesfound);
-                return sharesfound;
-            });
-        };
+            };
 
         return {
             search: search,
-            searchUserFromId: searchUserFromId,
-            getSharesByUserId: getSharesByUserId
+            searchUserFromId: searchUserFromId
         };
     };
     angular.module("geofeelings").factory("searchService", ["$http", searchService]);
