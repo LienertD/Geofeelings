@@ -57,7 +57,7 @@ router.route('/user/:id')
     })
 
     .put(upload.single('userimage'), function (req, res) {
-        console.log(req.file); //UNDIFINED
+        //console.log(req.file);
         if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {

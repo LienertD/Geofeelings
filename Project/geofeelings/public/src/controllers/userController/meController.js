@@ -12,11 +12,14 @@
             }
 
             $scope.user = data;
-            $scope.user.age = new Date($scope.user.age);
-            googleMapsService.convertCoordinateToAdress($scope.user.lat, $scope.user.lng, function(err, address) {
-                if(!err) {
-                    $scope.user.address = address;
+            $scope.user.age = $scope.convertDate($scope.user.age);
+
+            $http.get('/api/share/' + $scope.user._id).success(function (data) {
+                if(data.redirect) {
+                    $location.path(data.redirect);
                 }
+
+                $scope.shares = data;
             });
         });
 
@@ -27,15 +30,61 @@
         };
 
         $scope.save = function(user) {
-            // API aanspreken => /api/user
+            var coord = $scope.convertAddress(makeAddress(user.address1, user.address2));
+            user.lat = coord.lat;
+            user.lng = coord.lng;
 
             $http.put('/api/user/' + $scope.user._id, user).success(function (data) {
                 if (data.redirect) {
                     $location.path(data.redirect);
                 } else {
                     $scope.user = data;
-                    $scope.user.age = new Date($scope.user.age);
+                    $scope.user.age = $scope.convertDate($scope.user.age);
                 }
+            });
+        };
+
+        $scope.convertCoord = function (lat, lng) {
+            googleMapsService.convertCoordinateToAdress(lat, lng, function(err, address) {
+                if(!err) {
+                    $scope.$apply(function () {
+                        return address;
+                    });
+                }
+            });
+        };
+
+        $scope.convertAddress = function (address) {
+            googleMapsService.convertAdressToCoordinates(address, function (err, coord) {
+                if(!err) {
+                    $scope.$apply(function () {
+                        return {
+                            lat : coord.lat(),
+                            lng : coord.lng()
+                        };
+                    });
+                }
+            });
+        };
+
+        $scope.convertDate = function (date) {
+            $scope.$apply(function () {
+                return new Date(date);
+            });
+        };
+
+        $scope.splitAddress = function (address, part) {
+            $scope.$apply(function () {
+                var split = address.split(",");
+                $scope.address1 = split[0];
+                $scope.address2 = split[1];
+                return split[part];
+            });
+        };
+
+        $scope.makeAddress = function (part1, part2) {
+            $scope.$apply(function () {
+                return part1 +  "," + part2;
             });
         };
     };

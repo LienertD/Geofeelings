@@ -11,12 +11,12 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-calendar"></span>
-                <span>{{ user.age | date : 'MM/dd/yyyy' }}</span>
+                <span>{{ convertDate(user.age) | date : "MM/dd/yyyy" }}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-home"></span>
-                <span>{{ user.address }}</span>
-                <p><span>{{ user.address }}</span></p>
+                <span>{{ splitAddress(convertCoord(user.lat, user.lng), 0) }}</span>
+                <p><span>{{ splitAddress(convertCoord(user.lat, user.lng), 1) }}</span></p>
             </div>
         </div>
     </div>
@@ -24,37 +24,18 @@
         <h3>My shares</h3>
     </div>
     <div id="me-show-events" class="collapse">
-        <ul class="list">
+        <ul class="list" ng-repeat="share in shares">
             <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
+                <img src="http://student.howest.be/jonatan.michiels/geofeelings/uploads/event.png" alt="event" width="100" height="100">
                 <div>
-                    <span>Event 1</span>
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                    <span>{{ convertCoord(share.lat, share.lng) }}</span>
+                    <p>
+                        <span><span class="glyphicon glyphicon-time"></span>{{ convertDate(share.time) | date : "MM/dd/yyyy 'at' h:mma" }}</span>
+                        <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>
+                    </p>
                 </div>
                 <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
-                <div>
-                    <span>Event 2</span>
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
-                </div>
-                <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
-                <div>
-                    <span>Event 3</span>
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
-                </div>
-                <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
+                    <button class="btn btn-default btn-raised pull-right"><span
                             class="glyphicon glyphicon-search"></span></button>
                 </a>
             </li>
@@ -74,11 +55,11 @@
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-            <input type="text" class="form-control" placeholder="Street & Number" ng-model="user.lat">
+            <input type="text" class="form-control" placeholder="Street & Number" ng-model="user.address1">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-            <input type="text" class="form-control" placeholder="City & Zip" ng-model="user.lng">
+            <input type="text" class="form-control" placeholder="City & Zip" ng-model="user.address2">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
