@@ -27,7 +27,7 @@ var googleMapsService = function () {
             });
         },
 
-        convertCoordinateToAdress: function (lat, lng, cb) {
+        /*convertCoordinateToAdress: function (lat, lng, cb) {
             var location = new google.maps.LatLng(lat, lng);
             geocoder.geocode({latLng: location}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -36,8 +36,19 @@ var googleMapsService = function () {
                     cb(status, null);
                 }
             });
+        },*/
+
+        convertCoordinateToAdress: function (lat, lng) {
+            var location = new google.maps.LatLng(lat, lng);
+            return geocoder.geocode({ latLng : location }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    return results[0].formatted_address;
+                } else {
+                    return status;
+                }
+            });
         }
     };
 };
 
-angular.module("geofeelings").factory("googleMapsService", ["$http", googleMapsService]);
+angular.module("geofeelings").factory("googleMapsService", [googleMapsService]);

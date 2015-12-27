@@ -28,7 +28,7 @@
             <li>
                 <img src="http://student.howest.be/jonatan.michiels/geofeelings/uploads/event.png" alt="event" width="100" height="100">
                 <div>
-                    <span>{{ Math.round(share.lat) + ", " + Math.round(share.lng) }}</span>
+                    <span>{{ Math.round(share.lat, 2) + ", " + Math.round(share.lng, 2) }}</span>
                     <p>
                         <span><span class="glyphicon glyphicon-time"></span>{{ share.time | date : "MM/dd/yyyy 'at' h:mma" }}</span>
                         <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>
