@@ -17,12 +17,22 @@ var googleMapsService = function () {
 
         },
 
-        convertAdressToCoordinates: function (address, cb) {
+        /*convertAdressToCoordinates: function (address, cb) {
             geocoder.geocode({address: address}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     cb(null, results[0].geometry.location);
                 } else {
                     cb(status, null);
+                }
+            });
+        },*/
+
+        convertAdressToCoordinates: function (address) {
+            return geocoder.geocode({address: address}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    return results[0].geometry.location;
+                } else {
+                    return status;
                 }
             });
         },

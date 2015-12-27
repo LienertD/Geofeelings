@@ -58,11 +58,9 @@ var profileService = function ($http, googleMapsService) {
         },
 
         saveUser : function (GfUser) {
-            return googleMapsService.convertAdressToCoordinates(GfUser.address, function(err, coord) {
-                if(!err) {
-                    GfUser.lat = coord.lat();
-                    GfUser.lng = coord.lng();
-                }
+            return googleMapsService.convertAdressToCoordinates(GfUser.address).then(function (coord) {
+                GfUser.lat = coord.lat();
+                GfUser.lng = coord.lng();
 
                 $http.put("/api/user/" + GfUser.id, GfUser).then(function (data) {
                     if(data.redirect) {
