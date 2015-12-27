@@ -9,18 +9,19 @@
         $http.get('/auth/user').success(function(data) {
             if(data.redirect) {
                 $location.path(data.redirect);
+            } else {
+                $scope.user = data;
+                $scope.user.age = convertDate($scope.user.age);
+                convertCoord($scope.user.lat, $scope.user.lng);
+
+                $http.get('/api/share/' + $scope.user._id).success(function (data) {
+                    if(data.redirect) {
+                        $location.path(data.redirect);
+                    }
+
+                    $scope.shares = data;
+                });
             }
-
-            $scope.user = data;
-            $scope.user.age = $scope.convertDate($scope.user.age);
-
-            $http.get('/api/share/' + $scope.user._id).success(function (data) {
-                if(data.redirect) {
-                    $location.path(data.redirect);
-                }
-
-                $scope.shares = data;
-            });
         });
 
         $scope.logout = function() {
@@ -30,61 +31,46 @@
         };
 
         $scope.save = function(user) {
-            var coord = $scope.convertAddress(makeAddress(user.address1, user.address2));
-            user.lat = coord.lat;
-            user.lng = coord.lng;
-
-            $http.put('/api/user/' + $scope.user._id, user).success(function (data) {
-                if (data.redirect) {
-                    $location.path(data.redirect);
-                } else {
-                    $scope.user = data;
-                    $scope.user.age = $scope.convertDate($scope.user.age);
+            googleMapsService.convertAdressToCoordinates(makeAddress($scope.user.address1, $scope.user.address2), function(err, coord) {
+                if(!err) {
+                    $scope.$apply(function () {
+                        $http.put('/api/user/' + $scope.user._id, user).success(function (data) {
+                            if (data.redirect) {
+                                $location.path(data.redirect);
+                            } else {
+                                $scope.user = data;
+                                $scope.user.age = convertDate($scope.user.age);
+                                convertCoord(coord.lat(), coord.lng());
+                            }
+                        });
+                    });
                 }
             });
         };
 
-        $scope.convertCoord = function (lat, lng) {
+        var convertDate = function (date) {
+            return new Date(date);
+        };
+
+        var splitAddress = function (address, part) {
+            var split = address.split(",");
+            return split[part];
+        };
+
+        var makeAddress = function (part1, part2) {
+            return part1 +  "," + part2;
+        };
+
+        var convertCoord = function(lat, lng) {
             googleMapsService.convertCoordinateToAdress(lat, lng, function(err, address) {
                 if(!err) {
-                    $scope.$apply(function () {
-                        return address;
+                    $scope.$apply(function() {
+                        $scope.user.address1 = splitAddress(address, 0);
+                        $scope.user.address2 = splitAddress(address, 1);
                     });
+                } else {
+                    console.log("> error: " + err);
                 }
-            });
-        };
-
-        $scope.convertAddress = function (address) {
-            googleMapsService.convertAdressToCoordinates(address, function (err, coord) {
-                if(!err) {
-                    $scope.$apply(function () {
-                        return {
-                            lat : coord.lat(),
-                            lng : coord.lng()
-                        };
-                    });
-                }
-            });
-        };
-
-        $scope.convertDate = function (date) {
-            $scope.$apply(function () {
-                return new Date(date);
-            });
-        };
-
-        $scope.splitAddress = function (address, part) {
-            $scope.$apply(function () {
-                var split = address.split(",");
-                $scope.address1 = split[0];
-                $scope.address2 = split[1];
-                return split[part];
-            });
-        };
-
-        $scope.makeAddress = function (part1, part2) {
-            $scope.$apply(function () {
-                return part1 +  "," + part2;
             });
         };
     };
