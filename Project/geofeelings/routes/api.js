@@ -5,7 +5,7 @@
 var express = require('express');
 var multer = require('multer');
 var router = express.Router();
-var upload = multer({ dest: './uploads/' });
+var upload = multer({dest: './uploads/'});
 
 var User = require("../models/user.js");
 var Share = require('../models/share.js');
@@ -70,6 +70,7 @@ router.route('/user/:id')
                     user.userimage = req.body.userimage;
                     user.age = req.body.age;
                     user.lat = req.body.lat;
+                    user.address = req.body.address;
                     user.lng = req.body.lng;
                     user.chat = req.body.chat;
 
@@ -117,6 +118,7 @@ router.route('/share')
             newShare.mood = req.body.mood;
             newShare.lat = req.body.lat;
             newShare.lng = req.body.lng;
+            newShare.address = req.body.address;
 
             newShare.save(function (err) {
                 if (err) {
@@ -207,6 +209,7 @@ router.route('/event')
             newEvent.until = req.body.until;
             newEvent.lat = req.body.lat;
             newEvent.lng = req.body.lng;
+            newEvent.address = req.body.address;
 
             newEvent.save(function (err) {
                 if (err) {
@@ -251,6 +254,7 @@ router.route('/event/:id')
                     event.until = req.body.until;
                     event.lat = req.body.lat;
                     event.lng = req.body.lng;
+                    event.address = req.body.address;
 
                     event.save(function (err) {
                         if (err) {

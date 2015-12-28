@@ -32,6 +32,10 @@ var googleMapsService = function () {
             geocoder.geocode({latLng: location}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     cb(null, results[0].formatted_address);
+                } else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                    setTimeout(function(){
+                        cb(null, results[0].formatted_address);
+                    }, 200);
                 } else {
                     cb(status, null);
                 }

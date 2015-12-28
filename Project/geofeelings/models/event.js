@@ -5,12 +5,13 @@
 var mongoose = require('mongoose');
 var EventSchema = mongoose.Schema({
     eventname : String,
-    eventimage : Buffer,
+    eventimage : String,
     authorid : String,
     from : Date,
     until : Date,
     lat : Number,
-    lng : Number
+    lng : Number,
+    address : String
 });
 
 module.exports = mongoose.model('Event', EventSchema);
