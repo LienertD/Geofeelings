@@ -33,7 +33,7 @@
                 );
 
             });
-            };
+        };
 
         return {
             search: search,

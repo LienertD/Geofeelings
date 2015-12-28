@@ -10,10 +10,12 @@
         <canvas id="smileyCanvas" width="150" height="150">
         </canvas>
 
-        <a href="#/intro_shared">
+        <a>
             <button class="btn btn-default btn-raised pull-right" ng-mouseover="console.log('ajo')"
-                    ng-click="postShare()">Submit!<span
-                    class="glyphicon glyphicon-chevron-right"></span></button>
+                    ng-click="postShare()">Submit!
+                <span ng-show="!sharePosted" class="glyphicon glyphicon-chevron-right"></span>
+                <span ng-show="sharePosted" class="glyphicon glyphicon-refresh"></span>
+            </button>
         </a>
     </div>
 </div>

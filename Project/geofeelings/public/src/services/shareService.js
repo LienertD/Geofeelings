@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var shareService = function ($http) {
+    var shareService = function ($http, shareVarsBetweenCtrl,$location) {
 
         var postShare = function (data) {
 
@@ -16,7 +16,8 @@
                 headers: {'Content-Type': 'application/json'}
             }).
                 success(function (serverData) {
-                    console.log("dees moetk nog naar een andere controller krijgen "+serverData);
+                    shareVarsBetweenCtrl.setProperty(serverData); //data kunnen doorgeven aan intro_sharedController
+                    $location.path("intro_shared");
                 });
         };
 
@@ -35,8 +36,8 @@
 
         return {
             postShare: postShare,
-            getSharesByUserId:getSharesByUserId
+            getSharesByUserId: getSharesByUserId
         };
     };
-    angular.module("geofeelings").factory("shareService", ["$http",shareService]);
+    angular.module("geofeelings").factory("shareService", ["$http", "shareVarsBetweenCtrl","$location", shareService]);
 })();

@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var introController = function ($scope, shareService, $http ) {
+    var introController = function ($scope, shareService, $http, $location, profileService) {
 
 
         //SMILEY TEKENEN
@@ -112,27 +112,34 @@
         };
 
         $http.get('/auth/user').success(function (data) {
-            console.log(data);
             $scope.user = data;
         });
-
+        $scope.sharePosted = false;
         $scope.postShare = function () {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var data = {
-                    "userid": $scope.user._id,
-                    "eventid": 0,
-                    "time": new Date().toISOString(),
-                    "mood": $scope.sliderValue,
-                    "lat": position.coords.latitude,
-                    "lng": position.coords.longitude
-                };
-
-                shareService.postShare(data);
-
-
+            $scope.sharePosted = true;
+            profileService.getUser(function (err, data) {
+                if (!err) {
+                    if (data.redirect) {
+                        $location.path(data.redirect);
+                    } else {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var data = {
+                                "userid": $scope.user._id,
+                                "eventid": 0,
+                                "time": new Date().toISOString(),
+                                "mood": $scope.sliderValue,
+                                "lat": position.coords.latitude,
+                                "lng": position.coords.longitude
+                            };
+                            shareService.postShare(data);
+                        });
+                    }
+                } else {
+                    console.log("error: " + err);
+                }
             });
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", "$location", "profileService", introController]);
 })();
