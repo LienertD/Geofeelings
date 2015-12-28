@@ -7,3 +7,4 @@ node_modules
 Project/geofeelings/.idea/jsLibraryMappings.xml
 *.xml
 Project/geofeelings/.idea/misc.xml
+.idea/workspace.xml

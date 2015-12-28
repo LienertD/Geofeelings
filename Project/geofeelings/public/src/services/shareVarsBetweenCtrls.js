@@ -22,8 +22,6 @@ var shareVarsBetweenCtrl = function () {
         },
 
         saveUserlessShare: function (data) {
-            console.log("in saveuserlessshare");
-            console.log(data);
             userlessShare = data;
         },
         returnUserlessShare: function () {

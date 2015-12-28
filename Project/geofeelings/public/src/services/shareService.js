@@ -21,8 +21,6 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
     };
 
     var postShare = function (data) {
-        console.log("deze data wordt gepost:");
-        console.log(data);
         $http({
             url: 'http://localhost:3000/api/share',
             method: 'POST',
@@ -30,7 +28,6 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
             headers: {'Content-Type': 'application/json'}
         }).
         success(function (serverData) {
-                console.log(serverData);
             shareVarsBetweenCtrl.setProperty(serverData); //data kunnen doorgeven aan intro_sharedController
             $location.path("intro_shared");
         });
