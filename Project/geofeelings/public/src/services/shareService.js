@@ -10,34 +10,17 @@
  * Groetjes Jonatan
  */
 
-<<<<<<< HEAD
-    var shareService = function ($http, shareVarsBetweenCtrl,$location) {
-=======
-var shareService = function ($http, googleMapsService) {
-    "use strict";
->>>>>>> origin/master
 
+var shareService = function ($http, $location, googleMapsService, shareVarsBetweenCtrl) {
+    "use strict";
+
+    //private
     var makeAddress = function (address) {
         var split = address.split(",");
         return split[0] + ", " + split[1];
     };
 
-<<<<<<< HEAD
-            $http({
-                url: 'http://localhost:3000/api/share',
-                method: 'POST',
-                data: data,
-                headers: {'Content-Type': 'application/json'}
-            }).
-                success(function (serverData) {
-                    shareVarsBetweenCtrl.setProperty(serverData); //data kunnen doorgeven aan intro_sharedController
-                    $location.path("intro_shared");
-                });
-        };
-=======
     var postShare = function (data) {
->>>>>>> origin/master
-
         $http({
             url: 'http://localhost:3000/api/share',
             method: 'POST',
@@ -45,32 +28,12 @@ var shareService = function ($http, googleMapsService) {
             headers: {'Content-Type': 'application/json'}
         }).
         success(function (serverData) {
-            console.log("dees moetk nog naar een andere controller krijgen " + serverData);
+            shareVarsBetweenCtrl.setProperty(serverData); //data kunnen doorgeven aan intro_sharedController
+            $location.path("intro_shared");
         });
     };
 
-    /* old */
-    /*var getSharesByUserId = function (userid) {
-        var url = 'http://localhost:3000/api/share/' + userid; //NIEUW PAD!!! (al aangepast)
-        return $http.get(url).then(function (response) {
-            var sharesfound = [];
-            angular.forEach(response.data, function (share) {
-                var newShare = new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng);
-                sharesfound.push(newShare);
-            });
-            return sharesfound;
-        });
-    };*/
-
-<<<<<<< HEAD
-        return {
-            postShare: postShare,
-            getSharesByUserId: getSharesByUserId
-        };
-    };
-    angular.module("geofeelings").factory("shareService", ["$http", "shareVarsBetweenCtrl","$location", shareService]);
-})();
-=======
+    //public
     return {
         postShare: postShare,
         getSharesByUserId: function (userid, cb) {
@@ -90,5 +53,4 @@ var shareService = function ($http, googleMapsService) {
         }
     };
 };
-angular.module("geofeelings").factory("shareService", ["$http", "googleMapsService", shareService]);
->>>>>>> origin/master
+angular.module("geofeelings").factory("shareService", ["$http", "$location", "googleMapsService", "shareVarsBetweenCtrl", shareService]);

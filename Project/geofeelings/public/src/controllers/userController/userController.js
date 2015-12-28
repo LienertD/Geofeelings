@@ -97,8 +97,6 @@
                 gemLng = ((maxLng - minLng) / 2) + minLng;
             }
 
-
-
             $scope.map.setCenter(new google.maps.LatLng(gemLat, gemLng));
             $scope.map.setZoom(14);
             //klaar met markers plaatsen en kaart verplaatsen naar hun gemiddelde
