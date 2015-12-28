@@ -6,27 +6,6 @@ var profileService = function ($http, googleMapsService) {
     "use strict";
 
     // private
-    var makeNewGfUser = function(data, cb) {
-        googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, response) {
-            if(!err) {
-                data.address = response;
-                cb(null, new GfUser(
-                    data._id,
-                    data.username,
-                    data.email,
-                    data.userimage,
-                    new Date(data.age),
-                    data.lat,
-                    data.lng,
-                    data.address,
-                    data.chat,
-                    data.admin
-                ));
-            } else {
-                cb(err, null);
-            }
-        });
-    };
 
     //public
     return {
@@ -35,14 +14,10 @@ var profileService = function ($http, googleMapsService) {
                 if(data.redirect) {
                     cb(null, data);
                 } else {
-                    makeNewGfUser(data, function(err, response) {
-                        if(!err) {
-                            cb(null, response);
-                        } else {
-                            cb(err, null);
-                        }
-                    });
+                    cb(null, new GfUser(data._id, data.username, data.email, data.userimage, new Date(data.age), data.lat, data.lng, data.address, data.chat, data.admin));
                 }
+            }).error(function (error) {
+                cb(error, null);
             });
         },
 
@@ -52,18 +27,14 @@ var profileService = function ($http, googleMapsService) {
                     user.lat = coord.lat();
                     user.lng = coord.lng();
 
-                    $http.put("/api/user/" + user.id, user).then(function (data) {
+                    $http.put("/api/user/" + user.id, user).success(function (data) {
                         if(data.redirect) {
                             cb(null, data);
                         } else {
-                            makeNewGfUser(data, function(err, response) {
-                                if(!err) {
-                                    cb(null, response);
-                                } else {
-                                    cb(err, null);
-                                }
-                            });
+                            cb(null, new GfUser(data._id, data.username, data.email, data.userimage, new Date(data.age), data.lat, data.lng, data.address, data.chat, data.admin));
                         }
+                    }).error(function (error) {
+                        cb(error, null);
                     });
                 } else {
                     cb(err, null);

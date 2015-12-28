@@ -5,31 +5,43 @@
 (function () {
     "use strict";
 
-    var meController = function ($scope, $http, $location, profileService) {
-        // GOOGLEMAPS SERVICE => CALLBACK FUNCTION
-        profileService.getUser(function (err, data) {
+    var meController = function ($scope, $http, $location, profileService, shareService, eventService) {
+        profileService.getUser(function (err, user) {
             if (!err) {
-                if (data.redirect) {
-                    $location.path(data.redirect);
+                if (user.redirect) {
+                    $location.path(user.redirect);
                 } else {
-                    $scope.$apply(function() {
-                        $scope.user = data;
-                        $scope.user.address1 = splitAddress(data.address, 0);
-                        $scope.user.address2 = splitAddress(data.address, 1);
+                    $scope.user = user;
+                    $scope.user.address1 = splitAddress(user.address, 0);
+                    $scope.user.address2 = splitAddress(user.address, 1);
+
+                    shareService.getSharesByUserId(user.id, function (err, shares) {
+                        if(!err) {
+                            if(shares.redirect) {
+                                $location.path(shares.redirect);
+                            } else {
+                                angular.forEach(shares, function(share){
+                                    if(share.eventid) {
+                                        eventService.getEventById(share.eventid, function (err, event) {
+                                            share.address = event.eventname;
+                                        });
+                                    } else {
+
+                                    }
+                                });
+
+                                $scope.shares = shares;
+                            }
+                        } else {
+                            console.log("> error shareService: " + err);
+                        }
                     });
                 }
             } else {
-                console.log("> error: " + err);
+                console.log("> error profileService: " + err);
             }
         });
 
-        $scope.logout = function () {
-            profileService.logout().then(function (data) {
-                $location.path(data);
-            });
-        };
-
-        // GOOGLEMAPS SERVICE => CALLBACK FUNCTION
         $scope.save = function (user) {
             user.address = makeAddress(user.address1, user.address2);
             profileService.saveUser(user, function(err, data) {
@@ -37,15 +49,19 @@
                     if (data.redirect) {
                         $location.path(data.redirect);
                     } else {
-                        $scope.$apply(function() {
-                            $scope.user = data;
-                            $scope.user.address1 = splitAddress(data.address, 0);
-                            $scope.user.address2 = splitAddress(data.address, 1);
-                        });
+                        $scope.user = data;
+                        $scope.user.address1 = splitAddress(data.address, 0);
+                        $scope.user.address2 = splitAddress(data.address, 1);
                     }
                 } else {
                     console.log("> error: " + err);
                 }
+            });
+        };
+
+        $scope.logout = function () {
+            profileService.logout().then(function (data) {
+                $location.path(data);
             });
         };
 
@@ -59,5 +75,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("meController", ["$scope", "$http", "$location", "profileService", meController]);
+    angular.module("geofeelings").controller("meController", ["$scope", "$http", "$location", "profileService", "shareService", "eventService", meController]);
 })();

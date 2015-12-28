@@ -9,10 +9,11 @@ var userSchema = mongoose.Schema({
     username : String,
     email : String,
     password : String,
-    userimage : Buffer,
+    userimage : String,
     age : Date,
     lat : Number,
     lng : Number,
+    address : String,
     chat : Boolean,
     admin : Boolean
 });

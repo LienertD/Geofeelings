@@ -5,11 +5,12 @@
 var mongoose = require('mongoose');
 var ShareSchema = mongoose.Schema({
     userid : String,
-    eventid : Number,
+    eventid : String,
     time : Date,
     mood : Number,
     lat : Number,
-    lng : Number
+    lng : Number,
+    address: String
 });
 
 module.exports = mongoose.model('Share', ShareSchema);

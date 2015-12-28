@@ -1,4 +1,4 @@
-function GFShare(id, userid, eventid, time, mood, lat, lng) {
+function GfShare(id, userid, eventid, time, mood, lat, lng, address) {
     this.id = id;
     this.userid = userid;
     this.eventid = eventid;
@@ -6,7 +6,9 @@ function GFShare(id, userid, eventid, time, mood, lat, lng) {
     this.mood = mood;
     this.lat = lat;
     this.lng = lng;
+    this.address = address;
 }
-GFShare.prototype.toString = function () {
-    return this.user + " (" + this.time + ")";
+
+GfShare.prototype.toString = function () {
+    return this.userid + " (" + this.time + ")";
 };
