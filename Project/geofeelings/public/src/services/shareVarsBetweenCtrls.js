@@ -7,7 +7,8 @@ var shareVarsBetweenCtrl = function () {
     "use strict";
 
     //private
-     var property;
+    var property;
+    var userlessShare;
 
     //public
     return {
@@ -18,6 +19,15 @@ var shareVarsBetweenCtrl = function () {
 
         setProperty: function (value) {
             property = value;
+        },
+
+        saveUserlessShare: function (data) {
+            console.log("in saveuserlessshare");
+            console.log(data);
+            userlessShare = data;
+        },
+        returnUserlessShare: function () {
+            return userlessShare;
         }
     };
 };

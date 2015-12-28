@@ -5,22 +5,41 @@
 (function () {
     "use strict";
 
-    var loginController = function ($scope, $http, $location) {
+    var loginController = function ($scope, $http, $location, shareVarsBetweenCtrl, shareService, profileService) {
         $scope.login = function () {
             $http.post('http://localhost:3000/auth/login', {
-                username : $scope.username,
-                password : $scope.password
+                username: $scope.username,
+                password: $scope.password
             }).success(function (data) {
                 $scope.error = data.error;
-                $location.path(data.redirect);
+                if (shareVarsBetweenCtrl.returnUserlessShare() !== undefined && shareVarsBetweenCtrl.returnUserlessShare() !== "") //user heeft willen share, maar was niet ingelogd.
+                {
+                    var shareData = shareVarsBetweenCtrl.returnUserlessShare();
+                    profileService.getUser(function (err, user) {
+                        if (!err) {
+                            if (user.redirect) {
+                                $location.path(user.redirect);
+                            } else {
+                                shareData.userid = user.id;
+                                shareService.postShare(shareData); //post de share met de inlogdata dat hij nu weet
+                                shareVarsBetweenCtrl.saveUserlessShare("");
+                            }
+                        } else {
+                            console.log("> error profileService: " + err);
+                        }
+                    });
+                }
+                else {
+                    $location.path(data.redirect);
+                }
             });
         };
 
-        $scope.register = function() {
+        $scope.register = function () {
             $http.post('http://localhost:3000/auth/register', {
-                username : $scope.username,
-                password : $scope.password,
-                email : $scope.email
+                username: $scope.username,
+                password: $scope.password,
+                email: $scope.email
             }).success(function (data) {
                 $scope.error = data.error;
                 $location.path(data.redirect);
@@ -28,5 +47,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("loginController", ["$scope", "$http", "$location", loginController]);
+    angular.module("geofeelings").controller("loginController", ["$scope", "$http", "$location", "shareVarsBetweenCtrl", "shareService", "profileService", loginController]);
 })();

@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var introController = function ($scope, shareService, $http, $location, profileService) {
+    var introController = function ($scope, shareService, $http, $location, profileService,shareVarsBetweenCtrl) {
 
 
         //SMILEY TEKENEN
@@ -120,7 +120,20 @@
             profileService.getUser(function (err, data) {
                 if (!err) {
                     if (data.redirect) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var userlessShareData = {
+                                "userid": 0,
+                                "eventid": 0,
+                                "time": new Date().toISOString(),
+                                "mood": $scope.sliderValue,
+                                "lat": position.coords.latitude,
+                                "lng": position.coords.longitude
+                            };
+
+                            shareVarsBetweenCtrl.saveUserlessShare(userlessShareData);
+                        });
                         $location.path(data.redirect);
+
                     } else {
                         navigator.geolocation.getCurrentPosition(function (position) {
                             var data = {
@@ -141,5 +154,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", "$location", "profileService", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", "$location", "profileService","shareVarsBetweenCtrl", introController]);
 })();
