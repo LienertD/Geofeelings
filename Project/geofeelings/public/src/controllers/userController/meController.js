@@ -6,13 +6,20 @@
     "use strict";
 
     var meController = function ($scope, $http, $location, profileService) {
-        profileService.getUser().then(function (data) {
-            if (data.redirect) {
-                $location.path(data.redirect);
+        // GOOGLEMAPS SERVICE => CALLBACK FUNCTION
+        profileService.getUser(function (err, data) {
+            if (!err) {
+                if (data.redirect) {
+                    $location.path(data.redirect);
+                } else {
+                    $scope.$apply(function() {
+                        $scope.user = data;
+                        $scope.user.address1 = splitAddress(data.address, 0);
+                        $scope.user.address2 = splitAddress(data.address, 1);
+                    });
+                }
             } else {
-                $scope.user = data;
-                $scope.user.address1 = splitAddress(data.address, 0);
-                $scope.user.address2 = splitAddress(data.address, 1);
+                console.log("> error: " + err);
             }
         });
 
@@ -22,14 +29,22 @@
             });
         };
 
+        // GOOGLEMAPS SERVICE => CALLBACK FUNCTION
         $scope.save = function (user) {
-            profileService.saveUser(user).then(function (data) {
-                if (data.redirect) {
-                    $location.path(data.redirect);
+            user.address = makeAddress(user.address1, user.address2);
+            profileService.saveUser(user, function(err, data) {
+                if(!err) {
+                    if (data.redirect) {
+                        $location.path(data.redirect);
+                    } else {
+                        $scope.$apply(function() {
+                            $scope.user = data;
+                            $scope.user.address1 = splitAddress(data.address, 0);
+                            $scope.user.address2 = splitAddress(data.address, 1);
+                        });
+                    }
                 } else {
-                    $scope.user = data;
-                    $scope.user.address1 = splitAddress(data.address, 0);
-                    $scope.user.address2 = splitAddress(data.address, 1);
+                    console.log("> error: " + err);
                 }
             });
         };
@@ -37,6 +52,10 @@
         var splitAddress = function (address, part) {
             var split = address.split(",");
             return split[part];
+        };
+
+        var makeAddress = function (address1, address2) {
+            return address1 + "," + address2;
         };
     };
 

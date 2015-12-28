@@ -4,73 +4,71 @@
 
 var profileService = function ($http, googleMapsService) {
     "use strict";
+
     // private
-    /*var makeNewGfUser = function(data) {
-        googleMapsService.convertCoordinateToAdress(data.lat, data.lng, function (err, address) {
+    var makeNewGfUser = function(data, cb) {
+        googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, response) {
             if(!err) {
-                data.address = address;
+                data.address = response;
+                cb(null, new GfUser(
+                    data._id,
+                    data.username,
+                    data.email,
+                    data.userimage,
+                    new Date(data.age),
+                    data.lat,
+                    data.lng,
+                    data.address,
+                    data.chat,
+                    data.admin
+                ));
+            } else {
+                cb(err, null);
             }
-
-            return new GfUser(
-                data._id,
-                data.username,
-                data.email,
-                data.userimage,
-                new Date(data.age),
-                data.lat,
-                data.lng,
-                data.address,
-                data.chat,
-                data.admin
-            );
-        });
-    };*/
-
-    var makeNewGfUser = function(data) {
-        return googleMapsService.convertCoordinateToAdress(data.lat, data.lng).then(function(response) {
-            return new GfUser(
-                response._id,
-                response.username,
-                response.email,
-                response.userimage,
-                new Date(response.age),
-                response.lat,
-                response.lng,
-                response.address,
-                response.chat,
-                response.admin
-            );
         });
     };
 
     //public
     return {
-        getUser : function () {
-            return $http.get("/auth/user").then(function (data) {
+        getUser : function (cb) {
+            $http.get("/auth/user").success(function (data) {
                 if(data.redirect) {
-                    return data;
+                    cb(null, data);
                 } else {
-                    return makeNewGfUser(data).then(function (response) {
-                        return response;
+                    makeNewGfUser(data, function(err, response) {
+                        if(!err) {
+                            cb(null, response);
+                        } else {
+                            cb(err, null);
+                        }
                     });
                 }
             });
         },
 
-        saveUser : function (GfUser) {
-            return googleMapsService.convertAdressToCoordinates(GfUser.address).then(function (coord) {
-                GfUser.lat = coord.lat();
-                GfUser.lng = coord.lng();
+        saveUser : function (user, cb) {
+            googleMapsService.convertAdressToCoordinates(user.address, function(err, coord) {
+                if(!err) {
+                    user.lat = coord.lat();
+                    user.lng = coord.lng();
 
-                $http.put("/api/user/" + GfUser.id, GfUser).then(function (data) {
-                    if(data.redirect) {
-                        return data;
-                    } else {
-                        return makeNewGfUser(data);
-                    }
-                });
+                    $http.put("/api/user/" + user.id, user).then(function (data) {
+                        if(data.redirect) {
+                            cb(null, data);
+                        } else {
+                            makeNewGfUser(data, function(err, response) {
+                                if(!err) {
+                                    cb(null, response);
+                                } else {
+                                    cb(err, null);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    cb(err, null);
+                }
             });
-
         },
 
         logout : function () {

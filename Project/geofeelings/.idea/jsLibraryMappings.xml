@@ -3,7 +3,6 @@
   <component name="JavaScriptLibraryMappings">
     <file url="PROJECT" libraries="{angular, angular-mocks, angular-route, angularjs-DefinitelyTyped, bootstrap, express-DefinitelyTyped, geofeelings node_modules, googlemaps-DefinitelyTyped, jquery, jquery-1.11.3, jquery.signalr-2.1.0, less}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
-    <includedPredefinedLibrary name="Node.js Core" />
     <includedPredefinedLibrary name="WebGL" />
   </component>
 </project>
