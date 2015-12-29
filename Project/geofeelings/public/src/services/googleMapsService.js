@@ -16,6 +16,7 @@ var googleMapsService = function () {
     };
     var geocoder = new google.maps.Geocoder();
     var map = new google.maps.Map(document.querySelector("#map"), mapoptions);
+    var infoWindow = new google.maps.InfoWindow();
 
     //public
     return {
@@ -35,7 +36,20 @@ var googleMapsService = function () {
         },
 
         showAllMarkers: function (data) {
+            var marker, i, content;
+            for(i = 0; i < data.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(data[i].lat, data[i].lng),
+                    map: map
+                });
 
+                google.maps.event.addListener(marker, "click", (function(marker, i) {
+                    return function () {
+                        content += "<h4>Title:" + data[i].address + "</h4>" + "<p>Mood: " + data[i].mood + "%</p>" + "<p>Time: " + data[i].time + "</p>";
+                        infoWindow.setContent(content);
+                    };
+                })(marker, i));
+            }
         },
 
         convertAdressToCoordinates: function (address, cb) {

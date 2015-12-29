@@ -39,7 +39,6 @@ router.route('/user')
         }
     });
 
-//
 router.route('/user/:id')
     .get(function (req, res) {
         if (req.user) {
@@ -95,7 +94,7 @@ router.route('/user/:id')
 
 router.route('/share')
     .get(function (req, res) {
-        if (req.user) {
+        //if (req.user) {
             Share.find(function (err, shares) {
                 if (err) {
                     res.send(err);
@@ -103,10 +102,10 @@ router.route('/share')
 
                 res.json(shares);
             });
-        } else {
+        /*} else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
-        }
+        }*/
     })
 
     .post(function (req, res) {
@@ -226,7 +225,7 @@ router.route('/event')
 
 router.route('/event/:id')
     .get(function (req, res) {
-        if (req.user) {
+        //if (req.user) {
             Event.findById(req.params.id, function (err, event) {
                 if (err) {
                     res.send(err);
@@ -234,10 +233,10 @@ router.route('/event/:id')
 
                 res.json(event);
             });
-        } else {
+        /*} else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
-        }
+        }*/
     })
 
     .put(function (req, res) {

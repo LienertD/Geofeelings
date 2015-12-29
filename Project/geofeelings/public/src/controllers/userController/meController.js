@@ -23,7 +23,11 @@
                                 angular.forEach(shares, function(share){
                                     if(share.eventid) {
                                         eventService.getEventById(share.eventid, function (err, event) {
-                                            share.address = event.eventname;
+                                            if(!err) {
+                                                share.address = event.eventname;
+                                            } else {
+                                                console.log("> error eventService: " + err);
+                                            }
                                         });
                                     }
                                 });
