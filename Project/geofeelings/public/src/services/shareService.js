@@ -20,7 +20,7 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
             var split = address.split(",");
             return split[0] + ", " + split[1];
         } else {
-            return "Address not know.";
+            return null;
         }
     };
 

@@ -19,6 +19,7 @@
                         });
                     }
                 });
+
                 googleMapsService.showLocationOnMap();
                 googleMapsService.showAllMarkers(shares);
             } else {

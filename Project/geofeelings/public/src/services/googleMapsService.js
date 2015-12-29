@@ -16,7 +16,6 @@ var googleMapsService = function () {
     };
     var geocoder = new google.maps.Geocoder();
     var map = new google.maps.Map(document.querySelector("#map"), mapoptions);
-    var infoWindow = new google.maps.InfoWindow();
 
     var chooseIcon = function(mood) {
         var url = "http://student.howest.be/jonatan.michiels/geofeelings/assets/";
@@ -51,17 +50,23 @@ var googleMapsService = function () {
         },
 
         showAllMarkers: function (data) {
-            for(var i = 0; i < data.length; i++) {
-                var marker = new google.maps.Marker({
+            var marker, i;
+            for(i = 0; i < data.length; i++) {
+                marker = new google.maps.Marker({
                     position: new google.maps.LatLng(data[i].lat, data[i].lng),
                     map: map,
                     icon: chooseIcon(data[i].mood)
                 });
 
-                infoWindow.setContent("<h4>Title:" + data[i].address + "</h4>" + "<p>Mood: " + data[i].mood + "%</p>" + "<p>Time: " + data[i].time + "</p>");
-                marker.addListener("click", function () {
-                    infoWindow.open(map, marker);
-                });
+                var infoWindow = new google.maps.InfoWindow();
+                var content = "<h4 class='infowindowstyle'> Title: " + data[i].address + "</h4>" + "<p class='infowindowstyle'> Mood: " + data[i].mood + "%</p>" + "<p class='infowindowstyle'> Time: " + data[i].time + "</p>";
+
+                google.maps.event.addListener(marker, "click", (function (marker, content, infoWindow) {
+                    return function () {
+                        infoWindow.setContent(content);
+                        infoWindow.open(map, marker);
+                    };
+                })(marker, content, infoWindow));
             }
         },
 
