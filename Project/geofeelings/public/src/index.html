@@ -51,8 +51,8 @@
         <section class="col-md-9 map">
             <div id="map"></div>
             <div id="controls-map" class="slider-wrapper">
-                <label for="filter">Time interval<span class="glyphicon glyphicon-time"></span></label>
-                <input type="range" id="filter" name="filter">
+                <label for="filter"><span class="glyphicon glyphicon-time"></span> Time interval: <span>{{ timestamp }}</span></label>
+                <input type="range" id="filter" name="filter" ng-model="timelapse">
             </div>
         </section>
         <aside class="col-md-3">

@@ -16,7 +16,6 @@ var eventService = function ($http) {
                 } else {
                     cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, data.from, data.until, data.lat, data.lng, data.address));
                 }
-                cb(null, data);
             }).error(function (error) {
                 cb(error, null);
             });

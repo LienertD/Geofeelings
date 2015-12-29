@@ -30,8 +30,6 @@
                 templateUrl: "./controllers/eventController/event.html"
             }).when("/addEvent", {
                 templateUrl: "./controllers/eventController/addEvent.html"
-            }).when("/location", {
-                templateUrl: "./controllers/locationController/location.html"
             }).when("/intro_shared", {
                 templateUrl: "./controllers/introController/intro_shared.html"
             }).otherwise({

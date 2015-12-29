@@ -59,7 +59,7 @@ var googleMapsService = function () {
                 });
 
                 var infoWindow = new google.maps.InfoWindow();
-                var content = "<h4 class='infowindowstyle'> Title: " + data[i].address + "</h4>" + "<p class='infowindowstyle'> Mood: " + data[i].mood + "%</p>" + "<p class='infowindowstyle'> Time: " + data[i].time + "</p>";
+                var content = "<h4 class='infowindowstyle'> Share details </h4>" + "<p class='infowindowstyle'> Mood: <span>" + data[i].mood + "%</span></p>" + "<p class='infowindowstyle'> Time: <span>" + new Date(data[i].time) + "</span></p>" + "<p class='infowindowstyle'> Address: <span>" + data[i].address + "</span></p>" + "<p class='infowindowstyle'> Event: <span>"+ data[i].eventid + "</span></p>";
 
                 google.maps.event.addListener(marker, "click", (function (marker, content, infoWindow) {
                     return function () {
