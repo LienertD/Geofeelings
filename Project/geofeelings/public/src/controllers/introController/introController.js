@@ -123,7 +123,7 @@
                         navigator.geolocation.getCurrentPosition(function (position) {
                             var userlessShareData = {
                                 "userid": 0,
-                                "eventid": 0,
+                                "eventid": null,
                                 "time": new Date().toISOString(),
                                 "mood": $scope.sliderValue,
                                 "lat": position.coords.latitude,
@@ -138,7 +138,7 @@
                         navigator.geolocation.getCurrentPosition(function (position) {
                             var data = {
                                 "userid": $scope.user._id,
-                                "eventid": 0,
+                                "eventid": null,
                                 "time": new Date().toISOString(),
                                 "mood": $scope.sliderValue,
                                 "lat": position.coords.latitude,
