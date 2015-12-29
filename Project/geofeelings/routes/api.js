@@ -32,10 +32,12 @@ router.route('/user')
                 }
 
                 res.json(users);
+                res.end();
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -45,13 +47,16 @@ router.route('/user/:id')
             User.findById(req.params.id, function (err, user) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(user);
+                    res.end();
                 }
-
-                res.json(user);
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     })
 
@@ -61,6 +66,7 @@ router.route('/user/:id')
             User.findById(req.params.id, function (err, user) {
                 if (err) {
                     res.send(err);
+                    res.end();
                 }
 
                 if (req.body.username && req.body.email) {
@@ -76,17 +82,20 @@ router.route('/user/:id')
                     user.save(function (err) {
                         if (err) {
                             res.send(err);
+                        } else {
+                            res.json(user);
+                            res.end();
                         }
-
-                        res.json(user);
                     });
                 } else {
                     res.json({error: "username and email must be valid and not empty."});
+                    res.end();
                 }
             })
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -98,13 +107,16 @@ router.route('/share')
             Share.find(function (err, shares) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(shares);
+                    res.end();
                 }
-
-                res.json(shares);
             });
         /*} else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }*/
     })
 
@@ -122,13 +134,16 @@ router.route('/share')
             newShare.save(function (err) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json({share: newShare});
+                    res.end();
                 }
-
-                res.json({share: newShare});
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -138,13 +153,16 @@ router.route('/share/:userid')
             Share.find({userid: req.params.userid}, function (err, shares) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(shares);
+                    res.end();
                 }
-
-                res.json(shares);
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -154,13 +172,16 @@ router.route('/share/:eventid')
             Share.find({eventid: req.params.eventid}, function (err, shares) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(shares);
+                    res.end();
                 }
-
-                res.json(shares);
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
 
     });
@@ -171,13 +192,16 @@ router.route('/share/:id')
             Share.findByIdAndRemove(req.params.id, function (err, share) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json({message: "Share with id " + share._id + " is deleted."});
+                    res.end();
                 }
-
-                res.json({message: "Share with id " + share._id + " is deleted."});
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -189,13 +213,16 @@ router.route('/event')
             Event.find(function (err, events) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(events);
+                    res.end();
                 }
-
-                res.json(events);
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     })
 
@@ -213,13 +240,16 @@ router.route('/event')
             newEvent.save(function (err) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json({event: newEvent});
+                    res.end();
                 }
-
-                res.json({event: newEvent});
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 
@@ -229,9 +259,11 @@ router.route('/event/:id')
             Event.findById(req.params.id, function (err, event) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json(event);
+                    res.end();
                 }
-
-                res.json(event);
             });
         /*} else {
             console.log("> User not logged in");
@@ -244,31 +276,36 @@ router.route('/event/:id')
             Event.findById(req.params.id, function (err, event) {
                 if (err) {
                     res.send(err);
-                }
-
-                if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
-                    event.eventname = req.body.eventname;
-                    event.authorid = req.body.authorid;
-                    event.from = req.body.from;
-                    event.until = req.body.until;
-                    event.lat = req.body.lat;
-                    event.lng = req.body.lng;
-                    event.address = req.body.address;
-
-                    event.save(function (err) {
-                        if (err) {
-                            res.send(err);
-                        }
-
-                        res.json(event);
-                    });
+                    res.end();
                 } else {
-                    res.json({error: "All fields are required except eventimage."});
+                    if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
+                        event.eventname = req.body.eventname;
+                        event.authorid = req.body.authorid;
+                        event.from = req.body.from;
+                        event.until = req.body.until;
+                        event.lat = req.body.lat;
+                        event.lng = req.body.lng;
+                        event.address = req.body.address;
+
+                        event.save(function (err) {
+                            if (err) {
+                                res.send(err);
+                                res.end();
+                            } else {
+                                res.json(event);
+                                res.end();
+                            }
+                        });
+                    } else {
+                        res.json({error: "All fields are required except eventimage."});
+                        res.end();
+                    }
                 }
             })
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     })
 
@@ -277,13 +314,16 @@ router.route('/event/:id')
             Event.findByIdAndRemove(req.params.id, function (err, event) {
                 if (err) {
                     res.send(err);
+                    res.end();
+                } else {
+                    res.json({message: "Event with id " + event._id + " is deleted."});
+                    res.end();
                 }
-
-                res.json({message: "Event with id " + event._id + " is deleted."});
             });
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
+            res.end();
         }
     });
 

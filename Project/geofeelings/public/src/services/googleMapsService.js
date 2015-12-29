@@ -10,13 +10,28 @@ var googleMapsService = function () {
     "use strict";
     // private
     var mapoptions = {
-        zoom: 15,
+        zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
     };
     var geocoder = new google.maps.Geocoder();
     var map = new google.maps.Map(document.querySelector("#map"), mapoptions);
     var infoWindow = new google.maps.InfoWindow();
+
+    var chooseIcon = function(mood) {
+        var url = "http://student.howest.be/jonatan.michiels/geofeelings/assets/";
+        if(mood <= 20) {
+            return url += "depressed.png";
+        } else if(mood > 20 && mood <= 40) {
+            return url += "sad.png";
+        } else if(mood > 40 && mood <= 60) {
+            return url += "common.png";
+        } else if(mood > 60 && mood <= 80) {
+            return url += "happy.png";
+        } else {
+            return url += "excited.png";
+        }
+    };
 
     //public
     return {
@@ -36,19 +51,17 @@ var googleMapsService = function () {
         },
 
         showAllMarkers: function (data) {
-            var marker, i, content;
-            for(i = 0; i < data.length; i++) {
-                marker = new google.maps.Marker({
+            for(var i = 0; i < data.length; i++) {
+                var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(data[i].lat, data[i].lng),
-                    map: map
+                    map: map,
+                    icon: chooseIcon(data[i].mood)
                 });
 
-                google.maps.event.addListener(marker, "click", (function(marker, i) {
-                    return function () {
-                        content += "<h4>Title:" + data[i].address + "</h4>" + "<p>Mood: " + data[i].mood + "%</p>" + "<p>Time: " + data[i].time + "</p>";
-                        infoWindow.setContent(content);
-                    };
-                })(marker, i));
+                infoWindow.setContent("<h4>Title:" + data[i].address + "</h4>" + "<p>Mood: " + data[i].mood + "%</p>" + "<p>Time: " + data[i].time + "</p>");
+                marker.addListener("click", function () {
+                    infoWindow.open(map, marker);
+                });
             }
         },
 
