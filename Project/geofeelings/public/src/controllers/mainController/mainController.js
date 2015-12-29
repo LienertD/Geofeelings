@@ -5,29 +5,10 @@
 (function () {
     "use strict";
 
-    var mainController = function ($scope) {
-        if (navigator.geolocation) {
-            $scope.image = "./assets/location_now.png";
-            $scope.mapOptions = {
-                zoom: 15,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                disableDefaultUI: true
-            };
+    var mainController = function ($scope, googleMapsService) {
+        googleMapsService.showLocationOnMap();
 
-            $scope.map = new google.maps.Map(document.querySelector("#map"), $scope.mapOptions);
-
-            navigator.geolocation.getCurrentPosition(function (position) {
-                $scope.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-                $scope.marker = new google.maps.Marker({
-                    position: $scope.map.getCenter(),
-                    map: $scope.map,
-                    icon: $scope.image
-                });
-            });
-        } else {
-            //throw exception
-        }
     };
 
-    angular.module("geofeelings").controller("mainController", ["$scope", mainController]);
+    angular.module("geofeelings").controller("mainController", ["$scope", "googleMapsService", mainController]);
 })();

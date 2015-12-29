@@ -9,11 +9,32 @@
 var googleMapsService = function () {
     "use strict";
     // private
+    var mapoptions = {
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true
+    };
     var geocoder = new google.maps.Geocoder();
+    var map = new google.maps.Map(document.querySelector("#map"), mapoptions);
 
     //public
     return {
-        showLocationOnMap: function (lat, lng) {
+        showLocationOnMap: function () {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+                    var marker = new google.maps.Marker({
+                        position: map.getCenter(),
+                        map: map,
+                        icon: "http://student.howest.be/jonatan.michiels/geofeelings/assets/location_now.png"
+                    });
+                });
+            } else {
+                // Throw map exception
+            }
+        },
+
+        showAllMarkers: function (data) {
 
         },
 

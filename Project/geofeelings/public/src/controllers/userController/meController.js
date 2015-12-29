@@ -25,8 +25,6 @@
                                         eventService.getEventById(share.eventid, function (err, event) {
                                             share.address = event.eventname;
                                         });
-                                    } else {
-
                                     }
                                 });
 
