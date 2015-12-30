@@ -15,7 +15,7 @@ var eventService = function ($http, googleMapsService) {
                     cb(null, data);
                 } else {
                     if(data.address) {
-                        cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, data.from, data.until, data.lat, data.lng, data.address));
+                        cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date (data.from), new Date(data.until), data.lat, data.lng, data.address));
                     } else {
                         googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, address) {
                             if(!err) {
@@ -40,6 +40,23 @@ var eventService = function ($http, googleMapsService) {
                     $http.post("/api/event", new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, data.address)).success(function(response) {
                         cb(null, response)
                     }).error(function(error) {
+                        cb(error, null);
+                    });
+                } else {
+                    cb(err, null);
+                }
+            });
+        },
+
+        updateEvent : function(data, cb) {
+            googleMapsService.convertAdressToCoordinates(data.address, function (err, coord) {
+                if(!err) {
+                    data.lat = coord.lat();
+                    data.lng = coord.lng();
+
+                    $http.put("/api/event/" + data.id, data).success(function (response) {
+                        cb(null, new GfEvent(response._id, response.eventname, response.eventimage, response.authorid, new Date(response.from), new Date(response.until), response.lat, response.lng, response.address));
+                    }).error(function (error) {
                         cb(error, null);
                     });
                 } else {

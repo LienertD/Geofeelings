@@ -38,9 +38,38 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
     //public
     return {
         postShare: postShare,
+        postShareAsync: function (data, cb) {
+            if(data.address) {
+                $http.post("/api/share", data).success(function(response) {
+                    if(response.redirect) {
+                        cb(null, response);
+                    } else {
+                        cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(data.address)));
+                    }
+                }).error(function (error) {
+                    cb(error, null);
+                });
+            } else {
+                googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, address) {
+                    if(!err) {
+                        $http.post("/api/share", data).success(function(response) {
+                            if(response.redirect) {
+                                cb(null, response);
+                            } else {
+                                cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(address)));
+                            }
+                        }).error(function (error) {
+                            cb(error, null);
+                        });
+                    } else {
+                        cb(err, null);
+                    }
+                });
+            }
+        },
 
         getSharesByUserId: function (userid, cb) {
-            $http.get("/api/share/" + userid).success(function (data) {
+            $http.get("/api/share/user/" + userid).success(function (data) {
                 if(data.redirect) {
                     cb(null, data);
                 } else {
@@ -48,7 +77,6 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                     angular.forEach(data, function(share) {
                         shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
                     });
-                    console.log(shares);
                     cb(null, shares);
                 }
             }).error(function (error) {
@@ -57,7 +85,7 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
         },
 
         getSharesByEventId: function (eventid, cb) {
-            $http.get("/api/share/" + eventid).success(function (data) {
+            $http.get("/api/share/event/" + eventid).success(function (data) {
                 if(data.redirect) {
                     cb(null, data);
                 } else {
@@ -65,7 +93,6 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                     angular.forEach(data, function(share) {
                         shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
                     });
-                    console.log(shares);
                     cb(null, shares);
                 }
             }).error(function (error) {

@@ -1,10 +1,13 @@
-TODO BACKEND
+TODO BACKEND JONATAN
 
 > Password reset
 > Image in mongoDB
-> Chat socket
+> API check for all data and send json error back
 
 TODO FRONTEND
 
-> Update ingelogde user
-> geocodingService schrijven
+> Exceprions
+> no shares found profielpagina implementeren
+> adminpagina
+> realtime map indien nog tijd
+>

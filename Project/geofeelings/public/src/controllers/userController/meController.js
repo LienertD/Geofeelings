@@ -32,7 +32,7 @@
                                     }
                                 });
 
-                                $scope.shares = shares;
+                                $scope.sharesforprofile = shares;
                             }
                         } else {
                             console.log("> error shareService: " + err);

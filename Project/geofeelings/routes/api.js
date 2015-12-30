@@ -147,7 +147,7 @@ router.route('/share')
         }
     });
 
-router.route('/share/:userid')
+router.route('/share/user/:userid')
     .get(function (req, res) {
         if (req.user) {
             Share.find({userid: req.params.userid}, function (err, shares) {
@@ -166,7 +166,7 @@ router.route('/share/:userid')
         }
     });
 
-router.route('/share/:eventid')
+router.route('/share/event/:eventid')
     .get(function (req, res) {
         if (req.user) {
             Share.find({eventid: req.params.eventid}, function (err, shares) {
@@ -183,7 +183,6 @@ router.route('/share/:eventid')
             res.json({redirect: '/login'});
             res.end();
         }
-
     });
 
 router.route('/share/:id')

@@ -30,7 +30,6 @@
                 templateUrl: "./controllers/eventController/event.html"
             }).when("/event/:param", {
                 templateUrl: "./controllers/eventController/event.html",
-                controller: "eventController"
             }).when("/addEvent", {
                 templateUrl: "./controllers/eventController/addEvent.html"
             }).when("/intro_shared", {

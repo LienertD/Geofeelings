@@ -8,6 +8,7 @@ User
     age : Date
     lat : Number
     lng : Number
+    address : String
     chat : Boolean
     admin : Boolean
 
@@ -18,6 +19,7 @@ Event
     to : Date
     lat : Number
     lng : Number
+    address : String
 
 Share
     userid : Number
@@ -26,3 +28,4 @@ Share
     mood : Number
     lat : Number
     lng : Number
+    address : String
