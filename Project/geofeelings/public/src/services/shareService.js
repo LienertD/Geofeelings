@@ -56,6 +56,23 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
             });
         },
 
+        getSharesByEventId: function (eventid, cb) {
+            $http.get("/api/share/" + eventid).success(function (data) {
+                if(data.redirect) {
+                    cb(null, data);
+                } else {
+                    var shares = [];
+                    angular.forEach(data, function(share) {
+                        shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
+                    });
+                    console.log(shares);
+                    cb(null, shares);
+                }
+            }).error(function (error) {
+                cb(error, null);
+            });
+        },
+
         getAllShares: function (cb) {
             $http.get("/api/share").success(function (data) {
                 var shares = [];

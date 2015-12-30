@@ -1,74 +1,105 @@
 <div ng-controller="eventController" class="content-wrapper">
-    <div class="title" data-target="#event-info" data-toggle="collapse">
+    <div class="title" data-target="#event-info" data-toggle="collapse" ng-hide="event.isAuthor">
         <h3>Event info</h3>
     </div>
-    <div id="event-info" class="collapse">
-        <img src="./assets/event.png" alt="profile-pic">
+    <div id="event-info" class="collapse" ng-hide="event.isAuthor">
+        <img ng-src="{{ event.eventimage }}" alt="event-image">
 
         <div class="data-object">
             <div>
                 <span class="glyphicon glyphicon-glass"></span>
-                <span>Name event</span>
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-calendar"></span>
-                <span>Today</span>
+                <span>{{ event.eventname }}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-time"></span>
-                <span>From: 14u00</span>
-
-                <p><span>Until: 00u00</span></p>
+                <span>From: {{ event.from | date: "HH:mm" }}</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span>Day: {{ event.from | date : "MM/dd/yyyy" }}</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-time"></span>
+                <span>Until: {{ event.until | date: "HH:mm" }}</span>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-calendar"></span>
+                <span>Day: {{ event.until | date : "MM/dd/yyyy" }}</span>
             </div>
             <div>
                 <span class="glyphicon glyphicon-map-marker"></span>
-                <span>kastanjebosstraat 1B</span>
-
-                <p><span>8490 Jabbeke[B]</span></p>
+                <span>{{ event.address1 }}</span>
+                <p><span>{{ event.address2 }}</span></p>
             </div>
         </div>
     </div>
+
+    <div class="title" data-target="#event-info-author" data-toggle="collapse" ng-show="event.isAuthor">
+        <h3>Event info</h3>
+    </div>
+    <div id="event-info-author" class="collapse" ng-show="event.isAuthor">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            <input type="text" class="form-control" placeholder="Eventname" ng-model="event.eventname">
+        </div>
+        <div>
+            <span>From: </span>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="date" class="form-control" ng-model="event.from">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+            <input type="time" class="form-control" ng-model="event.from">
+        </div>
+        <div>
+            <span>Until: </span>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="date" class="form-control" ng-model="event.until">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+            <input type="time" class="form-control" ng-model="event.until">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+            <input type="text" class="form-control" placeholder="Street & Number" ng-model="event.address1">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+            <input type="text" class="form-control" placeholder="City & Zip" ng-model="event.address2">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>
+            <input type="file" class="form-control" name="eventimage">
+        </div>
+    </div>
+
     <div class="title" data-target="#event-persons" data-toggle="collapse">
-        <h3>Recent persons</h3>
+        <h3>Recent shares</h3>
     </div>
     <div id="event-persons" class="collapse">
         <ul class="list">
-            <li>
-                <img src="./assets/user.png" alt="user" width="100" height="100">
+            <li ng-repeat="share in shares">
+                <img ng-src="http://student.howest.be/jonatan.michiels/geofeelings/assets/user.png" alt="user" width="100" height="100">
                 <div>
-                    <span>Person 1</span>
-
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span> - <span>sad</span></span></p>
+                    <span>{{ share.userid }}</span>
+                    <p>
+                        <span><span class="glyphicon glyphicon-time"></span>{{ share.time | date : "MM/dd/yyyy 'at' h:mma" }}</span>
+                        <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>
+                    </p>
                 </div>
-                <a href="#/user">
-                    <button class="btn btn-default btn-raised pull-right">Visit <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/user.png" alt="user" width="100" height="100">
-                <div>
-                    <span>Person 2</span>
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span> - <span>sad</span></span></p>
-                </div>
-                <a href="#/user">
-                    <button class="btn btn-default btn-raised pull-right">Visit <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/user.png" alt="user" width="100" height="100">
-                <div>
-                    <span>Person 3</span>
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span> - <span>happy</span></span></p>
-                </div>
-                <a href="#/user">
-                    <button class="btn btn-default btn-raised pull-right">Visit <span
+                <a href="#/user/{{ share.userid }}">
+                    <button class="btn btn-default btn-raised pull-right"><span
                             class="glyphicon glyphicon-search"></span></button>
                 </a>
             </li>
         </ul>
     </div>
+
     <div class="title" data-target="#event-feeling" data-toggle="collapse">
         <h3>Geoslider</h3>
     </div>
