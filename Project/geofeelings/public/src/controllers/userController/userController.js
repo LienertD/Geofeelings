@@ -5,11 +5,11 @@
 (function () {
     "use strict";
 
-    var userController = function ($scope, $location, searchService, shareService, $routeParams) {
+    var userController = function ($scope, $location, userService, shareService, $routeParams) {
 
         $scope.init = function () {
             var userid = $routeParams.param;
-            searchService.searchUserFromId(userid).then(userFoundWithId);
+            userService.searchUserFromId(userid).then(userFoundWithId);
 
             shareService.getSharesByUserId(userid, function (err, shares) {
                 if (!err) {
@@ -55,6 +55,6 @@
         };
     };
 
-    angular.module("geofeelings").controller("userController", ["$scope", "$location", "searchService", "shareService", "$routeParams", userController]);
+    angular.module("geofeelings").controller("userController", ["$scope", "$location", "userService", "shareService", "$routeParams", userController]);
 })
 ();

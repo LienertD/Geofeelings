@@ -10164,7 +10164,7 @@
 #	renamed:    Project/geofeelings/geofeelings/public/src/models/SearchResult.js -> Project/geofeelings/public/src/models/SearchResult.js
 #	renamed:    Project/geofeelings/geofeelings/public/src/models/gfShare.js -> Project/geofeelings/public/src/models/gfShare.js
 #	renamed:    Project/geofeelings/geofeelings/public/src/models/gfUser.js -> Project/geofeelings/public/src/models/gfUser.js
-#	renamed:    Project/geofeelings/geofeelings/public/src/services/searchService.js -> Project/geofeelings/public/src/services/searchService.js
+#	renamed:    Project/geofeelings/geofeelings/public/src/services/userService.js -> Project/geofeelings/public/src/services/userService.js
 #	renamed:    Project/geofeelings/geofeelings/public/src/shares.json -> Project/geofeelings/public/src/shares.json
 #	renamed:    Project/geofeelings/geofeelings/public/src/users.json -> Project/geofeelings/public/src/users.json
 #	renamed:    Project/geofeelings/geofeelings/public/webpack.config.js -> Project/geofeelings/public/webpack.config.js

@@ -1,8 +1,9 @@
-function SearchResult(id,username)
-{
+function SearchResult(title, subtitle, id, resultSort) {
+    this.title = title;
+    this.subtitle = subtitle;
     this.id = id;
-    this.username = username;
+    this.resultSort = resultSort;
 }
-SearchResult.prototype.toString = function() {
+SearchResult.prototype.toString = function () {
     return this.title;
 };

@@ -9,16 +9,35 @@ var eventService = function ($http, googleMapsService) {
 
     //public
     return {
-        getEventById : function (eventid, cb) {
-            $http.get("/api/event/" + eventid).success(function (data) {
-                if(data.redirect) {
+
+        getAllEvents: function (cb) {
+            $http.get("/api/event").success(function (data) {
+                if (data.redirect) {
                     cb(null, data);
                 } else {
-                    if(data.address) {
-                        cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date (data.from), new Date(data.until), data.lat, data.lng, data.address));
+
+                    var eventsFound = [];
+                    angular.forEach(data, function (searchR) {
+                        var newSR = new SearchResult(searchR.eventname, searchR.address, searchR._id,"event");
+                        eventsFound.push(newSR);
+                    });
+                    cb(null, eventsFound);
+                }
+            }).error(function (error) {
+                cb(error, null);
+            });
+        },
+
+        getEventById: function (eventid, cb) {
+            $http.get("/api/event/" + eventid).success(function (data) {
+                if (data.redirect) {
+                    cb(null, data);
+                } else {
+                    if (data.address) {
+                        cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, data.address));
                     } else {
-                        googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, address) {
-                            if(!err) {
+                        googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function (err, address) {
+                            if (!err) {
                                 cb(null, cb(null, new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, address)));
                             } else {
                                 cb(err, null);
@@ -31,15 +50,15 @@ var eventService = function ($http, googleMapsService) {
             });
         },
 
-        postEvent : function(data, cb) {
-            googleMapsService.convertAdressToCoordinates(data.address, function(err, coord) {
-                if(!err) {
+        postEvent: function (data, cb) {
+            googleMapsService.convertAdressToCoordinates(data.address, function (err, coord) {
+                if (!err) {
                     data.lat = coord.lat();
                     data.lng = coord.lng();
 
-                    $http.post("/api/event", new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, data.address)).success(function(response) {
+                    $http.post("/api/event", new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, data.address)).success(function (response) {
                         cb(null, response)
-                    }).error(function(error) {
+                    }).error(function (error) {
                         cb(error, null);
                     });
                 } else {
@@ -48,9 +67,9 @@ var eventService = function ($http, googleMapsService) {
             });
         },
 
-        updateEvent : function(data, cb) {
+        updateEvent: function (data, cb) {
             googleMapsService.convertAdressToCoordinates(data.address, function (err, coord) {
-                if(!err) {
+                if (!err) {
                     data.lat = coord.lat();
                     data.lng = coord.lng();
 

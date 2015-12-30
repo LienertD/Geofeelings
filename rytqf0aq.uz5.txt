@@ -245,7 +245,7 @@
 #	modified:   Project/geofeelings/public/src/less/site.less
 #	modified:   Project/geofeelings/public/src/models/SearchResult.js
 #	modified:   Project/geofeelings/public/src/models/gfUser.js
-#	modified:   Project/geofeelings/public/src/services/searchService.js
+#	modified:   Project/geofeelings/public/src/services/userService.js
 #	modified:   Project/geofeelings/todo.txt
 #	deleted:    Project/gogulp.bat
 #

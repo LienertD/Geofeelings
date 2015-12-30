@@ -6,8 +6,11 @@
         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
         <input type="search" class="form-control" placeholder="Search for persons, events or locations" ng-model="searchModel" ng-init="searchModel=''" ng-keypress="searchOnKeyPress()">
     </form>
-        <ul class="searchResultList" ng-show="searchResults">
-            <li ng-repeat = "sr in searchResults | filter:filterSearchResults">
+        <ul class="searchResultList" >
+            <li ng-repeat = "sr in searchResultsUsers | filter:filterSearchResults">
+                <searchresult></searchresult>
+            </li>
+            <li ng-repeat = "sr in searchResultsEvents | filter:filterSearchResults">
                 <searchresult></searchresult>
             </li>
         </ul>
