@@ -45,7 +45,7 @@
                         $scope.user.address2 = splitAddress(data.address, 1);
                     }
                 } else {
-                    console.log("> error: " + err);
+                    console.log(">  error: " + err);
                 }
             });
         };

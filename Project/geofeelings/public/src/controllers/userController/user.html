@@ -32,10 +32,9 @@
             <li ng-repeat="share in shareFoundWithUserId" ng-click="test(share)">
                 <img ng-src="{{share.moodImageSource}}" alt="">
                 <p>Mood: {{share.mood}}</p>
+                <p>Reason: {{share.reason}}</p>
                 <p ng-show="share.time">Date: {{share.time | date:"dd/MM/yy HH:mm"}}</p>
-
             </li>
-
         </ul>
     </div>
 

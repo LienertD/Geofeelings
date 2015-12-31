@@ -14,6 +14,7 @@
             shareService.getSharesByUserId(userid, function (err, shares) {
                 if (!err) {
                     $scope.shareFoundWithUserId = shares;
+                    console.log($scope.shareFoundWithUserId);
                     var feelingImages = ["depressed", "sad", "common", "happy", "excited"];
                     angular.forEach(shares, function (share) {
                         share.moodImageSource = "./assets/" + feelingImages[giveFeelingsImageArrayNumber(share)] + ".png";

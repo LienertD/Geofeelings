@@ -130,6 +130,7 @@ router.route('/share')
             newShare.lat = req.body.lat;
             newShare.lng = req.body.lng;
             newShare.address = req.body.address;
+            newShare.reason = req.body.reason;
 
             newShare.save(function (err) {
                 if (err) {

@@ -22,7 +22,6 @@ var shareVarsBetweenCtrl = function () {
         },
 
         setExtraLoginInfo: function (data) {
-            console.log("ik zet: " + data);
             ExtraLoginInfo = data;
         },
         getExtraLoginInfo: function () {
