@@ -5,23 +5,32 @@
 (function () {
     "use strict";
 
-    var meController = function ($scope, $http, $location, profileService, shareService, eventService) {
+    var meController = function ($scope, $http, $location, $sce, profileService, shareService) {
         profileService.getUser(function (err, user) {
             if (!err) {
                 if (user.redirect) {
                     $location.path(user.redirect);
                 } else {
-                    console.log(user.admin);
                     $scope.user = user;
-                    $scope.user.address1 = splitAddress(user.address, 0);
-                    $scope.user.address2 = splitAddress(user.address, 1);
+                    if(user.address) {
+                        $scope.user.address1 = splitAddress(user.address, 0);
+                        $scope.user.address2 = splitAddress(user.address, 1);
+                    }
+
+                    if(!user.age) {
+                        $scope.user.age = new Date();
+                    }
 
                     shareService.getSharesByUserId(user.id, function (err, shares) {
                         if(!err) {
                             if(shares.redirect) {
                                 $location.path(shares.redirect);
                             } else {
-                                $scope.sharesforprofile = shares;
+                                if(shares.length > 0) {
+                                    $scope.sharesforprofile = shares;
+                                } else {
+                                    $scope.noSharesForUser = "<div>You have no shares yet, go share one <a href='#/intro'>here</a></div>";
+                                }
                             }
                         } else {
                             console.log("> error shareService: " + err);
@@ -56,6 +65,10 @@
             });
         };
 
+        $scope.renderHtml = function(html) {
+            return $sce.trustAsHtml(html);
+        };
+
         var splitAddress = function (address, part) {
             var split = address.split(",");
             return split[part];
@@ -66,5 +79,5 @@
         };
     };
 
-    angular.module("geofeelings").controller("meController", ["$scope", "$http", "$location", "profileService", "shareService", "eventService", meController]);
+    angular.module("geofeelings").controller("meController", ["$scope", "$http", "$location", "$sce", "profileService", "shareService", meController]);
 })();

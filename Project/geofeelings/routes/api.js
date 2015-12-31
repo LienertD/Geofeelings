@@ -72,7 +72,7 @@ router.route('/user/:id')
                 if (req.body.username && req.body.email) {
                     user.username = req.body.username;
                     user.email = req.body.email;
-                    user.userimage = req.body.userimage;
+                    user.userimage = "http://student.howest.be/jonatan.michiels/geofeelings/assets/user.png";
                     user.age = req.body.age;
                     user.lat = req.body.lat;
                     user.address = req.body.address;
@@ -88,7 +88,7 @@ router.route('/user/:id')
                         }
                     });
                 } else {
-                    res.json({error: "username and email must be valid and not empty."});
+                    res.json({error: "username must be unique and not empty."});
                     res.end();
                 }
             })
@@ -122,25 +122,30 @@ router.route('/share')
 
     .post(function (req, res) {
         if (req.user) {
-            var newShare = new Share();
-            newShare.userid = req.body.userid;
-            newShare.eventid = req.body.eventid;
-            newShare.time = req.body.time;
-            newShare.mood = req.body.mood;
-            newShare.lat = req.body.lat;
-            newShare.lng = req.body.lng;
-            newShare.address = req.body.address;
-            newShare.reason = req.body.reason;
+            if(req.body.userid && req.body.eventid && req.body.time && req.body.mood && req.body.lat && req.body.lng && req.body.address) {
+                var newShare = new Share();
+                newShare.userid = req.body.userid;
+                newShare.eventid = req.body.eventid;
+                newShare.time = req.body.time;
+                newShare.mood = req.body.mood;
+                newShare.lat = req.body.lat;
+                newShare.lng = req.body.lng;
+                newShare.address = req.body.address;
+                newShare.reason = req.body.reason;
 
-            newShare.save(function (err) {
-                if (err) {
-                    res.send(err);
-                    res.end();
-                } else {
-                    res.json({share: newShare});
-                    res.end();
-                }
-            });
+                newShare.save(function (err) {
+                    if (err) {
+                        res.send(err);
+                        res.end();
+                    } else {
+                        res.json({share: newShare});
+                        res.end();
+                    }
+                });
+            } else {
+                res.json({error: "All fields are required except reason."});
+                res.end();
+            }
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
@@ -228,24 +233,30 @@ router.route('/event')
 
     .post(function (req, res) {
         if (req.user) {
-            var newEvent = new Event();
-            newEvent.eventname = req.body.eventname;
-            newEvent.eventimage = req.body.eventimage;
-            newEvent.from = req.body.from;
-            newEvent.until = req.body.until;
-            newEvent.lat = req.body.lat;
-            newEvent.lng = req.body.lng;
-            newEvent.address = req.body.address;
+            if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng && req.body.address) {
+                var newEvent = new Event();
+                newEvent.eventname = req.body.eventname;
+                newEvent.eventimage = "http://student.howest.be/jonatan.michiels/geofeelings/assets/event.png";
+                newEvent.from = req.body.from;
+                newEvent.until = req.body.until;
+                newEvent.lat = req.body.lat;
+                newEvent.lng = req.body.lng;
+                newEvent.address = req.body.address;
 
-            newEvent.save(function (err) {
-                if (err) {
-                    res.send(err);
-                    res.end();
-                } else {
-                    res.json({event: newEvent});
-                    res.end();
-                }
-            });
+                newEvent.save(function (err) {
+                    if (err) {
+                        res.send(err);
+                        res.end();
+                    } else {
+                        res.json({event: newEvent});
+                        res.end();
+                    }
+                });
+            } else {
+                res.json({error: "All fields are required except eventimage."});
+                res.end();
+            }
+
         } else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
@@ -278,8 +289,9 @@ router.route('/event/:id')
                     res.send(err);
                     res.end();
                 } else {
-                    if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng) {
+                    if (req.body.eventname && req.body.authorid && req.body.from && req.body.until && req.body.lat && req.body.lng && req.body.address) {
                         event.eventname = req.body.eventname;
+                        event.eventimage = "http://student.howest.be/jonatan.michiels/geofeelings/assets/eventimage.png";
                         event.authorid = req.body.authorid;
                         event.from = req.body.from;
                         event.until = req.body.until;

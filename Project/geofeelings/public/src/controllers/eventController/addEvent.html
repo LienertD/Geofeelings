@@ -3,6 +3,7 @@
         <h3>Create info event</h3>
     </div>
     <form ng-submit="createEvent()" id="add-event-info" class="collapse in">
+        <div ng-show="error" class="alert alert-danger">{{ error }}</div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" placeholder="Eventname" ng-model="newEvent.eventname">
@@ -35,7 +36,7 @@
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-            <input type="text" class="form-control" placeholder="City & Zip" ng-model="newEvent.address2">
+            <input type="text" class="form-control" placeholder="Zip & City" ng-model="newEvent.address2">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-file"></span></span>

@@ -48,7 +48,7 @@
                             if(shares.length > 0) {
                                 $scope.sharesforevent = shares;
                             } else {
-                                $scope.noShares = "<div>No shares for this event.</div>";
+                                $scope.noSharesForEvent = "<div>No shares for this event.</div>";
                             }
                         }
                     } else {
@@ -70,6 +70,8 @@
                 if(!err) {
                     if(data.redirect) {
                         $location.path(data.redirect);
+                    } else if(data.error) {
+                        $scope.error = data.error;
                     } else {
                         $scope.event = data;
                     }
@@ -85,6 +87,8 @@
                 if(!err) {
                     if(data.redirect) {
                         $location.path(data.redirect);
+                    } else if(data.error) {
+                        $scope.error = data.error;
                     } else {
                         $scope.event = data;
                         $scope.event.address1 = splitAddress($scope.event.address, 0);

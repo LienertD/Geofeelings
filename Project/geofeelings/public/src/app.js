@@ -17,8 +17,6 @@
                 templateUrl: "./controllers/loginController/login.html"
             }).when("/register", {
                 templateUrl: "./controllers/loginController/register.html"
-            }).when("/password", {
-                templateUrl: "./controllers/loginController/password.html"
             }).when("/user", {
                 templateUrl: "./controllers/userController/user.html"
             }).when("/user/:param", {
