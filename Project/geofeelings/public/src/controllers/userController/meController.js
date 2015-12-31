@@ -33,12 +33,12 @@
                                 }
                             }
                         } else {
-                            console.log("> error shareService: " + err);
+                            throw new ShareServiceException(err);
                         }
                     });
                 }
             } else {
-                console.log("> error profileService: " + err);
+                throw new ProfileServiceException(err);
             }
         });
 
@@ -48,13 +48,19 @@
                 if(!err) {
                     if (data.redirect) {
                         $location.path(data.redirect);
+                    } else if(data.error) {
+                        $scope.errorMe = data.error;
                     } else {
                         $scope.user = data;
                         $scope.user.address1 = splitAddress(data.address, 0);
                         $scope.user.address2 = splitAddress(data.address, 1);
                     }
                 } else {
-                    console.log(">  error: " + err);
+                    if(err === "ZERO_RESULTS") {
+                        $scope.errorMe = "No address found! Street & Number and Zip & City are required! Make sure ther is a space between your input and no komma(,)";
+                    } else {
+                        $scope.errorMe = "Something went wrong, try again later!";
+                    }
                 }
             });
         };

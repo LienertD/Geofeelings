@@ -33,7 +33,7 @@
                                 return $scope.event.authorid === user.id;
                             }
                         } else {
-                            console.log("> error in userService: " + err);
+                            throw new ProfileServiceException(err);
                         }
                     });
                 } else {
@@ -52,11 +52,11 @@
                             }
                         }
                     } else {
-                        console.log("> error in shareService: " + err);
+                        throw new ShareServiceException(err);
                     }
                 });
             } else {
-                console.log("> error in eventService: " + err);
+                throw new EventServiceException(err);
             }
         });
 
@@ -76,7 +76,11 @@
                         $scope.event = data;
                     }
                 } else {
-                    console.log("> error in shareService: " + err);
+                    if(err === "ZERO_RESULTS") {
+                        $scope.error = "No address found! Street & Number and Zip & City are required! Make sure ther is a space between your input and no komma(,)";
+                    } else {
+                        $scope.error = "Something went wrong, try again later!";
+                    }
                 }
             });
         };
@@ -88,27 +92,18 @@
                     if(data.redirect) {
                         $location.path(data.redirect);
                     } else if(data.error) {
-                        $scope.error = data.error;
+                        $scope.errorEvent = data.error;
                     } else {
                         $scope.event = data;
                         $scope.event.address1 = splitAddress($scope.event.address, 0);
                         $scope.event.address2 = splitAddress($scope.event.address, 1);
                     }
                 } else {
-                    console.log("> error in eventService: " + err);
-                }
-            });
-        };
-
-        $scope.createEvent = function() {
-            $scope.newEvent.address = makeAddress($scope.newEvent.address1, $scope.newEvent.address2);
-            $scope.newEvent.authorid = $scope.event.userid;
-            eventService.postEvent($scope.newEvent, function (err, data) {
-                if(!err) {
-                    $scope.event = data;
-                    $location.path("/event/" + data.id);
-                } else {
-                    console.log("> error in eventService: " + err);
+                    if(err === "ZERO_RESULTS") {
+                        $scope.errorEvent = "No address found! Street & Number and Zip & City are required! Make sure ther is a space between your input and no komma(,)";
+                    } else {
+                        $scope.errorEvent = "Something went wrong, try again later!";
+                    }
                 }
             });
         };

@@ -1,10 +1,9 @@
 TODO BACKEND JONATAN
 
 > Image in mongoDB
-> API check for all data and send json error back
 > realtime map indien nog tijd
-> default image pad instellen indien image null
 
-TODO FRONTEND
+TODO FRONTEND JONATAN
 
-> Exceptions
+> CSS
+> Id's naar namen

@@ -14,7 +14,7 @@
                 $scope.timelapse = 100;
                 $scope.timestamp = "All time";
             } else {
-                console.log("> error in shareService: " + err);
+                throw new ShareServiceException(err);
             }
         });
 

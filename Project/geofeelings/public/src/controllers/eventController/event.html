@@ -38,7 +38,7 @@
         <h3>Event info</h3>
     </div>
     <form ng-submit="updateEvent()" id="event-info-author" class="collapse" ng-hide="event.isAuthor">
-        <div ng-show="error" class="alert alert-danger">{{ error }}</div>
+        <div ng-show="errorEvent" class="alert alert-danger">{{ errorEvent }}</div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" placeholder="Eventname" ng-model="event.eventname">

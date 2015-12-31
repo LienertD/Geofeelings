@@ -44,6 +44,7 @@
         <h3>Edit profile</h3>
     </div>
     <form id="me-edit-info" class="collapse" enctype="multipart/form-data"> <!-- DO NOT TOUTCH THIS => FILEUPLOAD IS A PIECE OF SHIT :( -->
+        <div ng-show="errorMe" class="alert alert-danger">{{ errorMe }}</div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" placeholder="Username" ng-model="user.username">

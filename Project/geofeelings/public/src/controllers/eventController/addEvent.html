@@ -1,9 +1,9 @@
 <div ng-controller="addEventController" class="content-wrapper">
     <div class="title" data-target="#add-event-info" data-toggle="collapse">
-        <h3>Create info event</h3>
+        <h3>Create new event</h3>
     </div>
     <form ng-submit="createEvent()" id="add-event-info" class="collapse in">
-        <div ng-show="error" class="alert alert-danger">{{ error }}</div>
+        <div ng-show="errorAddEvent" class="alert alert-danger">{{ errorAddEvent }}</div>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
             <input type="text" class="form-control" placeholder="Eventname" ng-model="newEvent.eventname">

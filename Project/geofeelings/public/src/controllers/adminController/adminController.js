@@ -21,7 +21,7 @@
                                 }
                             }
                             else {
-                                console.log("> error eventService: " + err);
+                                throw new EventServiceException(err);
                             }
                         });
 
@@ -33,7 +33,7 @@
                                     $scope.sharesAdmin = data;
                                 }
                             } else {
-                                console.log("> error shareService: " + err);
+                                throw new ShareServiceException(err);
                             }
                         });
                     } else {
@@ -41,7 +41,7 @@
                     }
                 }
             } else {
-                console.log("> error profileService: " + err);
+                throw new ProfileServiceException(err);
             }
         });
 
@@ -51,7 +51,7 @@
                     $scope.eventsAdmin.splice($scope.eventsAdmin.indexOf(event), 1);
                     window.alert(data.message);
                 } else {
-                    console.log("> error eventService: " + err);
+                    throw new EventServiceException(err);
                 }
             });
         };
@@ -62,7 +62,7 @@
                     $scope.sharesAdmin.splice($scope.sharesAdmin.indexOf(share), 1);
                     window.alert(data.message);
                 } else {
-                    console.log("> error shareService: " + err);
+                    throw new ShareServiceException(err);
                 }
             });
         };
