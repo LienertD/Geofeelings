@@ -6,9 +6,17 @@
         <label for="filter"></label>
         <input type="range" id="filter" name="filter" ng-model="sliderValue">
 
-        <p id="sliderPercent">{{moodWord}}</p>
-        <canvas id="smileyCanvas" width="150" height="150">
-        </canvas>
+        <div id="sliderPercent">{{moodWord}}</div>
+        <div>
+            <canvas id="smileyCanvas" width="150" height="150">
+            </canvas>
+        </div>
+
+        <div>
+            <span class="glyphicon glyphicon-align-justify"></span>
+            <input type="text" placeholder="Why are you feeling {{moodWord}}?" ng-model="moodReason">
+        </div>
+
 
         <a>
             <button class="btn btn-default btn-raised pull-right" ng-mouseover="console.log('ajo')"

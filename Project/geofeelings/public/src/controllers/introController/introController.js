@@ -19,6 +19,7 @@
 
         //telkens slidervalue verandert gezichtje tekenen
         $scope.$watch("sliderValue", function () {
+
             ctx.clearRect(0, 0, c.width, c.height); //canvas clearen voor nieuw frame
 
             var mood = $scope.sliderValue;
@@ -142,7 +143,8 @@
                                         "mood": $scope.sliderValue,
                                         "lat": position.coords.latitude,
                                         "lng": position.coords.longitude,
-                                        "address": shareAddress
+                                        "address": shareAddress,
+                                        "reason":$scope.moodReason
                                     };
                                     shareVarsBetweenCtrl.saveUserlessShare(userlessShareData);
                                 }
@@ -165,15 +167,19 @@
                                     shareAddress = address;
                                 }
 
+                                console.log(userData);
                                 var shareData = {
-                                    "userid": userData._id,
+                                    "userid": userData.id,
                                     "eventid": null,
                                     "time": new Date().toISOString(),
                                     "mood": $scope.sliderValue,
                                     "lat": position.coords.latitude,
                                     "lng": position.coords.longitude,
-                                    "address": shareAddress
+                                    "address": shareAddress,
+                                    "reason":$scope.moodReason
                                 };
+
+                                console.log(shareData);
 
                                 shareService.postShareAsync(shareData, function (err, resShareData) {
                                     if (!err) {

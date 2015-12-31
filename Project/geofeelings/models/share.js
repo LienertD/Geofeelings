@@ -10,7 +10,8 @@ var ShareSchema = mongoose.Schema({
     mood : Number,
     lat : Number,
     lng : Number,
-    address: String
+    address: String,
+    reason : String
 });
 
 module.exports = mongoose.model('Share', ShareSchema);

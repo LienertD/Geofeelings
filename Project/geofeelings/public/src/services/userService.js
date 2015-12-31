@@ -4,7 +4,6 @@
     var userService = function ($http) {
 
         var getAllUsers = function (cb) {
-            console.log("in de userservice");
             $http.get("/api/user").success(function (data) {
                 if (data.redirect) {
                     cb(null, data);
@@ -15,9 +14,6 @@
                         var newSR = new SearchResult(searchR.username, searchR.email, searchR._id,"user");
                         arSearchResults.push(newSR);
                     });
-
-                    console.log("user:");
-                    console.log(arSearchResults);
                     cb(null, arSearchResults);
                 }
             }).error(function (error) {
