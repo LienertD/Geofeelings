@@ -11,6 +11,7 @@
                 if (user.redirect) {
                     $location.path(user.redirect);
                 } else {
+                    console.log(user.admin);
                     $scope.user = user;
                     $scope.user.address1 = splitAddress(user.address, 0);
                     $scope.user.address2 = splitAddress(user.address, 1);
@@ -20,18 +21,6 @@
                             if(shares.redirect) {
                                 $location.path(shares.redirect);
                             } else {
-                                angular.forEach(shares, function(share){
-                                    if(share.eventid) {
-                                        eventService.getEventById(share.eventid, function (err, event) {
-                                            if(!err) {
-                                                share.address = event.eventname;
-                                            } else {
-                                                console.log("> error eventService: " + err);
-                                            }
-                                        });
-                                    }
-                                });
-
                                 $scope.sharesforprofile = shares;
                             }
                         } else {

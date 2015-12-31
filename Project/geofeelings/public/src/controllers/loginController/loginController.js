@@ -6,8 +6,6 @@
     "use strict";
 
     var loginController = function ($scope, $http, $location, shareVarsBetweenCtrl, shareService, profileService) {
-
-
         if(shareVarsBetweenCtrl.getExtraLoginInfo()){
             $scope.extraLoginInfo = shareVarsBetweenCtrl.getExtraLoginInfo();
         }
@@ -39,6 +37,7 @@
             });
         };
 
+        //Moet nog naar een service omgezet worden
         $scope.login = function () {
             console.log(shareVarsBetweenCtrl.getExtraLoginInfo());
             $http.post('http://localhost:3000/auth/login', {
@@ -56,6 +55,7 @@
             });
         };
 
+        //Moet nog naar een service omgezet worden
         $scope.register = function () {
             $http.post('http://localhost:3000/auth/register', {
                 username: $scope.username,

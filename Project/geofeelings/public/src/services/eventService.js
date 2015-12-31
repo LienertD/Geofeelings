@@ -28,6 +28,22 @@ var eventService = function ($http, googleMapsService) {
             });
         },
 
+        getEvents: function (cb) {
+            $http.get("/api/event").success(function (data) {
+                if(data.redirect) {
+                    cb(null, data);
+                } else {
+                    var events = [];
+                    angular.forEach(data, function(event) {
+                        events.push(new GfEvent(event._id, event.eventname, event.eventimage, event.authorid, event.from, event.until, event.lat, event.lng, event.address));
+                    });
+                    cb(null, events);
+                }
+            }).error(function (error) {
+                cb(error, null);
+            });
+        },
+
         getEventById: function (eventid, cb) {
             $http.get("/api/event/" + eventid).success(function (data) {
                 if (data.redirect) {
@@ -81,6 +97,14 @@ var eventService = function ($http, googleMapsService) {
                 } else {
                     cb(err, null);
                 }
+            });
+        },
+
+        deleteEvent: function (event, cb) {
+            $http.delete("/api/event/" + event.id).success(function (data) {
+                cb(null, data);
+            }).error(function (error) {
+                cb(error, null);
             });
         }
     };

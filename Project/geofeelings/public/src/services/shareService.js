@@ -112,6 +112,14 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
             }).error(function (error) {
                 cb(error, null);
             });
+        },
+
+        deleteShare: function (share, cb) {
+            $http.delete("/api/share/" + share.id).success(function (data) {
+                cb(null, data);
+            }).error(function (error) {
+                cb(error, null);
+            });
         }
     };
 };
