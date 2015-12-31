@@ -27,6 +27,7 @@
                                 $location.path(shares.redirect);
                             } else {
                                 if(shares.length > 0) {
+                                    console.log(shares);
                                     $scope.sharesforprofile = shares;
                                 } else {
                                     $scope.noSharesForUser = "<div>You have no shares yet, go share one <a href='#/intro'>here</a></div>";
@@ -73,6 +74,22 @@
 
         $scope.renderHtml = function(html) {
             return $sce.trustAsHtml(html);
+        };
+
+        $scope.getShareInfo = function(share) {
+            if(share.event) {
+                return share.event.eventname;
+            } else {
+                return share.address;
+            }
+        };
+
+        $scope.getShareImage = function(share) {
+            if(share.event) {
+                return share.event.eventimage;
+            } else {
+                return "http://student.howest.be/jonatan.michiels/geofeelings/assets/location.png";
+            }
         };
 
         var splitAddress = function (address, part) {

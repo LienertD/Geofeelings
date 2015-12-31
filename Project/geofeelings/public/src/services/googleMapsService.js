@@ -58,8 +58,22 @@ var googleMapsService = function () {
                     icon: chooseIcon(data[i].mood)
                 });
 
+                if(!data[i].reason) {
+                    data[i].reason = "Random post with no reason!";
+                }
+
+                if(!data[i].event.eventname) {
+                    data[i].event.eventname = "No event data";
+                }
+
                 var infoWindow = new google.maps.InfoWindow();
-                var content = "<h4 class='infowindowstyle'> Share details </h4>" + "<p class='infowindowstyle'> Mood: <span>" + data[i].mood + "%</span></p>" + "<p class='infowindowstyle'> Time: <span>" + new Date(data[i].time) + "</span></p>" + "<p class='infowindowstyle'> Address: <span>" + data[i].address + "</span></p>" + "<p class='infowindowstyle'> Event: <span>"+ data[i].eventid + "</span></p>";
+                var content = "<h4 class='infowindowstyle'> Share details </h4>" +
+                    "<p class='infowindowstyle'> Time: <span>" + new Date(data[i].time) +
+                    "<p class='infowindowstyle'> Mood: <span>" + data[i].mood + "%</span></p>" +
+                    "<p class='infowindowstyle'> Reason: <span>" + data[i].reason + "</span></p>" + "</span></p>" +
+                    "<p class='infowindowstyle'> User: <span>"+ data[i].user.username + "</span></p>" +
+                    "<p class='infowindowstyle'> Address: <span>" + data[i].address + "</span></p>" +
+                    "<p class='infowindowstyle'> Event: <span>"+ data[i].event.eventname + "</span></p>";
 
                 google.maps.event.addListener(marker, "click", (function (marker, content, infoWindow) {
                     return function () {

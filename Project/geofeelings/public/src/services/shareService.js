@@ -11,7 +11,7 @@
  */
 
 
-var shareService = function ($http, $location, googleMapsService, shareVarsBetweenCtrl) {
+var shareService = function ($http, $q, $location, googleMapsService, eventService, userService, shareVarsBetweenCtrl) {
     "use strict";
 
     //private
@@ -47,7 +47,7 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                     if (response.redirect) {
                         cb(null, response);
                     } else {
-                        cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(data.address), data.reason));
+                        cb(null, new GfShare(data._id, data.user.id, data.event.id, data.time, data.mood, data.lat, data.lng, makeAddress(data.address), data.reason));
                     }
                 }).error(function (error) {
                     cb(error, null);
@@ -77,10 +77,29 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                     cb(null, data);
                 } else {
                     var shares = [];
-                    angular.forEach(data, function (share) {
-                        shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                    var defered = $q.defer();
+                    var promise = defered.promise;
+                    promise.then(function () {
+                        angular.forEach(data, function (share) {
+                            userService.getUserByIdForShare(share.userid, function(err, user) {
+                                if(!err) {
+                                    share.user = user;
+                                    eventService.getEventByIdForShare(share.eventid, function(err, event) {
+                                        if(!err) {
+                                            share.event = event;
+                                            console.log(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                                            shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                                        }
+                                    });
+                                }
+                            });
+                            //shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                        });
+                    }).then(function () {
+                        cb(null, shares);
                     });
-                    cb(null, shares);
+
+                    defered.resolve();
                 }
             }).error(function (error) {
                 cb(error, null);
@@ -94,9 +113,23 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                 } else {
                     var shares = [];
                     angular.forEach(data, function (share) {
-                        shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                        userService.getUserByIdForShare(share.userid, function(err, user) {
+                            if(!err) {
+                                share.user = user;
+                                eventService.getEventByIdForShare(share.eventid, function(err, event) {
+                                    if(!err) {
+                                        share.event = event;
+                                        shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                                    }
+                                });
+                            }
+                        });
+                        //shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
                     });
-                    cb(null, shares);
+
+                    $q.all(shares).then(function() {
+                        cb(null, shares);
+                    });
                 }
             }).error(function (error) {
                 cb(error, null);
@@ -107,7 +140,17 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
             $http.get("/api/share").success(function (data) {
                 var shares = [];
                 angular.forEach(data, function (share) {
-                    shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                    userService.getUserByIdForShare(share.userid, function(err, user) {
+                        if(!err) {
+                            share.user = user;
+                            eventService.getEventByIdForShare(share.eventid, function(err, event) {
+                                if(!err) {
+                                    share.event = event;
+                                    shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+                                }
+                            });
+                        }
+                    });
                 });
                 cb(null, shares);
             }).error(function (error) {
@@ -124,4 +167,4 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
         }
     };
 };
-angular.module("geofeelings").factory("shareService", ["$http", "$location", "googleMapsService", "shareVarsBetweenCtrl", shareService]);
+angular.module("geofeelings").factory("shareService", ["$http", "$q", "$location", "googleMapsService", "eventService", "userService", "shareVarsBetweenCtrl", shareService]);

@@ -5,7 +5,7 @@
     <div id="admin-remove-events" class="collapse">
         <ul class="list">
             <li ng-repeat="event in eventsAdmin">
-                <img ng-src="http://student.howest.be/jonatan.michiels/geofeelings/assets/event.png" alt="event" width="100" height="100">
+                <img ng-src="{{ event.eventimage }}" alt="event" width="100" height="100">
                 <div>
                     <span>{{ event.eventname }}</span>
                     <p><span><span class="glyphicon glyphicon-user"></span> {{ event.authorid }}</span></p>
@@ -21,9 +21,9 @@
     <div id="admin-remove-shares" class="collapse">
         <ul class="list">
             <li ng-repeat="share in sharesAdmin">
-                <img src="http://student.howest.be/jonatan.michiels/geofeelings/assets/user.png" alt="event" width="100" height="100">
+                <img ng-src="{{ share.user.userimage }}" alt="event" width="100" height="100">
                 <div>
-                    <span>{{ share.userid }}</span>
+                    <span>{{ share.user.username }}</span>
                     <p>
                         <span><span class="glyphicon glyphicon-time"></span>{{ share.time | date : "MM/dd/yyyy 'at' h:mma" }}</span>
                         <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>

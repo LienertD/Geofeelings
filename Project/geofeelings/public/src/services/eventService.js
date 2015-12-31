@@ -66,6 +66,14 @@ var eventService = function ($http, googleMapsService) {
             });
         },
 
+        getEventByIdForShare: function (eventid, cb) {
+            $http.get("/api/event/" + eventid).success(function(data) {
+                cb(null, new GfEvent(data._id, data.eventname, data.eventimage, null, null, null, null, null, null));
+            }).error(function (error) {
+                cb(error, null);
+            });
+        },
+
         postEvent: function (data, cb) {
             googleMapsService.convertAdressToCoordinates(data.address, function (err, coord) {
                 if (!err) {

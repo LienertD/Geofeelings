@@ -88,15 +88,15 @@
         <div ng-bind-html="renderHtml(noSharesForEvent)"></div>
         <ul class="list">
             <li ng-repeat="share in sharesforevent">
-                <img ng-src="http://student.howest.be/jonatan.michiels/geofeelings/assets/user.png" alt="user" width="100" height="100">
+                <img ng-src="{{ share.user.userimage }}" alt="user" width="100" height="100">
                 <div>
-                    <span>{{ share.userid }}</span>
+                    <span>{{ share.user.userid }}</span>
                     <p>
                         <span><span class="glyphicon glyphicon-time"></span>{{ share.time | date : "MM/dd/yyyy 'at' h:mma" }}</span>
                         <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>
                     </p>
                 </div>
-                <a href="#/user/{{ share.userid }}">
+                <a href="#/user/{{ share.user.userid }}">
                     <button class="btn btn-default btn-raised pull-right"><span
                             class="glyphicon glyphicon-search"></span></button>
                 </a>

@@ -33,6 +33,7 @@
                     response.data.age,
                     response.data.lat,
                     response.data.lng,
+                    response.data.address,
                     response.data.chat,
                     response.data.admin
                 );
@@ -42,7 +43,14 @@
 
         return {
             getAllUsers: getAllUsers,
-            searchUserFromId: searchUserFromId
+            searchUserFromId: searchUserFromId,
+            getUserByIdForShare: function(userid, cb) {
+                $http.get("/api/user/" + userid).success(function(data) {
+                    cb(null, new GfUser(data._id, data.username, null, data.userimage, null, null, null, null, null, null));
+                }).error(function (error) {
+                    cb(error, null);
+                });
+            }
         };
     };
     angular.module("geofeelings").factory("userService", ["$http", userService]);

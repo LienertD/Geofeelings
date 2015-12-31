@@ -43,7 +43,7 @@ router.route('/user')
 
 router.route('/user/:id')
     .get(function (req, res) {
-        if (req.user) {
+        //if (req.user) {
             User.findById(req.params.id, function (err, user) {
                 if (err) {
                     res.send(err);
@@ -53,11 +53,11 @@ router.route('/user/:id')
                     res.end();
                 }
             });
-        } else {
+        /*} else {
             console.log("> User not logged in");
             res.json({redirect: '/login'});
             res.end();
-        }
+        }*/
     })
 
     .put(upload.single('userimage'), function (req, res) {

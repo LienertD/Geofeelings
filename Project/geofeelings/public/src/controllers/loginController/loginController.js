@@ -39,7 +39,6 @@
 
         //Moet nog naar een service omgezet worden
         $scope.login = function () {
-            console.log(shareVarsBetweenCtrl.getExtraLoginInfo());
             $http.post('http://localhost:3000/auth/login', {
                 username: $scope.username,
                 password: $scope.password
