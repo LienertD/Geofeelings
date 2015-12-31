@@ -5,7 +5,7 @@
 (function () {
     "use strict";
 
-    var introController = function ($scope, shareService, $http, $location, profileService,shareVarsBetweenCtrl) {
+    var introController = function ($scope, shareService, $http, $location, profileService, shareVarsBetweenCtrl, googleMapsService) {
 
 
         //SMILEY TEKENEN
@@ -115,44 +115,85 @@
             $scope.user = data;
         });
         $scope.sharePosted = false;
-        $scope.postShare = function () {
-            $scope.sharePosted = true;
-            profileService.getUser(function (err, data) {
-                if (!err) {
-                    if (data.redirect) {
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            var userlessShareData = {
-                                "userid": 0,
-                                "eventid": null,
-                                "time": new Date().toISOString(),
-                                "mood": $scope.sliderValue,
-                                "lat": position.coords.latitude,
-                                "lng": position.coords.longitude
-                            };
 
-                            shareVarsBetweenCtrl.saveUserlessShare(userlessShareData);
+        $scope.postShare = function () {
+
+            $scope.sharePosted = true; //zorgt ervoor dat spinnertje begint de draaien
+
+            profileService.getUser(function (err, userData) {
+                if (!err) {
+                    if (userData.redirect) { //user is nog niet ingelogd bij het sharen
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            googleMapsService.convertCoordinatesToAdress(position.coords.latitude, position.coords.longitude, function (err, address) {
+                                if (!err) {
+
+                                    var shareAddress;
+                                    if (err) {
+                                        shareAddress = "";
+                                    }
+                                    else {
+                                        shareAddress = address;
+                                    }
+
+                                    var userlessShareData = {
+                                        "userid": 0,
+                                        "eventid": null,
+                                        "time": new Date().toISOString(),
+                                        "mood": $scope.sliderValue,
+                                        "lat": position.coords.latitude,
+                                        "lng": position.coords.longitude,
+                                        "address": shareAddress
+                                    };
+                                    shareVarsBetweenCtrl.saveUserlessShare(userlessShareData);
+                                }
+                                else {
+                                    console.log("erroke: " + err);
+                                }
+                            });
                         });
-                        $location.path(data.redirect);
+                        shareVarsBetweenCtrl.setExtraLoginInfo("Please login before posting this share.");
+                        $location.path(userData.redirect);
 
                     } else {
                         navigator.geolocation.getCurrentPosition(function (position) {
-                            var data = {
-                                "userid": $scope.user._id,
-                                "eventid": null,
-                                "time": new Date().toISOString(),
-                                "mood": $scope.sliderValue,
-                                "lat": position.coords.latitude,
-                                "lng": position.coords.longitude
-                            };
-                            shareService.postShare(data);
+                            googleMapsService.convertCoordinatesToAdress(position.coords.latitude, position.coords.longitude, function (err, address) {
+                                var shareAddress;
+                                if (err) {
+                                    shareAddress = "";
+                                }
+                                else {
+                                    shareAddress = address;
+                                }
+
+                                var shareData = {
+                                    "userid": userData._id,
+                                    "eventid": null,
+                                    "time": new Date().toISOString(),
+                                    "mood": $scope.sliderValue,
+                                    "lat": position.coords.latitude,
+                                    "lng": position.coords.longitude,
+                                    "address": shareAddress
+                                };
+
+                                shareService.postShareAsync(shareData, function (err, resShareData) {
+                                    if (!err) {
+                                        shareVarsBetweenCtrl.setProperty(resShareData);
+                                        $location.path("/intro_shared");
+                                    }
+                                    else {
+                                        console.log(err);
+                                    }
+                                });
+
+                            });
                         });
                     }
                 } else {
-                    console.log("error: " + err);
+                    console.log("error while getting user: " + err);
                 }
             });
         };
     };
 
-    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", "$location", "profileService","shareVarsBetweenCtrl", introController]);
+    angular.module("geofeelings").controller("introController", ["$scope", "shareService", "$http", "$location", "profileService", "shareVarsBetweenCtrl", "googleMapsService", introController]);
 })();

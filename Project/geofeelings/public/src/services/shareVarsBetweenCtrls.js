@@ -9,7 +9,7 @@ var shareVarsBetweenCtrl = function () {
     //private
     var property;
     var userlessShare;
-
+    var ExtraLoginInfo;
     //public
     return {
 
@@ -19,6 +19,14 @@ var shareVarsBetweenCtrl = function () {
 
         setProperty: function (value) {
             property = value;
+        },
+
+        setExtraLoginInfo: function (data) {
+            console.log("ik zet: " + data);
+            ExtraLoginInfo = data;
+        },
+        getExtraLoginInfo: function () {
+            return ExtraLoginInfo;
         },
 
         saveUserlessShare: function (data) {

@@ -57,7 +57,7 @@ var eventService = function ($http, googleMapsService) {
                     data.lng = coord.lng();
 
                     $http.post("/api/event", new GfEvent(data._id, data.eventname, data.eventimage, data.authorid, new Date(data.from), new Date(data.until), data.lat, data.lng, data.address)).success(function (response) {
-                        cb(null, response)
+                        cb(null, response);
                     }).error(function (error) {
                         cb(error, null);
                     });

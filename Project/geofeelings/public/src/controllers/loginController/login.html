@@ -2,6 +2,7 @@
     <div class="title">
         <h2>Enter the happiness</h2>
     </div>
+    <div ng-show="extraLoginInfo">{{extraLoginInfo}}</div>
     <div ng-show="error" class="alert alert-danger">{{ error }}</div>
     <form ng-submit="login()">
         <div class="input-group">

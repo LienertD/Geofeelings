@@ -48,7 +48,7 @@
                 }
             });
             return shares;
-        }
+        };
     };
 
     angular.module("geofeelings").controller("mainController", ["$scope", "googleMapsService", "shareService", "eventService", mainController]);

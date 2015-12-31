@@ -7,6 +7,11 @@
 
     var loginController = function ($scope, $http, $location, shareVarsBetweenCtrl, shareService, profileService) {
 
+
+        if(shareVarsBetweenCtrl.getExtraLoginInfo()){
+            $scope.extraLoginInfo = shareVarsBetweenCtrl.getExtraLoginInfo();
+        }
+
         var postUserlessShare = function(){
             var shareData = shareVarsBetweenCtrl.returnUserlessShare();
             profileService.getUser(function (err, user) {
@@ -15,7 +20,17 @@
                         $location.path(user.redirect);
                     } else {
                         shareData.userid = user.id;
-                        shareService.postShare(shareData); //post de share met de inlogdata dat hij nu weet
+
+                        shareService.postShareAsync(shareData, function (err, resShareData) {
+                            if (!err) {
+                                shareVarsBetweenCtrl.setExtraLoginInfo("");
+                                shareVarsBetweenCtrl.setProperty(resShareData);
+                                $location.path("/intro_shared");
+                            }
+                            else {
+                                console.log(err);
+                            }
+                        }); //post de share met de inlogdata dat hij nu weet
                         shareVarsBetweenCtrl.saveUserlessShare("");
                     }
                 } else {
@@ -25,6 +40,7 @@
         };
 
         $scope.login = function () {
+            console.log(shareVarsBetweenCtrl.getExtraLoginInfo());
             $http.post('http://localhost:3000/auth/login', {
                 username: $scope.username,
                 password: $scope.password

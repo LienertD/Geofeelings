@@ -16,7 +16,7 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
 
     //private
     var makeAddress = function (address) {
-        if(address) {
+        if (address) {
             var split = address.split(",");
             return split[0] + ", " + split[1];
         } else {
@@ -38,10 +38,12 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
     //public
     return {
         postShare: postShare,
+
         postShareAsync: function (data, cb) {
-            if(data.address) {
-                $http.post("/api/share", data).success(function(response) {
-                    if(response.redirect) {
+
+            if (data.address) {
+                $http.post("/api/share", data).success(function (response) {
+                    if (response.redirect) {
                         cb(null, response);
                     } else {
                         cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(data.address)));
@@ -50,10 +52,10 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
                     cb(error, null);
                 });
             } else {
-                googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function(err, address) {
-                    if(!err) {
-                        $http.post("/api/share", data).success(function(response) {
-                            if(response.redirect) {
+                googleMapsService.convertCoordinatesToAdress(data.lat, data.lng, function (err, address) {
+                    if (!err) {
+                        $http.post("/api/share", data).success(function (response) {
+                            if (response.redirect) {
                                 cb(null, response);
                             } else {
                                 cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(address)));
@@ -70,11 +72,11 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
 
         getSharesByUserId: function (userid, cb) {
             $http.get("/api/share/user/" + userid).success(function (data) {
-                if(data.redirect) {
+                if (data.redirect) {
                     cb(null, data);
                 } else {
                     var shares = [];
-                    angular.forEach(data, function(share) {
+                    angular.forEach(data, function (share) {
                         shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
                     });
                     cb(null, shares);
@@ -86,11 +88,11 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
 
         getSharesByEventId: function (eventid, cb) {
             $http.get("/api/share/event/" + eventid).success(function (data) {
-                if(data.redirect) {
+                if (data.redirect) {
                     cb(null, data);
                 } else {
                     var shares = [];
-                    angular.forEach(data, function(share) {
+                    angular.forEach(data, function (share) {
                         shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
                     });
                     cb(null, shares);
@@ -103,11 +105,11 @@ var shareService = function ($http, $location, googleMapsService, shareVarsBetwe
         getAllShares: function (cb) {
             $http.get("/api/share").success(function (data) {
                 var shares = [];
-                angular.forEach(data, function(share) {
+                angular.forEach(data, function (share) {
                     shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address)));
                 });
                 cb(null, shares);
-            }).error(function(error) {
+            }).error(function (error) {
                 cb(error, null);
             });
         }
