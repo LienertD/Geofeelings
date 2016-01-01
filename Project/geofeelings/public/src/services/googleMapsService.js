@@ -16,6 +16,7 @@ var googleMapsService = function () {
     };
     var geocoder = new google.maps.Geocoder();
     var map = new google.maps.Map(document.querySelector("#map"), mapoptions);
+    var markers = [];
 
     var chooseIcon = function(mood) {
         var url = "http://student.howest.be/jonatan.michiels/geofeelings/assets/";
@@ -43,9 +44,16 @@ var googleMapsService = function () {
                         map: map,
                         icon: "http://student.howest.be/jonatan.michiels/geofeelings/assets/location_now.png"
                     });
+                    markers.push(marker);
                 });
             } else {
                 // Throw map exception
+            }
+        },
+
+        removeMarkers: function (){
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(null);
             }
         },
 
@@ -75,6 +83,7 @@ var googleMapsService = function () {
                     "<p class='infowindowstyle'> Address: <span>" + data[i].address + "</span></p>" +
                     "<p class='infowindowstyle'> Event: <span>"+ data[i].event.eventname + "</span></p>";
 
+                markers.push(marker);
                 google.maps.event.addListener(marker, "click", (function (marker, content, infoWindow) {
                     return function () {
                         infoWindow.setContent(content);
