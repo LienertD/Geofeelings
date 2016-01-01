@@ -77,29 +77,25 @@ var shareService = function ($http, $q, $location, googleMapsService, eventServi
                     cb(null, data);
                 } else {
                     var shares = [];
-                    var defered = $q.defer();
-                    var promise = defered.promise;
-                    promise.then(function () {
-                        angular.forEach(data, function (share) {
-                            userService.getUserByIdForShare(share.userid, function(err, user) {
-                                if(!err) {
-                                    share.user = user;
-                                    eventService.getEventByIdForShare(share.eventid, function(err, event) {
-                                        if(!err) {
-                                            share.event = event;
-                                            console.log(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
-                                            shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
-                                        }
-                                    });
-                                }
-                            });
-                            //shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
-                        });
-                    }).then(function () {
-                        cb(null, shares);
-                    });
 
-                    defered.resolve();
+                    angular.forEach(data, function (share) {
+                        userService.getUserByIdForShare(share.userid, function(err, user) {
+                            if(!err) {
+                                share.user = user;
+                                eventService.getEventByIdForShare(share.eventid, function(err, event) {
+                                    if(!err) {
+                                        share.event = event;
+                                        shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+
+                                        if(data.length === shares.length) {
+                                            console.log(shares);
+                                            cb(null, shares);
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    });
                 }
             }).error(function (error) {
                 cb(error, null);
@@ -120,15 +116,14 @@ var shareService = function ($http, $q, $location, googleMapsService, eventServi
                                     if(!err) {
                                         share.event = event;
                                         shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+
+                                        if(data.length === shares.length) {
+                                            cb(null, shares);
+                                        }
                                     }
                                 });
                             }
                         });
-                        //shares.push(new GfShare(share._id, share.userid, share.eventid, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
-                    });
-
-                    $q.all(shares).then(function() {
-                        cb(null, shares);
                     });
                 }
             }).error(function (error) {
@@ -147,12 +142,15 @@ var shareService = function ($http, $q, $location, googleMapsService, eventServi
                                 if(!err) {
                                     share.event = event;
                                     shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
+
+                                    if(data.length === shares.length) {
+                                        cb(null, shares);
+                                    }
                                 }
                             });
                         }
                     });
                 });
-                cb(null, shares);
             }).error(function (error) {
                 cb(error, null);
             });

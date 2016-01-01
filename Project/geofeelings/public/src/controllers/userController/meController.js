@@ -27,7 +27,6 @@
                                 $location.path(shares.redirect);
                             } else {
                                 if(shares.length > 0) {
-                                    console.log(shares);
                                     $scope.sharesforprofile = shares;
                                 } else {
                                     $scope.noSharesForUser = "<div>You have no shares yet, go share one <a href='#/intro'>here</a></div>";
