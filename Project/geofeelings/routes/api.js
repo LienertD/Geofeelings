@@ -237,6 +237,7 @@ router.route('/event')
                 var newEvent = new Event();
                 newEvent.eventname = req.body.eventname;
                 newEvent.eventimage = "http://student.howest.be/jonatan.michiels/geofeelings/assets/event.png";
+                newEvent.authorid = req.body.authorid;
                 newEvent.from = req.body.from;
                 newEvent.until = req.body.until;
                 newEvent.lat = req.body.lat;

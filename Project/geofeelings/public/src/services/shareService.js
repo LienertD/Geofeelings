@@ -40,14 +40,12 @@ var shareService = function ($http, $q, $location, googleMapsService, eventServi
         postShare: postShare,
 
         postShareAsync: function (data, cb) {
-            console.log(data);
-
             if (data.address) {
                 $http.post("/api/share", data).success(function (response) {
                     if (response.redirect) {
                         cb(null, response);
                     } else {
-                        cb(null, new GfShare(data._id, data.user.id, data.event.id, data.time, data.mood, data.lat, data.lng, makeAddress(data.address), data.reason));
+                        cb(null, new GfShare(data._id, data.userid, data.eventid, data.time, data.mood, data.lat, data.lng, makeAddress(data.address), data.reason));
                     }
                 }).error(function (error) {
                     cb(error, null);
@@ -88,7 +86,6 @@ var shareService = function ($http, $q, $location, googleMapsService, eventServi
                                         shares.push(new GfShareExtended(share._id, share.user, share.event, share.time, share.mood, share.lat, share.lng, makeAddress(share.address), share.reason));
 
                                         if(data.length === shares.length) {
-                                            console.log(shares);
                                             cb(null, shares);
                                         }
                                     }

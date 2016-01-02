@@ -77,7 +77,7 @@
                     }
                 } else {
                     if(err === "ZERO_RESULTS") {
-                        $scope.error = "No address found! Street & Number and Zip & City are required! Make sure ther is a space between your input and no komma(,)";
+                        $scope.error = "No address found!";
                     } else {
                         $scope.error = "Something went wrong, try again later!";
                     }

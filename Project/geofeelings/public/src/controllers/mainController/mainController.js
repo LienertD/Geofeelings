@@ -38,7 +38,7 @@
                 $scope.timestamp = "Last day";
                 googleMapsService.removeMarkers();
                 googleMapsService.showAllMarkers(filterSharesOnTime("day"));
-            } else if($scope.timelapse == 0) {
+            } else if($scope.timelapse === 0) {
                 $scope.timestamp = "last hour";
                 googleMapsService.removeMarkers();
                 googleMapsService.showAllMarkers(filterSharesOnTime("hour"));
