@@ -16,5 +16,6 @@
     <orderEntry type="library" name="less" level="application" />
     <orderEntry type="library" name="geofeelings node_modules" level="project" />
     <orderEntry type="library" name="googlemaps-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="geofeelings node_modules" level="project" />
   </component>
 </module>

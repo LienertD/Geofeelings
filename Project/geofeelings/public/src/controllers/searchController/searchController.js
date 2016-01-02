@@ -6,7 +6,7 @@
 (function () {
     "use strict";
 
-    var searchController = function ($scope, userService, eventService) {
+    var searchController = function ($scope, userService, eventService,profileService,shareVarsBetweenCtrl,$location) {
 
         $scope.searchModel = null;
 
@@ -41,41 +41,53 @@
         var searchNow = function () {
             $scope.maxResExceeded = false;
 
-            userService.getAllUsers(function (err, results) {
-                if (err) {
-                    console.log("error:" + err);
-                }
-                else {
-                    var visibleres = [];
-                    var i = 0, max = 5;
-                    angular.forEach(results, function (res) {
-                        if (i < max) {
-                            visibleres.push(res);
-                            i++;
-                        }
-                    });
-                    $scope.searchResultsUsers = visibleres;
-                }
-            });
+            profileService.getUser(function (err, userData) {
+                if (!err) {
+                    if (userData.redirect) { //user is nog niet ingelogd bij het sharen
+                        shareVarsBetweenCtrl.setExtraLoginInfo("You need to login before using the search funtion.");
+                        $location.path(userData.redirect);
 
-            eventService.getAllEvents(function (err, results) {
-                if (err) {
-                    console.log("error:" + err);
-                }
-                else {
-                    var visibleres = [];
-                    var i = 0, max = 5;
-                    angular.forEach(results, function (res) {
-                        if (i < max) {
-                            visibleres.push(res);
-                            i++;
-                        }
-                    });
-                    $scope.searchResultsEvents = visibleres;
+                    } else {
+                        userService.getAllUsers(function (err, results) {
+                            if (err) {
+                                console.log("error:" + err);
+                            }
+                            else {
+                                var visibleres = [];
+                                var i = 0, max = 5;
+                                angular.forEach(results, function (res) {
+                                    if (i < max) {
+                                        visibleres.push(res);
+                                        i++;
+                                    }
+                                });
+                                $scope.searchResultsUsers = visibleres;
+                            }
+                        });
+
+                        eventService.getAllEvents(function (err, results) {
+                            if (err) {
+                                console.log("error:" + err);
+                            }
+                            else {
+                                var visibleres = [];
+                                var i = 0, max = 5;
+                                angular.forEach(results, function (res) {
+                                    if (i < max) {
+                                        visibleres.push(res);
+                                        i++;
+                                    }
+                                });
+                                $scope.searchResultsEvents = visibleres;
+                            }
+                        });
+                    }
+                } else {
+                    console.log("error while getting user: " + err);
                 }
             });
         };
     };
 
-    angular.module("geofeelings").controller("searchController", ["$scope", "userService", "eventService", searchController]);
+    angular.module("geofeelings").controller("searchController", ["$scope", "userService", "eventService","profileService","shareVarsBetweenCtrl","$location", searchController]);
 })();
