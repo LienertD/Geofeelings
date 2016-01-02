@@ -31,6 +31,7 @@
             //variabelen voor beziercurve (= mond)
             var SPx = offsetX;
             var SPy = offSetY + c.width / 3 - (mood * (c.width / 376.66));
+            console.log(SPy);
             var H1x = offsetX;
             var H1y = offSetY + (mood * (c.width / 250));
             var H2x = offsetX + ((c.width / 300) * 180);
@@ -53,7 +54,7 @@
             ctx.beginPath();
             ctx.moveTo(SPx, SPy);
             ctx.bezierCurveTo(H1x, H1y, H2x, H2y, EPx, EPy);
-            ctx.strokeStyle = 'black';
+            //ctx.strokeStyle = 'black';
             ctx.stroke();
             ctx.lineCap = "round";
 
@@ -62,14 +63,14 @@
             ctx.lineWidth = c.width / 60;
             ctx.beginPath();
             ctx.arc(c.width / 3, c.width / 3, c.width / 15, 0, 2 * Math.PI);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
             ctx.fill();
             ctx.stroke();
 
             //oog rechts
             ctx.beginPath();
             ctx.arc(c.width / 3 * 2, c.width / 3, c.width / 15, 0, 2 * Math.PI);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
             ctx.fill();
             ctx.stroke();
         });
