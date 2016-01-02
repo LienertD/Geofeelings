@@ -5,25 +5,19 @@
     <div class="slider-wrapper">
         <label for="filter"></label>
         <input type="range" id="filter" name="filter" ng-model="sliderValue">
-
-        <div id="sliderPercent">{{moodWord}}</div>
-        <div>
-            <canvas id="smileyCanvas" width="150" height="150">
-            </canvas>
+        <div id="sliderPercent">Why are you feeling {{moodWord}}?</div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-align-justify"></span></span>
+            <!--<input type="text" class="form-control" placeholder="Why are you feeling {{moodWord}}?" ng-model="moodReason">-->
+            <textarea ng-model="moodReason" name="reason" id="textarea-reason" class="form-control"></textarea>
         </div>
-
         <div>
-            <span class="glyphicon glyphicon-align-justify"></span>
-            <input type="text" placeholder="Why are you feeling {{moodWord}}?" ng-model="moodReason">
+            <canvas id="smileyCanvas" width="150" height="150"></canvas>
         </div>
-
-
-        <a>
-            <button class="btn btn-default btn-raised pull-right" ng-mouseover="console.log('ajo')"
-                    ng-click="postShare()">Submit!
-                <span ng-show="!sharePosted" class="glyphicon glyphicon-chevron-right"></span>
-                <span ng-show="sharePosted" class="glyphicon glyphicon-refresh spinmerightround"></span>
-            </button>
-        </a>
+        <button class="btn btn-default btn-raised pull-right"
+                ng-click="postShare()">Submit!
+            <span ng-show="!sharePosted" class="glyphicon glyphicon-chevron-right"></span>
+            <span ng-show="sharePosted" class="glyphicon glyphicon-refresh spinmerightround"></span>
+        </button>
     </div>
 </div>

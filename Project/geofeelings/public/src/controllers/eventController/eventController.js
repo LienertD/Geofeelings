@@ -108,6 +108,20 @@
             });
         };
 
+        $scope.convertMood = function(mood) {
+            if(mood > 80) {
+                return "excited";
+            } else if(mood > 60) {
+                return "happy";
+            } else if(mood > 40) {
+                return "common";
+            } else if (mood > 20) {
+                return "sad";
+            } else {
+                return "depressive";
+            }
+        };
+
         var splitAddress = function (address, part) {
             var split = address.split(",");
             return split[part];

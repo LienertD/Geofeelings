@@ -111,16 +111,16 @@
         <h4>What are your feelings?</h4>
         <label for="filter"></label>
         <input type="range" id="filter" name="filter" ng-model="event.mood">
-        <span>{{ event.mood }}%</span>
+        <!--<span>{{ event.mood }}%</span>-->
+        <div id="sliderPercent">Why are you feeling {{ convertMood(event.mood) }}?</div>
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-align-justify"></span></span>
+            <textarea name="reason" id="textarea-reason" class="form-control" ng-model="event.reason"></textarea>
+        </div>
         <button type="submit" class="btn btn-default btn-raised pull-right">Set <span
                 class="glyphicon glyphicon-ok"></span></button>
     </form>
     <div class="navigation">
-        <a href="#/search">
-            <button class="btn btn-default btn-raised pull-left"><span
-                    class="glyphicon glyphicon-arrow-left"></span> Searchresults
-            </button>
-        </a>
         <a href="#/addEvent">
             <button type="button" class="btn btn-default btn-raised pull-right">Add <span
                     class="lyphicon glyphicon-plus"></span>
