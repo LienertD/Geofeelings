@@ -31,7 +31,6 @@
             //variabelen voor beziercurve (= mond)
             var SPx = offsetX;
             var SPy = offSetY + c.width / 3 - (mood * (c.width / 376.66));
-            console.log(SPy);
             var H1x = offsetX;
             var H1y = offSetY + (mood * (c.width / 250));
             var H2x = offsetX + ((c.width / 300) * 180);
