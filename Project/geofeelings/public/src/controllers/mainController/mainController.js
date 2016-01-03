@@ -18,7 +18,7 @@
          * */
 
         var socket = io.connect("http://localhost:3001");
-        $scope.chatMessages = [];
+        $scope.chatMessages = []; 
 
 
         $scope.init = function () {
