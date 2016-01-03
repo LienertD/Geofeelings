@@ -11,7 +11,7 @@
         if (shareVarsBetweenCtrl.getExtraLoginInfo()) {
             $scope.extraLoginInfo = shareVarsBetweenCtrl.getExtraLoginInfo();
         }
- 
+
         var postUserlessShare = function () {
             var shareData = shareVarsBetweenCtrl.returnUserlessShare();
             profileService.getUser(function (err, user) {
