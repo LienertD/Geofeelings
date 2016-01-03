@@ -122,7 +122,7 @@ router.route('/share')
 
     .post(function (req, res) {
         if (req.user) {
-            if(req.body.userid && req.body.eventid && req.body.time && req.body.mood && req.body.lat && req.body.lng && req.body.address) {
+            if(req.body.userid && req.body.time && req.body.mood && req.body.lat && req.body.lng && req.body.address) {
                 var newShare = new Share();
                 newShare.userid = req.body.userid;
                 newShare.eventid = req.body.eventid;
