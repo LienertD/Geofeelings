@@ -10,13 +10,13 @@
         //chat start
         /*
          * TO DO CHAT:
-         * socketids in database?
          * berichten in database?
          * melding als ze niet in de chat zitten en wel bericht krijgen?
          * sendmsgto server in usercontroller?
          * chatmsg naar alle socketids sturen
          *
          * */
+
         var socket = io.connect("http://localhost:3001");
         $scope.chatMessages = [];
 
@@ -26,9 +26,9 @@
             profileService.getUser(function (err, userData) { //zend je id naar de server om te zeggen dat je er bent en welk socketid je hebt
                 if (!err) {
                     if (userData.redirect) {
-                        //user niet logged in, nog toevoegen dat hij zen id stuurt bij inloggen!
+                        //userid niet logged in, nog toevoegen dat hij zen id stuurt bij inloggen!
                     } else {
-                        socket.emit("statusMessage", userData.id);
+                        socket.emit("loginMessage", userData.id);
                     }
                 } else {
                     console.log("error while getting user: " + err);
@@ -37,44 +37,40 @@
         };
 
         socket.on("chatMessage", function (data) { //ontvangen bericht
-            newTextBubble(data.senderUsername, data.text, data.receiver, "other");
-            $scope.chatMessages.push({text: data.text, sender: data.senderUsernamen, cssClass: "other"});
+            console.log(data);
+            $scope.chatMessages.push({text: data.text, sender: data.senderUsername, cssClass: "other"}); //pushen naar scope om chatbubble te tonen
             $scope.$apply(); //dit zorgt ervoor dat de chatbubbles er direct komen, niet verplaatsen!
         });
 
-        var newTextBubble = function (sender, message, receiver, messageSource) {
-            if (messageSource === "me") {
-                $scope.chatMessages.push({text: message, sender: sender, cssClass: messageSource});
-            }
-            console.log($scope.chatMessages);
-            console.log(messageSource + ": " + sender + " to " + receiver + ": " + message);
-        };
-
         $scope.sendChatMsgToServer = function () { //verzenden bericht
-            profileService.getUser(function (err, userData) {
-                if (!err) {
-                    if (userData.redirect) { //user is nog niet ingelogd bij het chatten
-                        shareVarsBetweenCtrl.setExtraLoginInfo("You need to be logged in to chat.");
-                        $location.path(userData.redirect);
+            var inputtext = document.getElementById("inputTextChat");
+            if (inputtext.value !== "") {
+                profileService.getUser(function (err, userData) {
+                    if (!err) {
+                        if (userData.redirect) { //user is nog niet ingelogd bij het chatten
+                            shareVarsBetweenCtrl.setExtraLoginInfo("You need to be logged in to chat.");
+                            $location.path(userData.redirect);
+                        } else {
+
+                            var messageObj = {
+                                text: inputtext.value,
+                                sender: userData.id,
+                                receiver: $routeParams.param,
+                                senderUsername: userData.username
+                            };
+                            socket.emit("chatMessage", messageObj);
+                            $scope.chatMessages.push({
+                                text: inputtext.value,
+                                sender: userData.username,
+                                cssClass: "me"
+                            }); //pushen naar scope om chatbubble te tonen
+                            inputtext.value = "";
+                        }
                     } else {
-                        var inputtext = document.getElementById("inputTextChat");
-
-                        var messageObj = {
-                            text: inputtext.value,
-                            sender: userData.id,
-                            receiver: $routeParams.param,
-                            senderUsername: userData.username
-                        };
-
-                        socket.emit("chatMessage", messageObj);
-
-                        newTextBubble(userData.username, inputtext.value, $routeParams.param, "me");
-                        inputtext.value = "";
+                        console.log("error while getting user: " + err);
                     }
-                } else {
-                    console.log("error while getting user: " + err);
-                }
-            });
+                });
+            }
         };
 
         //chat einde

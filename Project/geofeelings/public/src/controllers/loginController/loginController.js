@@ -5,12 +5,14 @@
 (function () {
     "use strict";
 
+    var socket = io.connect("http://localhost:3001");
+
     var loginController = function ($scope, $http, $location, shareVarsBetweenCtrl, shareService, profileService) {
-        if(shareVarsBetweenCtrl.getExtraLoginInfo()){
+        if (shareVarsBetweenCtrl.getExtraLoginInfo()) {
             $scope.extraLoginInfo = shareVarsBetweenCtrl.getExtraLoginInfo();
         }
 
-        var postUserlessShare = function(){
+        var postUserlessShare = function () {
             var shareData = shareVarsBetweenCtrl.returnUserlessShare();
             profileService.getUser(function (err, user) {
                 if (!err) {
@@ -44,7 +46,21 @@
                 password: $scope.password
             }).success(function (data) {
                 $scope.error = data.error;
-                if (shareVarsBetweenCtrl.returnUserlessShare() !== undefined && shareVarsBetweenCtrl.returnUserlessShare() !== "") //user heeft willen sharen, maar was niet ingelogd.
+
+                profileService.getUser(function (err, userData) { //zend je id naar de server om te zeggen dat je er bent en welk socketid je hebt
+                    if (!err) {
+                        if (userData.redirect) {
+                            //userid niet logged in, nog toevoegen dat hij zen id stuurt bij inloggen!
+                        } else {
+                            console.log(userData);
+                            socket.emit("loginMessage", userData.id);
+                        }
+                    } else {
+                        console.log("error while getting userid: " + err);
+                    }
+                });
+
+                if (shareVarsBetweenCtrl.returnUserlessShare() !== undefined && shareVarsBetweenCtrl.returnUserlessShare() !== "") //userid heeft willen sharen, maar was niet ingelogd.
                 {
                     postUserlessShare();
                 }
@@ -62,7 +78,7 @@
                 email: $scope.email
             }).success(function (data) {
                 $scope.error = data.error;
-                if (shareVarsBetweenCtrl.returnUserlessShare() !== undefined && shareVarsBetweenCtrl.returnUserlessShare() !== "") //user heeft willen sharen, maar was niet ingelogd.
+                if (shareVarsBetweenCtrl.returnUserlessShare() !== undefined && shareVarsBetweenCtrl.returnUserlessShare() !== "") //userid heeft willen sharen, maar was niet ingelogd.
                 {
                     postUserlessShare();
                 }

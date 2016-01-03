@@ -5,6 +5,8 @@
 (function () {
     "use strict";
 
+    var socket = io.connect("http://localhost:3001");
+
     var meController = function ($scope, $http, $location, $sce, profileService, shareService) {
         profileService.getUser(function (err, user) {
             if (!err) {
@@ -66,6 +68,20 @@
         };
 
         $scope.logout = function () {
+
+
+            profileService.getUser(function (err, userData) { //zend je id naar de server om te zeggen dat je weggaat en niet meer wilt chatten
+                if (!err) {
+                    if (userData.redirect) {
+                        //userid niet logged in, nog toevoegen dat hij zen id stuurt bij inloggen!
+                    } else {
+                        socket.emit("logoutMessage", userData.id);
+                    }
+                } else {
+                    console.log("error while getting userid: " + err);
+                }
+            });
+
             profileService.logout().then(function (data) {
                 $location.path(data);
             });
