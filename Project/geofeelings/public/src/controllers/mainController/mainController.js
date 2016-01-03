@@ -54,25 +54,25 @@
                 case "year":
                     angular.forEach($scope.shares, function(share) {
                         console.log(new Date().getYear() - new Date(share.time).getYear());
-                        if((new Date().getYear() - new Date(share.time).getYear()) <= 1)
+                        if((new Date().getTime() - new Date(share.time).getTime()) <= ((360000 * 24) * 365))
                             shares.push(share);
                     });
                     return shares;
                 case "month":
                     angular.forEach($scope.shares, function(share) {
-                        if((new Date().getMonth() - new Date(share.time).getMonth()) <= 1)
+                        if((new Date().getTime() - new Date(share.time).getTime()) <= ((360000 * 24) * 31))
                             shares.push(share);
                     });
                     return shares;
                 case "week":
                     angular.forEach($scope.shares, function(share) {
-                        if((new Date().getDay() - new Date(share.time).getDay()) <= 7)
+                        if((new Date().getTime() - new Date(share.time).getTime()) <= ((360000 * 24) * 7))
                             shares.push(share);
                     });
                     return shares;
                 case "day":
                     angular.forEach($scope.shares, function(share) {
-                        if((new Date().getDay() - new Date(share.time).getDay()) <= 1)
+                        if((new Date().getTime() - new Date(share.time).getTime()) <= (360000 * 24))
                             shares.push(share);
                     });
                     return shares;

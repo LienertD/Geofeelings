@@ -37,13 +37,6 @@
             });
     });
 
-    app.directive("searchresult", function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'directives/searchResult.html'
-        };
-    });
-
     app.service('sharedProperties', function () {
         var property = 'First';
 
