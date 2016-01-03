@@ -31,11 +31,8 @@
             <p ng-hide="shareFoundWithUserId.length">{{userfoundwithid.username}} doesn't have any shares yet!</p>
             <li ng-repeat="share in shareFoundWithUserId" ng-click="test(share)">
                 <img ng-src="{{share.moodImageSource}}" alt="">
-
                 <p>Mood: {{share.mood}}</p>
-
                 <p>Reason: {{share.reason}}</p>
-
                 <p ng-show="share.time">Date: {{share.time | date:"dd/MM/yy HH:mm"}}</p>
             </li>
         </ul>
@@ -92,18 +89,14 @@
     </div>
     <div id="user-chat" class="collapse">
         <div id="chatbox">
-        <!--<div id="chatbox">
-            <!--<div><p class="me">Hello, how are you doing?</p></div>
-            <div><p class="other">Chat here!</p></div>-->
-            <div ng-repeat="chatMessage in chatMessages">
-                <p  ng-class="chatMessage.cssClass">{{chatMessage.sender}}: {{chatMessage.text}}</p>
-            </div>
+            <div><p class="me">Hello, how are you doing?</p></div>
+            <div><p class="other">Yo! I'm doing great</p></div>
         </div>
-        <button class="btn btn-default btn-raised pull-right" ng-click="sendChatMsgToServer()">Send <span
+        <button class="btn btn-default btn-raised pull-right">Send <span
                 class="glyphicon glyphicon-send"></span></button>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-            <input type="text" class="form-control" placeholder="Message" id="inputTextChat">
+            <input type="text" class="form-control" placeholder="Message">
         </div>
     </div>
     <div class="navigation">
