@@ -7,22 +7,12 @@
 
     var mainController = function ($scope, googleMapsService, shareService, profileService, $location, $routeParams) {
 
-        //chat start
-        /*
-         * TO DO CHAT:
-         * berichten in database?
-         * melding als ze niet in de chat zitten en wel bericht krijgen?
-         * sendmsgto server in usercontroller?
-         * chatmsg naar alle socketids sturen
-         *
-         * */
 
         var socket = io.connect("http://localhost:3001");
         $scope.chatMessages = []; 
 
 
         $scope.init = function () {
-            console.log("nu in de init");
             profileService.getUser(function (err, userData) { //zend je id naar de server om te zeggen dat je er bent en welk socketid je hebt
                 if (!err) {
                     if (userData.redirect) {
@@ -36,8 +26,11 @@
             });
         };
 
+        socket.on("sharePostedNotify", function (sharedata) {
+            googleMapsService.showOnePostMarker(sharedata);
+        });
+
         socket.on("chatMessage", function (data) { //ontvangen bericht
-            console.log(data);
             $scope.chatMessages.push({text: data.text, sender: data.senderUsername, cssClass: "other"}); //pushen naar scope om chatbubble te tonen
             $scope.$apply(); //dit zorgt ervoor dat de chatbubbles er direct komen, niet verplaatsen!
         });

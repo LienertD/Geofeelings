@@ -7,6 +7,7 @@
 
     var introController = function ($scope, shareService, $http, $location, profileService, shareVarsBetweenCtrl, googleMapsService) {
 
+        var socket = io.connect("http://localhost:3001");
 
         //SMILEY TEKENEN
         $scope.sliderValue = 50;
@@ -31,7 +32,6 @@
             //variabelen voor beziercurve (= mond)
             var SPx = offsetX;
             var SPy = offSetY + c.width / 3 - (mood * (c.width / 376.66));
-            console.log(SPy);
             var H1x = offsetX;
             var H1y = offSetY + (mood * (c.width / 250));
             var H2x = offsetX + ((c.width / 300) * 180);
@@ -145,7 +145,7 @@
                                         "lat": position.coords.latitude,
                                         "lng": position.coords.longitude,
                                         "address": shareAddress,
-                                        "reason":$scope.moodReason
+                                        "reason": $scope.moodReason
                                     };
                                     shareVarsBetweenCtrl.saveUserlessShare(userlessShareData);
                                 }
@@ -168,7 +168,6 @@
                                     shareAddress = address;
                                 }
 
-                                console.log(userData);
                                 var shareData = {
                                     "userid": userData.id,
                                     "eventid": null,
@@ -177,13 +176,12 @@
                                     "lat": position.coords.latitude,
                                     "lng": position.coords.longitude,
                                     "address": shareAddress,
-                                    "reason":$scope.moodReason
+                                    "reason": $scope.moodReason
                                 };
-
-                                console.log(shareData);
 
                                 shareService.postShareAsync(shareData, function (err, resShareData) {
                                     if (!err) {
+                                        socket.emit("sharePosted", resShareData); //uitzenden naar iedereen
                                         shareVarsBetweenCtrl.setProperty(resShareData);
                                         $location.path("/intro_shared");
                                     }

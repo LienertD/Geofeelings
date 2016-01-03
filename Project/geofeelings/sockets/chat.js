@@ -7,6 +7,10 @@ module.exports = function (io) {
 
     io.sockets.on('connection', function (socket) {
 
+        socket.on('sharePosted', function (shareData) {
+            io.emit('sharePostedNotify', shareData);
+            console.log('tis geemit');
+        });
 
         socket.on('logoutMessage', function (userid) {
             console.log("logout van user");
