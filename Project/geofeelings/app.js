@@ -15,8 +15,13 @@ var auth = require('./routes/auth.js');
 var api = require('./routes/api.js');
 var configDB = require('./config/database.js');
 var server = require('./bin/www');
+<<<<<<< HEAD
 var io = require("socket.io").listen(3001);
 var chat = require('./sockets/chat.js')(io);
+=======
+//var io = require('socket.io')(server);
+//var chat = require('./sockets/chat.js')(io);
+>>>>>>> origin/master
 
 require('./sockets/chat.js');
 require('./config/passport')(passport);
