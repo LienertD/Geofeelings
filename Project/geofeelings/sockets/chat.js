@@ -16,10 +16,10 @@ module.exports = function (io) {
             console.log('broadcast complete');
         });
     });
-<<<<<<< HEAD
+
 };
-    */
-var chat = function() {
+
+var chat = function () {
     console.log("in chatmodule");
 
     var io = require("socket.io").listen(3001);
@@ -64,8 +64,5 @@ var chat = function() {
             //socket.broadcast.emit('serverMessage', 'dris wa gezegd geweest ' + data.text);
         });
     });
-}
-module.exports.getchat = chat;
-=======
 };
->>>>>>> 26f590e8aca221837380f9a60eba6fa5c2671e09
+module.exports.getchat = chat;
