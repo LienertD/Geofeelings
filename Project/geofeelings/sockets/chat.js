@@ -16,16 +16,9 @@ module.exports = function (io) {
             console.log('broadcast complete');
         });
     });
-<<<<<<< HEAD
-
-};
-
-var chat = function () {
-=======
 };
 
 var chat = function() {
->>>>>>> origin/master
     console.log("in chatmodule");
 
     var io = require("socket.io").listen(3001);
