@@ -3,65 +3,71 @@
  */
 
 module.exports = function (io) {
-    'use strict';
-    io.on('connection', function (socket) {
-        socket.on('message', function (from, msg) {
-            console.log('recieved message from', from, 'msg', JSON.stringify(msg));
-            console.log('broadcasting message');
-            console.log('payload is', msg);
-            io.sockets.emit('broadcast', {
-                payload: msg,
-                source: from
-            });
-            console.log('broadcast complete');
-        });
-    });
-};
-
-var chat = function() {
-    console.log("in chatmodule");
-
-    var io = require("socket.io").listen(3001);
     var currentUsers = [];
 
-    console.log("in de chatcode");
-
     io.sockets.on('connection', function (socket) {
-        socket.on('clientMessage', function (data) {
-            console.log(data);
 
-            if (data.sender !== undefined) { //bepalen als zender toegevoegd moet worden aan currentUsers (lijst van de users met hun socketid)
-                var isAlreadyKnown = false;
+
+        socket.on('logoutMessage', function (userid) {
+            console.log("logout van user");
+
+            for (var i = 0, len = currentUsers.length; i < len; i++) {
+                if (currentUsers[i].currentUserId == userid) {
+                    currentUsers.splice(i, 1); //verwijderen van de currentusersarray
+                }
+            }
+
+        });
+
+        socket.on('loginMessage', function (userid) {
+            console.log("login van user");
+
+            if (userid !== undefined && userid !== null) { //bepalen als zender toegevoegd moet worden aan currentUsers (lijst van de users met hun socketid)
+                var userIsAlreadyKnown = false;
                 for (var i = 0, len = currentUsers.length; i < len; i++) {
-                    if (currentUsers[i].userid == data.sender) {
-                        isAlreadyKnown = true;
+                    if (currentUsers[i].currentUserId == userid) {
+                        userIsAlreadyKnown = true;
+
+                        socketIdFromUserIsKnown = false;
+                        for (var j = 0, silen = currentUsers[i].socketids.length; j < silen; j++) {
+                            if (currentUsers[i].socketids[j] == socket.id) {
+                                socketIdFromUserIsKnown = true; //socketid van userid reeds gekend, dus niet toevoegen aan lijst
+                            }
+                        }
+                        if (!socketIdFromUserIsKnown) //socketid nog niet gekend, toeveogen aan lijst
+                        {
+                            currentUsers[i].socketids.push(socket.id);
+                        }
                     }
                 }
 
-                if (!isAlreadyKnown) { //toevogen aan gekendeusers
-                    var asocketid = []; //in een array steken want een userid kan op verschillende tabs/browsers chatten => meerdere socketids
-                    asocketid.push(socket.id);
+                if (!userIsAlreadyKnown) { //toevogen aan gekendeusers als hij nog niet gekend is
+                    var arsocketids = []; //in een array steken want een userid kan op verschillende tabs/browsers chatten => meerdere socketids
+                    arsocketids.push(socket.id);
                     var userIdObj = {
-                        "userid": data.sender,
-                        "socketids": asocketid
+                        "currentUserId": userid,
+                        "socketids": arsocketids
                     };
                     currentUsers.push(userIdObj);
                 }
-
             }
+        });
 
-            var receiverId;
+        socket.on('chatMessage', function (data) {
+            console.log("chatmessage van user");
+            var userIsKnown = false;
             for (i = 0, len = currentUsers.length; i < len; i++) {
-                if (currentUsers[i].userid == data.receiver) {
-                    receiverId = currentUsers[i].socketids[0];
+                if (currentUsers[i].currentUserId == data.receiver) {
+                    userIsKnown = true;
+                    for (j = 0, silen = currentUsers[i].socketids.length; j < silen; j++) {
+                        var receiverSocketId = currentUsers[i].socketids[j]; //sturen naar ELKE socketid van de ontvanger
+                        socket.to(receiverSocketId).emit('chatMessage', data);
+                    }
                 }
             }
-
-            //socket.emit('usermessage', data);
-            socket.to(receiverId).emit('usermessage', data);
-            //socket.emit('serverMessage', data.sender + ' said: ' + data.text);
-            //socket.broadcast.emit('serverMessage', 'dris wa gezegd geweest ' + data.text);
+            if (!userIsKnown) {
+                console.log("user with id " + data.receiver + " is not known yet, message could not be send!");
+            }
         });
     });
 };
-module.exports.getchat = chat;

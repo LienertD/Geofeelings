@@ -15,9 +15,10 @@ var auth = require('./routes/auth.js');
 var api = require('./routes/api.js');
 var configDB = require('./config/database.js');
 var server = require('./bin/www');
-var io = require('socket.io')(server);
+var io = require("socket.io").listen(3001);
 var chat = require('./sockets/chat.js')(io);
 
+require('./sockets/chat.js');
 require('./config/passport')(passport);
 mongoose.connect(configDB.url);
 
@@ -40,8 +41,8 @@ app.use('/api', api);
 //[START CHAT] dit staat hier natuurlijk heel vuil tussen, later wordt dit in een aparte file gezet
 
 
-var io = require("socket.io").listen(3001);
-var currentUsers = [];
+
+/*var currentUsers = [];
 
 io.sockets.on('connection', function (socket) {
 
@@ -110,6 +111,6 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-//[EINDE CHAT]
+//[EINDE CHAT]*/
 
 module.exports = app;
