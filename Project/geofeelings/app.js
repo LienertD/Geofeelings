@@ -15,8 +15,8 @@ var auth = require('./routes/auth.js');
 var api = require('./routes/api.js');
 var configDB = require('./config/database.js');
 var server = require('./bin/www');
-var io = require('socket.io')(server);
-var chat = require('./sockets/chat.js')(io);
+//var io = require('socket.io')(server);
+//var chat = require('./sockets/chat.js')(io);
 
 require('./config/passport')(passport);
 mongoose.connect(configDB.url);
