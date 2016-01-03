@@ -107,11 +107,6 @@
             }
         };
 
-        $scope.filesChanged = function(elm) {
-            $scope.user.userimage = elm.userimage;
-            $scope.$apply();
-        };
-
         var splitAddress = function (address, part) {
             var split = address.split(",");
             return split[part];
