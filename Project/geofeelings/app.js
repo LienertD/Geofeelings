@@ -36,7 +36,6 @@ app.use('/', root);
 app.use('/auth', auth);
 app.use('/api', api);
 
-<<<<<<< HEAD
 
 //[START CHAT] dit staat hier natuurlijk heel vuil tussen, later wordt dit in een aparte file gezet
 
@@ -113,7 +112,4 @@ io.sockets.on('connection', function (socket) {
 
 //[EINDE CHAT]
 
-
-=======
->>>>>>> 26f590e8aca221837380f9a60eba6fa5c2671e09
 module.exports = app;
