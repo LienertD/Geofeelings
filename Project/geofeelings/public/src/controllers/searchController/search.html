@@ -8,10 +8,10 @@
                ng-model="searchModel" ng-init="searchModel=''" ng-keypress="searchOnKeyPress()">
     </form>
 
-    <div class="title" data-target="#user-search-result" data-toggle="collapse">
+    <div class="title" data-target="#user-search-result" data-toggle="collapse" ng-hide="!searchResultsUsers.length">
         <h3>Users</h3>
     </div>
-    <div id="user-search-result" class="collapse">
+    <div id="user-search-result" class="collapse in">
         <ul class="list">
             <li ng-repeat="sr in searchResultsUsers | filter:filterSearchResults">
                 <a ng-href="/#/{{sr.resultSort}}/{{sr.id}}">
@@ -25,10 +25,10 @@
         </ul>
     </div>
 
-    <div class="title" data-target="#event-search-result" data-toggle="collapse">
+    <div class="title" data-target="#event-search-result" data-toggle="collapse" ng-hide="!searchResultsEvents.length">
         <h3>Events</h3>
     </div>
-    <div id="event-search-result" class="collapse">
+    <div id="event-search-result" class="collapse in">
         <ul class="list">
             <li ng-repeat="sr in searchResultsEvents | filter:filterSearchResults">
                 <a ng-href="/#/{{sr.resultSort}}/{{sr.id}}">
@@ -40,13 +40,5 @@
                 </a>
             </li>
         </ul>
-    </div>
-
-    <div class="navigation">
-        <a href="#/search">
-            <button class="btn btn-default btn-raised pull-right">Reset <span
-                    class="glyphicon glyphicon-repeat"></span>
-            </button>
-        </a>
     </div>
 </div>

@@ -23,64 +23,24 @@
         </div>
     </div>
 
-    <div class="title" data-target="#user-shares" data-toggle="collapse" ng-show="shareFoundWithUserId">
-        <h3>Recent shares</h3>
-    </div>
-    <div id="user-shares" class="collapse in">
-        <ul class="list">
-            <p ng-hide="shareFoundWithUserId.length">{{userfoundwithid.username}} doesn't have any shares yet!</p>
-            <li ng-repeat="share in shareFoundWithUserId" ng-click="test(share)">
-                <img ng-src="{{share.moodImageSource}}" alt="">
-                <p>Mood: {{share.mood}}</p>
-                <p>Reason: {{share.reason}}</p>
-                <p ng-show="share.time">Date: {{share.time | date:"dd/MM/yy HH:mm"}}</p>
-            </li>
-        </ul>
-    </div>
 
     <div class="title" data-target="#user-events" data-toggle="collapse">
         <h3>Recent locations</h3>
     </div>
     <div id="user-events" class="collapse">
         <ul class="list">
-            <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
-
+            <li ng-repeat="share in shareFoundWithUserId">
+                <img ng-src="{{ share.moodImageSource }}" alt="event" width="100" height="100">
                 <div>
-                    <span>Event 1</span>
-
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
+                    <span ng-show="share.reason">{{ share.reason }}</span>
+                    <span ng-hide="share.reason">[No reason given.]</span>
+                    <p>
+                        <span><span class="glyphicon glyphicon-time"></span>{{ share.time | date : "MM/dd/yyyy 'at' h:mma" }}</span>
+                        <span><span class="glyphicon glyphicon-heart"></span>{{ share.mood }}%</span>
+                    </p>
                 </div>
-                <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
-
-                <div>
-                    <span>Event 2</span>
-
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
-                </div>
-                <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
-            </li>
-            <li>
-                <img src="./assets/event.png" alt="event" width="100" height="100">
-
-                <div>
-                    <span>Event 3</span>
-
-                    <p><span>time ago<span class="glyphicon glyphicon-time"></span></span></p>
-                </div>
-                <a href="#/event">
-                    <button class="btn btn-default btn-raised pull-right">Show <span
-                            class="glyphicon glyphicon-search"></span></button>
-                </a>
+                <button class="btn btn-default btn-raised pull-right"><span
+                        class="glyphicon glyphicon-search"></span></button>
             </li>
         </ul>
     </div>
@@ -89,9 +49,6 @@
     </div>
     <div id="user-chat" class="collapse">
         <div id="chatbox">
-            <!--<div id="chatbox">
-                <!--<div><p class="me">Hello, how are you doing?</p></div>
-                <div><p class="other">Chat here!</p></div>-->
             <div ng-repeat="chatMessage in chatMessages">
                 <p  ng-class="chatMessage.cssClass">{{chatMessage.sender}}: {{chatMessage.text}}</p>
             </div>
