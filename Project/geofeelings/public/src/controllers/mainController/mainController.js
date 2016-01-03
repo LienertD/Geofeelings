@@ -5,7 +5,6 @@
 (function () {
     "use strict";
 
-<<<<<<< HEAD
     var mainController = function ($scope, googleMapsService, shareService, profileService, $location, $routeParams) {
 
         //chat start
@@ -76,9 +75,6 @@
 
         //chat einde
 
-=======
-    var mainController = function ($scope, googleMapsService, shareService, eventService) {
->>>>>>> 26f590e8aca221837380f9a60eba6fa5c2671e09
         shareService.getAllShares(function (err, shares) {
             if (!err) {
                 googleMapsService.showLocationOnMap();
