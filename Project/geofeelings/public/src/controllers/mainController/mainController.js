@@ -154,5 +154,5 @@
             }
         };
     };
-    angular.module("geofeelings").controller("mainController", ["$scope", "googleMapsService", "shareService", "eventService", mainController]);
+    angular.module("geofeelings").controller("mainController", ["$scope", "googleMapsService", "shareService", "profileService", "$location", "$routeParams", mainController]);
 })();

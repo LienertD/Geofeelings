@@ -37,6 +37,8 @@
             });
     });
 
+    app.directive("ngFileUpload", ["$parse", ]);
+
     app.service('sharedProperties', function () {
         var property = 'First';
 
