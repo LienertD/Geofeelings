@@ -1,7 +1,7 @@
 /**
  * Created by Jonatan on 24/12/2015.
  */
-/*
+
 module.exports = function (io) {
     'use strict';
     io.on('connection', function (socket) {
@@ -16,6 +16,7 @@ module.exports = function (io) {
             console.log('broadcast complete');
         });
     });
+<<<<<<< HEAD
 };
     */
 var chat = function() {
@@ -65,3 +66,6 @@ var chat = function() {
     });
 }
 module.exports.getchat = chat;
+=======
+};
+>>>>>>> 26f590e8aca221837380f9a60eba6fa5c2671e09
